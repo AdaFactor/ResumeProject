@@ -40,9 +40,13 @@ body {
     }
 }
 
+.name {
+    font-weight: bold;
+}
+
 #bg-left {
     min-height: 297mm;
-    background-color: #9d9fa3;
+    background-color: grey;
     text-align: center;
 }
 
@@ -121,12 +125,18 @@ img {
 }
 
 .timeline .column .description p {
-	line-height: 20px;
-	margin-left: 20px;
-	margin-top:  0px;
+    line-height: 20px;
+	margin-left: 10px;
+    margin-top:  0px;
+    font-size: 16px;
 	font-family: serif;
 }
 
 .timeline .column .description {
 	border-left: 1px solid #000;
+}
+
+ul.content {
+    list-style-type: square;
+    padding-left: 5%;
 }
