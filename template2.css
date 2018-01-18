@@ -41,8 +41,8 @@ body {
 }
 
 img {
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 70%;
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -51,6 +51,7 @@ img {
     color: #343b7d;
     font-weight: bold;
     text-align: center;
+    padding-top: 50px;
 }
 
 .row-height {
@@ -70,4 +71,15 @@ img {
 .col-left {
     width: 100%;
     padding-right: 10px;
+}
+
+.col-right {
+    height: 100%;
+    /* background-color: powderblue; */
+    background-size: 100%;
+}
+
+ul.content {
+    list-style-type: square;
+    padding-left: 5%;
 }
