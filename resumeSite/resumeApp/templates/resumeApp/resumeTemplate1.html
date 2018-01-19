@@ -1,65 +1,79 @@
-<!DOCTYPE html>
-<html>
+{% extends "./base_site.html" %}
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resume Template 1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block title %}
+    Resume Template 1
+{% endblock title %}
+
+{% block style %}
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screens/template1_screen.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="/static/css/prints/template1_print.css" />    
-</head>
+    <link rel="stylesheet" type="text/css" media="print" href="/static/css/prints/template1_print.css" />
+{% endblock style %}
 
-<body>
+{% block download %}
+    <a type="button" class="w3-btn w3-green w3-block" href="{% url 'to_pdf' template_no %}">
+        Download PDF {{template_no}}    
+    </a>
+{% endblock download %}
+
+{% block resume_template %}
     <div class="page">
-        <a type="button" class="w3-btn w3-green w3-block" href="{% url 'to_pdf' 1 %}">
-            Download PDF {{template.no}}
-        </a>
         <div class="col-container">
             <!-- LEFT -->
             <div id="background-left" class="col">
-                <div class="w3-center"><img class="img-logo" src="/static/images/sutLogo.png" alt=""></div>
-                
+                <div class="w3-center">
+                    <img class="img-logo" src="/static/images/sutLogo.png" alt="">
+                </div>
+    
                 <h3 id="bg-topic-left" class="topic-left">Personal Info</h3>
                 <div class="content-resume">
                     <label class="text-bold">Date of Birth:</label>
-                    <label>12 Jan 2996</label><br>
+                    <label>12 Jan 2996</label>
+                    <br>
                     <label class="text-bold">Nationality:</label>
-                    <label>Thai</label><br>                        
+                    <label>Thai</label>
+                    <br>
                     <label class="text-bold">Religion:</label>
-                    <label>Thai</label><br>                        
+                    <label>Thai</label>
+                    <br>
                     <label class="text-bold">Marital Status:</label>
-                    <label>Single</label><br>
+                    <label>Single</label>
+                    <br>
                     <label class="text-bold">ADDRESS: </label>
                     <label>Suranaree University of Technology, 111 University road</label>
                     <label class="text-bold">PHONE: </label>
-                    <label>08-xxxx-xxxx</label><br>                        
+                    <label>08-xxxx-xxxx</label>
+                    <br>
                     <label class="text-bold">E-MAIL: </label>
-                    <label>university@gmail.com</label>                        
-                </div><br>
-                    
+                    <label>university@gmail.com</label>
+                </div>
+                <br>
+    
                 <h3 id="bg-topic-left" class="topic-left">SKILLS</h3>
                 <div class="w3-container">
                     <div class="w3-light-grey">
                         <div class="w3-container w3-blue w3-center" style="width:20%">PHP</div>
-                    </div><br>
+                    </div>
+                    <br>
                     <div class="w3-light-grey">
                         <div class="w3-container w3-blue w3-center" style="width:60%">JavaScirpt</div>
                     </div>
-                </div><br>
-                        
+                </div>
+                <br>
+    
                 <h3 id="bg-topic-left" class="topic-left">LANGUAGES</h3>
                 <div class="w3-container">
                     <div class="w3-light-grey">
                         <div class="w3-container w3-red w3-center" style="width:80%">English</div>
-                    </div><br>
+                    </div>
+                    <br>
                     <div class="w3-light-grey">
                         <div class="w3-container w3-red w3-center" style="width:60%">Japanese</div>
                     </div>
-                </div><br>
-
+                </div>
+                <br>
+    
                 <h3 id="bg-topic-left" class="topic-left">HOBBIES</h3>
                 <div class="content-resume">
                     <ul class="content">
@@ -69,8 +83,8 @@
                     </ul>
                 </div>
             </div>
-
-                <!-- RIGHT -->
+    
+            <!-- RIGHT -->
             <div class="col">
                 <div class="col">
                     <h1 class="name">FirstName LastName</h1>
@@ -78,68 +92,78 @@
                 <div class="col">
                     <img class="img-resume" src="/static/images/user.png" alt="">
                 </div>
-                
-
+    
+    
                 <h3 class="topic-right">WORK EXPERIENCE</h3>
                 <div class="content-resume">
-                    <label class="sub-topic-right">1 Jan 2017 - 31 JAN 2017</label><br>
-                    <label class="text-bold">JAVA Company Co, td., Web Developer</label>                              
+                    <label class="sub-topic-right">1 Jan 2017 - 31 JAN 2017</label>
+                    <br>
+                    <label class="text-bold">JAVA Company Co, td., Web Developer</label>
                     <ul class="content">
-                        <li>Design and Develop Web Application with PHP, HTML5, CSS, JavaScript</li> 
+                        <li>Design and Develop Web Application with PHP, HTML5, CSS, JavaScript</li>
                         <li>Build high quality of software solutions</li>
-                        <li>Communicate and maintain good relationship with the team and users to ensure smooth delivery of the projects and support systems</li>
+                        <li>Communicate and maintain good relationship with the team and users to ensure smooth delivery of the projects
+                            and support systems</li>
                         <li>Work as Back-End and Front-End developer</li>
-                    </ul>                    
-                    
-                    <label class="sub-topic-right">Time period</label><br>
+                    </ul>
+    
+                    <label class="sub-topic-right">Time period</label>
+                    <br>
                     <label class="text-bold">Company, Position</label>
                     <ul class="content">
                         <li>Role</li>
                     </ul>
                 </div>
-
+    
                 <h3 class="topic-right">EDUCATION</h3>
                 <div class="content-resume">
                     <div class="col-container">
                         <div class="col-education-l">
-                            <label class="sub-topic-right">1 Mar 2013 - <br> 31 Mar 2017</label><br>
+                            <label class="sub-topic-right">1 Mar 2013 -
+                                <br> 31 Mar 2017</label>
+                            <br>
                         </div>
                         <div class="col-education-r">
-                            <label class="text-bold">Suranaree Unuversity of Technology</label><br>
+                            <label class="text-bold">Suranaree Unuversity of Technology</label>
+                            <br>
                             <label>Computer Engineering</label>
                         </div>
-                    </div><br>
-
+                    </div>
+                    <br>
+    
                     <div class="col-container">
                         <div class="col-education-l">
-                            <label class="sub-topic-right">1 Jan 2006 - <br> 1 Jan 2012</label><br>
+                            <label class="sub-topic-right">1 Jan 2006 -
+                                <br> 1 Jan 2012</label>
+                            <br>
                         </div>
                         <div class="col-education-r">
-                            <label class="text-bold">Nakhon Ratchasima School</label><br>
+                            <label class="text-bold">Nakhon Ratchasima School</label>
+                            <br>
                             <label>High School</label>
                         </div>
                     </div>
-                </div><br>
-
+                </div>
+                <br>
+    
                 <h3 class="topic-right">REFERECES</h3>
                 <div class="content-resume">
                     <h5 class="sub-topic-right">Ada Factor</h5>
                     <ul class="content">
                         <li>Founder, ADA FACTOR</li>
                         <li>08-xxxx-xxxx</li>
-                        <li>adafactor@gmail.com</li>                                    
-                    </ul>                              
-
+                        <li>adafactor@gmail.com</li>
+                    </ul>
+    
                     <h5 class="sub-topic-right">REFERECES Name</h5>
                     <ul class="content">
                         <li>Position, Company name</li>
                         <li>Phone</li>
-                        <li>E-mail</li>                                    
-                    </ul>                              
+                        <li>E-mail</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</body>
+{% endblock resume_template %}
 
-</html>

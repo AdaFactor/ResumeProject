@@ -2,14 +2,13 @@ from django.shortcuts import render, redirect
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string
 from django.core.files.storage import FileSystemStorage
-from django.http import HttpResponse
 from weasyprint import HTML
 
 
 def templates(request, template_no):
     try:
         respones_file = ''.join(['resumeApp/resumeTemplate', template_no, '.html'])
-        context = {'template': {'no': int(template_no)} }
+        context = {'template_no': 1} 
         return render(request, respones_file, context)
     except TemplateDoesNotExist:
         return redirect(templates, template_no=1)
