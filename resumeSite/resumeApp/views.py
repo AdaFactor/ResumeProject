@@ -9,7 +9,8 @@ from weasyprint import HTML
 def templates(request, template_no):
     try:
         respones_file = ''.join(['resumeApp/resumeTemplate', template_no, '.html'])
-        return render(request, respones_file)
+        context = {'template': {'no': int(template_no)} }
+        return render(request, respones_file, context)
     except TemplateDoesNotExist:
         return redirect(templates, template_no=1)
 
