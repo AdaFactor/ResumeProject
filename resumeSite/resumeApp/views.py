@@ -8,5 +8,3 @@ def templates(request, template_no):
         return render(request, respones_file)
     except TemplateDoesNotExist:
         return redirect(templates, template_no=1)
-
-    
