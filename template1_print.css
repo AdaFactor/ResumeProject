@@ -1,0 +1,120 @@
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;        
+    }
+
+    ul.content {
+        list-style-type: square;
+    }
+
+    img {
+        padding-top: 5px;
+    }
+
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+
+    .img-resume {
+        width: 144px;
+        height: 248px;
+    }
+    
+    .img-logo {
+        width: 70%;
+        height: 70%;
+    }
+
+    .col-container {
+        display: table;
+        width: 100%;
+    }
+    
+    .col {
+        display: table-cell;
+    }
+
+    .col-education-l {
+        display: table-cell;
+        width: 25%;
+    }
+    
+    .col-education-r {
+        padding-left: 10px;
+        display: table-cell;
+        width: 75%;
+    }
+
+    .topic-left {
+        text-align: left;
+        color: white;
+        font-weight: bold;
+        padding-left: 20px;
+    }
+    
+    #bg-topic-left {
+        width: 90%;
+        height: 35px;
+        position: relative;
+        background: #414141;
+    }
+    
+    #bg-topic-left:before{
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: -20px;
+        border-top: 20px solid transparent;
+        border-left: 20px solid #414141;
+        border-bottom: 15px solid transparent;
+    }
+    
+    .content-resume {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    .topic-right {
+        font-weight: bold;
+        color: #414141;
+        padding-left: 10px;     
+    }
+
+    .name {
+        font-weight: bold;
+        color: #00455a;
+        padding-left: 10px;
+    }    
+    
+    .sub-topic-right {
+        font-weight: bold;        
+        color: #00455a;
+    }
+    
+    #background-left {
+        height: 297mm;
+        background-color: #9ccad8; 
+    }
+    
+    .text-bold {
+        font-weight: bold;
+    }
+    
+    .background-head {
+        background-color: #c1e5f0;
+    }
+}

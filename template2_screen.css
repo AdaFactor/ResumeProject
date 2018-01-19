@@ -9,6 +9,10 @@ body {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
+
+i {
+    padding-right: 10px;
+}
 .page {
     width: 210mm;
     min-height: auto;
@@ -28,16 +32,37 @@ body {
 }
 
 .col-content-l {
+    padding-right: 5px;    
     display: table-cell;
-    width: 60%
+    width: 60%;
+    height: auto;
 }
 
 .col-content-r {
+    /* background-color: powderblue; */
+    padding-left: 5px;
+    padding-right: 5px;
     display: table-cell;    
-    width: 40%
+    width: 40%;
+    height: auto;    
 }
 
-img {
+.col-education-l {
+    display: table-cell;
+    width: 20%
+}
+
+.col-education-r {
+    display: table-cell;
+    width: 80%
+}
+
+.img-logo {
+    width: 200px;
+    height: 200px;
+}
+
+.img-resume {
     width: 144px;
     height: 248px;
 }
@@ -55,16 +80,13 @@ img {
 .topic {
     color: #343b7d;
     font-weight: bold;
+    border-bottom: 1px solid #cccccc;
 }
 
 .content {
     font-weight: normal;
-    padding-right: 20px;
-}
-
-.content {
-    list-style-type: square;
-    padding-left: 5%;
+    padding-right: 10px;
+    padding-left: 10%;    
 }
 
 @page {
@@ -107,8 +129,8 @@ img {
     }
     
     img {
-        width: 144px;
-        height: 248px;
+        width: initial;
+        height: initial;
     }
     
     .head-name {
@@ -128,11 +150,7 @@ img {
     
     .content {
         font-weight: normal;
-        padding-right: 20px;
-    }
-    
-    .content {
-        list-style-type: square;
-        padding-left: 5%;
+        padding-right: 10px;
+        padding-left: 10%;        
     }
 }

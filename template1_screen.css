@@ -1,0 +1,121 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    font-family: Arial;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+img {
+    padding-top: 5px;
+}
+
+.page {
+    width: 210mm;
+    min-height: auto;
+    margin: 10mm auto;
+    padding: 0;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.img-resume {
+    width: 144px;
+    height: 248px;
+}
+
+.img-logo {
+    width: 70%;
+    height: 70%;
+}
+
+.col-container {
+    display: table;
+    width: 100%;
+}
+
+.col {
+    padding-top: 0px;
+    display: table-cell;
+}
+
+.col-education-l {
+    display: table-cell;
+    width: 25%;
+}
+
+.col-education-r {
+    padding-left: 10px;
+    display: table-cell;
+    width: 75%;
+}
+
+.topic-left {
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+#bg-topic-left {
+    width: 90%;
+    height: 35px;
+    position: relative;
+    background: #414141;
+}
+
+#bg-topic-left:before{
+    content: "";
+    position: absolute;
+	width: 0;
+	height: 0;
+    right: -20px;
+	border-top: 20px solid transparent;
+	border-left: 20px solid #414141;
+	border-bottom: 15px solid transparent;
+}
+
+.content-resume {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.content {
+    list-style-type: square;
+}
+
+.topic-right {
+    font-weight: bold;
+    color: #252525;
+    padding-left: 10px;
+}
+
+.name {
+    font-weight: bold;
+    color: #00455a;
+    padding-left: 10px;
+}
+
+.sub-topic-right {
+    font-weight: bold;    
+    color: #00455a;
+}
+
+#background-left {
+    min-height: auto;
+    background-color: #9ccad8; 
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.background-head {
+    background-color: #c1e5f0;
+}

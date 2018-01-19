@@ -6,6 +6,7 @@
     <title>Resume Template 2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="template2.css" />
     <link rel="stylesheet" type="text/css" media="print" href="template2.css" />    
 </head>
@@ -15,20 +16,20 @@
             <!-- HEAD -->
             <div class="col-container">
                 <div class="col">
-                    <img src="./images/sutLogo.png" alt="">
+                    <img class="img-logo" src="./images/sutLogo.png" alt="">
                 </div>
                 <div class="col">
                     <h1 class="head-name">FirstName LastName</h1>
                 </div>
                 <div class="col">
-                    <div class="w3-center"><img src="./images/user.png" alt=""></div>                
+                    <div class="w3-center"><img class="img-resume" src="./images/user.png" alt=""></div>                
                 </div>            
             </div>
 
             <!-- CONTENT -->
             <div class="col-container">
                 <div class="col-content-l">
-                    <h3 class="topic">Work Experiece</h3>
+                    <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
                     <div class="col-container">
                         <b>1 Jan 2017 to 31 JAN 2017</b><br>
                         <b>JAVA Company Co, td., Web Developer</b>                                
@@ -39,43 +40,62 @@
                             <li>Work as Back-End and Front-End developer</li>
                         </ul>
                     </div>
-
-                    <div class="col-container">
-                        <b>1 Jan 2017 to 31 JAN 2017</b><br>
-                        <b>Company Name, Position</b>                                
-                        <ul class="content">
-                            <li>Role</li> 
-                        </ul>
-                    </div>
                     
                     <!---->
-                    <h3 class="topic">Education</h3>
-                    <b>1 Mar 2013 - 31 Mar 2017</b><br>
-                    <label>Suranaree University of Technology, Nakhon Ratchasima</label><br>
-                    <label class="content">Computer Engineering</label><p></p>
-                        
-                    <b>Time period - Time period </b><br>                    
-                    <label>School / University, County</label><br>
-                    <label class="content">Major</label>
+                    <h3 class="topic"><i class="fa fa-university" aria-hidden="true"></i>Education</h3>
+                    <div class="col-container">
+                        <div class="col-education-l">
+                            <b>Mar 2013 - Mar 2017</b>
+                        </div>
+                        <div class="col-education-r">
+                            <label>Suranaree University of Technology,<br> Nakhon Ratchasima</label><br>
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            <label>Computer Engineering</label><p></p>
+                        </div>
+                    </div>
+
+                    <div class="col-container">
+                        <div class="col-education-l">
+                            <b>Jan 2006 - Jan 2012</b>
+                        </div>
+                        <div class="col-education-r">
+                            <label>Nakhon Ratchasima School,<br> Nakhon Ratchasima</label><br>
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            <label>High school</label><p></p>
+                        </div>
+                    </div>
 
 
-                    <h3 class="topic">Activities</h3>
+                    <h3 class="topic"><i class="fa fa-users" aria-hidden="true"></i>Activities</h3>
                     <ul class="content">
                         <li>Volunteer Reader, Reading for the Blinds Project at Nakhon Ratchasima</li>
-                    </ul>
+                    </ul><br>
+
+                    <div class="col-container">
+                        <h3 class="topic"><i class="fa fa-quote-left" aria-hidden="true"></i>Refereces</h3>
+                        <b>Ada Factor</b>
+                        <ul class="content">
+                            <li>Founder, ADA FACTOR</li>
+                            <li>08-xxxx-xxxx</li>
+                            <li>adafactor@gmail.com</li>                                    
+                        </ul>
+                    </div>
 
                 </div>
 
+                <!-- RIGHT -->
                 <div class="col-content-r">
-                    <h3 class="topic">Personal Info</h3>
-                    <b>PHONE: </b>
-                    <label>08-xxxx-xxxx</label><br>
-                    <b>E-MAIL:</b>
-                    <label>adafactor@gmail.com</label><br>
-                    <b>ADDRESS:</b>
-                    <label>Suranaree University of Technology, 111 Suranaree Nakhon Ratchasima</label>
-
-                    <h3 class="topic">Languages</h3>
+                    <h3 class="topic"><i class="fa fa-user" aria-hidden="true"></i>Personal Info</h3>
+                    <div>
+                        <b>PHONE: </b>
+                        <label>08-xxxx-xxxx</label><br>
+                        <b>E-MAIL:</b>
+                        <label>adafactor@gmail.com</label><br>
+                        <b>ADDRESS:</b>
+                        <label>Suranaree University of Technology, 111 Suranaree Nakhon Ratchasima</label>
+                    </div><br>
+                    
+                    <h3 class="topic"><i class="fa fa-language" aria-hidden="true"></i>Languages</h3>
                     <div class="w3-container">
                         <div class="w3-light-grey">
                             <div class="w3-container w3-blue w3-center" style="width:80%">English</div>
@@ -83,9 +103,9 @@
                         <div class="w3-light-grey">
                             <div class="w3-container w3-blue w3-center" style="width:60%">Japanese</div>
                         </div>
-                    </div>
+                    </div><br>
 
-                    <h3 class="topic">Skills</h3>
+                    <h3 class="topic"><i class="fa fa-deaf" aria-hidden="true"></i>Skills</h3>
                     <div class="w3-container">
                         <div class="w3-light-grey">
                             <div class="w3-container w3-blue w3-center" style="width:20%">PHP</div>
@@ -93,43 +113,17 @@
                         <div class="w3-light-grey">
                             <div class="w3-container w3-blue w3-center" style="width:60%">JavaScirpt</div>
                         </div>
-                    </div>
+                    </div><br>
 
-                    <h3 class="topic">Hobbies</h3>
+                    <h3 class="topic"><i class="fa fa-gamepad" aria-hidden="true"></i>Hobbies</h3>
                     <ul class="content">
                         <li>Play Games</li>
                         <li>ROV</li>
                         <li>etc.</li>
                     </ul>
-
                 </div>
             </div>
-
-            <div class="col-container">
-                <h3 class="topic">Refereces</h3>
-            </div>
-            <div class="col-container">
-                <div class="col">
-                    <b>Ada Factor</b>
-                    <ul class="content">
-                        <li>Founder, ADA FACTOR</li>
-                        <li>08-xxxx-xxxx</li>
-                        <li>adafactor@gmail.com</li>                                    
-                    </ul>
-                </div>
-                        
-                <div class="col">
-                    <b>Refereces Name</b>
-                    <ul class="content">
-                        <li>Position, Company Name</li>
-                        <li>Phone</li>
-                        <li>E-mail</li>                                    
-                    </ul>
-                </div>
-            </div>
-
         </div>
-        
     </div>
 </body>
 </html>
