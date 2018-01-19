@@ -3,7 +3,8 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #FAFAFA;
+    background-color: #FFFFFF;
+    font-family: Arial;
 }
 
 * {
@@ -11,36 +12,48 @@ body {
     -moz-box-sizing: border-box;
 }
 
+img {
+    padding-top: 5px;
+}
+
 .page {
     width: 210mm;
-    min-height: 297mm;
+    min-height: auto;
     margin: 10mm auto;
-    border: 1px #D3D3D3 solid;
-    border-radius: 5px;
+    padding: 0;
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-@page {
-    size: A4;
-    margin: 0;
+.img-resume {
+    width: 144px;
+    height: 248px;
 }
 
-@media print {
-    html, body {
-        width: 210mm;
-        height: 297mm;        
-    }
-    .page {
-        margin: 0;
-        border: initial;
-        border-radius: initial;
-        width: initial;
-        min-height: initial;
-        box-shadow: initial;
-        background: initial;
-        page-break-after: always;
-    }
+.img-logo {
+    width: 70%;
+    height: 70%;
+}
+
+.col-container {
+    display: table;
+    width: 100%;
+}
+
+.col {
+    padding-top: 0px;
+    display: table-cell;
+}
+
+.col-education-l {
+    display: table-cell;
+    width: 25%;
+}
+
+.col-education-r {
+    padding-left: 10px;
+    display: table-cell;
+    width: 75%;
 }
 
 .topic-left {
@@ -73,36 +86,36 @@ body {
     padding-right: 30px;
 }
 
-.content-label {
-    font-weight: normal;
-}
-
-ul.content {
+.content {
     list-style-type: square;
-}
-
-.row-height {
-    height: 100%;
 }
 
 .topic-right {
     font-weight: bold;
-    color: #414141;
-    padding-left: 20px;     
+    color: #252525;
+    padding-left: 10px;
+}
+
+.name {
+    font-weight: bold;
+    color: #00455a;
+    padding-left: 10px;
 }
 
 .sub-topic-right {
-    color: #9ccad8;
-    font-weight: bold;
+    font-weight: bold;    
+    color: #00455a;
 }
 
 #background-left {
-    min-height: 297mm;
+    min-height: auto;
     background-color: #9ccad8; 
 }
 
-img {
-    width: 70%;
-    height: 70%;
-    padding-top: 20px;
+.text-bold {
+    font-weight: bold;
+}
+
+.background-head {
+    background-color: #c1e5f0;
 }

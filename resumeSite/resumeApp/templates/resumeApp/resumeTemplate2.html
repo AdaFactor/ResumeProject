@@ -4,160 +4,125 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Resume Template 2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="template2.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="template2_screen.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="template2_print.css" />    
 </head>
 <body>
     <div class="page">
-        <!-- HEAD -->
-        <div class="col-sm-12">
-            <div class="row row-height">
-                <div class="col-sm-3 text-center">
-                    <img src="./images/sutLogo.png" alt="">
+        <div class="w3-container">
+            <!-- HEAD -->
+            <div class="col-container">
+                <div class="col">
+                    <img class="img-logo" src="./images/sutLogo.png" alt="">
                 </div>
-                <div class="col-sm-6">
+                <div class="col">
                     <h1 class="head-name">FirstName LastName</h1>
                 </div>
-                <div class="col-sm-3 text-cente">
-                    <img src="./images/user.png" alt="">                
+                <div class="col">
+                    <div class="w3-center"><img class="img-resume" src="./images/user.png" alt=""></div>                
                 </div>            
             </div>
 
             <!-- CONTENT -->
-            <div class="row row-height">
-                <!-- LEFT -->
-                <div class="col-sm-7 col-left">
-                    <h3 class="topic">Work Experiece</h3>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label>1 Jan 2017 <br> to <br> 31 JAN 2017</label>
-                        </div>
-                        <div class="col-sm-8">
-                            <label>JAVA Company Co, td., Web Developer</label>                                
-                            <ul class="content">
-                                <li>Design and Develop Web Application with PHP, HTML5, CSS, JavaScript</li> 
-                                <li>Build high quality of software solutions</li>
-                                <li>Communicate and maintain good relationship with the team and users to ensure smooth delivery of the projects and support systems</li>
-                                <li>Work as Back-End and Front-End developer</li>
-                            </ul>
-                        </div>
-                
-                        <div class="col-sm-4">
-                            <label>Time period <br> to <br> Time period </label>
-                        </div>
-                        <div class="col-sm-8">
-                            <label>Company Name, Position</label>
-                            <ul class="content">
-                                <li>Role</li>
-                            </ul>
-                        </div>
+            <div class="col-container">
+                <div class="col-content-l">
+                    <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
+                    <div class="col-container">
+                        <b>1 Jan 2017 to 31 JAN 2017</b><br>
+                        <b>JAVA Company Co, td., Web Developer</b>                                
+                        <ul class="content">
+                            <li>Design and Develop Web Application with PHP, HTML5, CSS, JavaScript</li> 
+                            <li>Build high quality of software solutions</li>
+                            <li>Communicate and maintain good relationship with the team and users to ensure smooth delivery of the projects and support systems</li>
+                            <li>Work as Back-End and Front-End developer</li>
+                        </ul>
                     </div>
-    
-                    <h3 class="topic">Education</h3>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label>1 Mar 2013 - <br> 31 Mar 2017</label>
-                        </div>
-                        <div class="col-sm-8">
-                            <label>Suranaree University of Technology,<br> Nakhon Ratchasima</label>
-                            <p>Computer Engineering</p>
-                        </div>
                     
-                        <div class="col-sm-4">
-                            <label>Time period - <br> Time period </label>                            
+                    <h3 class="topic"><i class="fa fa-university" aria-hidden="true"></i>Education</h3>
+                    <div class="col-container">
+                        <div class="col-education-l">
+                            <b>Mar 2013 - Mar 2017</b>
                         </div>
-                        <div class="col-sm-8">
-                            <label>School / University,<br> County</label>
-                            <p>Major</p>
+                        <div class="col-education-r">
+                            <label>Suranaree University of Technology,<br> Nakhon Ratchasima</label><br>
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            <label>Computer Engineering</label><p></p>
                         </div>
                     </div>
-                        
-                    <h3 class="topic">Activities</h3>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label>Jan 2017</label>
+                    <div class="col-container">
+                        <div class="col-education-l">
+                            <b>Jan 2006 - Jan 2012</b>
                         </div>
-                        <div class="col-sm-9">
-                            <p>Volunteer Reader, Reading for the Blinds Project at Nakhon Ratchasima</p>                            
+                        <div class="col-education-r">
+                            <label>Nakhon Ratchasima School,<br> Nakhon Ratchasima</label><br>
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            <label>High school</label><p></p>
                         </div>
+                    </div>
 
-                        <div class="col-sm-3">
-                            <label>Time period</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <p>Activities name, Description</p>
-                        </div>
+
+                    <h3 class="topic"><i class="fa fa-users" aria-hidden="true"></i>Activities</h3>
+                    <ul class="content">
+                        <li>Volunteer Reader, Reading for the Blinds Project at Nakhon Ratchasima</li>
+                    </ul><br>
+
+                    <div class="col-container">
+                        <h3 class="topic"><i class="fa fa-quote-left" aria-hidden="true"></i>Refereces</h3>
+                        <b>Ada Factor</b>
+                        <ul class="content">
+                            <li>Founder, ADA FACTOR</li>
+                            <li>08-xxxx-xxxx</li>
+                            <li>adafactor@gmail.com</li>                                    
+                        </ul>
                     </div>
+
                 </div>
 
                 <!-- RIGHT -->
-                <div class="col-sm-5 col-right">
-                    <h3 class="topic">Personal Info</h3>
-                    <label>PHONE: </label>
-                    <p>08-xxxx-xxxx</p>
-                    <label>E-MAIL:</label>
-                    <p>adafactor@gmail.com</p>
-                    <label>ADDRESS:</label>
-                    <p>Suranaree University of Technology, 111 Suranaree Nakhon Ratchasima</p>
-                            
-                    <h3 class="topic">Languages</h3>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                            ENGLISH
+                <div class="col-content-r">
+                    <h3 class="topic"><i class="fa fa-user" aria-hidden="true"></i>Personal Info</h3>
+                    <div>
+                        <b>Date of Birth: </b><label>12 Jan 2996</label><br>
+                        <b>Nationality: </b><label>Thai</label><br>                        
+                        <b>Religion: </b><label>Thai</label><br>                        
+                        <b>Marital Status: </b><label>Single</label><br>
+                        <b>PHONE: </b><label>08-xxxx-xxxx</label><br>
+                        <b>E-MAIL: </b><label>adafactor@gmail.com</label><br>
+                        <b>ADDRESS: </b><label>Suranaree University of Technology, 111 Suranaree Nakhon Ratchasima</label>
+                    </div><br>
+                    
+                    <h3 class="topic"><i class="fa fa-language" aria-hidden="true"></i>Languages</h3>
+                    <div class="w3-container">
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue w3-center" style="width:80%">English</div>
+                        </div><br>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue w3-center" style="width:60%">Japanese</div>
                         </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                            JAPANESE
+                    </div><br>
+
+                    <h3 class="topic"><i class="fa fa-deaf" aria-hidden="true"></i>Skills</h3>
+                    <div class="w3-container">
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue w3-center" style="width:20%">PHP</div>
+                        </div><br>
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue w3-center" style="width:60%">JavaScirpt</div>
                         </div>
-                    </div>
-    
-                    <h3 class="topic">Skills</h3>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                            JAVA
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                            C++
-                        </div>
-                    </div>
-    
-                    <h3 class="topic">Hobbies</h3>
-                    <p>Play Games</p>
-                    <p>ROV</p>
-                    <p>etc.</p>
+                    </div><br>
+
+                    <h3 class="topic"><i class="fa fa-gamepad" aria-hidden="true"></i>Hobbies</h3>
+                    <ul class="content">
+                        <li>Play Games</li>
+                        <li>ROV</li>
+                        <li>etc.</li>
+                    </ul>
                 </div>
-
             </div>
-
         </div>
-
-        <!-- FOOT -->
-        <div class="col-sm-12">
-            <h3 class="topic">Refereces</h3>
-            <div class="col-sm-6">
-                <label>Ada Factor</label>
-                <ul class="content">
-                    <li>Founder, ADA FACTOR</li>
-                    <li>08-xxxx-xxxx</li>
-                    <li>adafactor@gmail.com</li>                                    
-                </ul>
-            </div>
-            <div class="col-sm-6">
-                <label>Refereces Name</label>
-                <ul class="content">
-                    <li>Position, Company Name</li>
-                    <li>Phone</li>
-                    <li>E-mail</li>                                    
-                </ul>
-            </div>     
-        </div>
-        
     </div>
 </body>
 </html>
