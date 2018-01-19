@@ -13,6 +13,7 @@ body {
 i {
     padding-right: 10px;
 }
+
 .page {
     width: 210mm;
     min-height: auto;
@@ -89,68 +90,3 @@ i {
     padding-left: 10%;    
 }
 
-@page {
-    size: A4;
-    margin: 0;
-}
-@media print {
-    html, body {
-        width: 210mm;
-        height: 297mm;        
-    }
-    .page {
-        margin: 0;
-        border: initial;
-        border-radius: initial;
-        width: initial;
-        min-height: initial;
-        box-shadow: initial;
-        background: initial;
-        page-break-after: always;
-    }
-
-    .col-container {
-        display: table;
-        width: 100%;
-    }
-    
-    .col {
-        display: table-cell;
-    }
-    
-    .col-content-l {
-        display: table-cell;
-        width: 60%
-    }
-    
-    .col-content-r {
-        display: table-cell;    
-        width: 40%
-    }
-    
-    img {
-        width: initial;
-        height: initial;
-    }
-    
-    .head-name {
-        color: #343b7d;
-        font-weight: bold;
-        text-align: center;
-    }
-    
-    .row-height {
-        height: 100%;
-    }
-    
-    .topic {
-        color: #343b7d;
-        font-weight: bold;
-    }
-    
-    .content {
-        font-weight: normal;
-        padding-right: 10px;
-        padding-left: 10%;        
-    }
-}
