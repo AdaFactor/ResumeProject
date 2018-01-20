@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resume Template 3</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "./base_site.html" %}
+
+{% block title %}
+    Resume Template 3
+{% endblock title %}
+
+{% block style %}
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screens/template3_screen.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="/static/css/prints/template3_print.css" />    
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" media="print" href="/static/css/prints/template3_print.css" />
+{% endblock style %}
+
+{% block download %}
+    <a type="button" class="w3-btn w3-green w3-block" href="{% url 'to_pdf' template_no %}">
+        Download PDF {{template_no}}    
+    </a>
+{% endblock download %}
+    
+{% block resume_template %}
     <div class="page ">
         <div class="col-container">
             <div id="bg-left" class="col-left">
                 <div>
-                    <img class="img-logo" src="/static/images/sutLogo.png" alt=""><br>
+                    <img class="img-resume" src="/static/images/sutLogo.png" alt=""><br>
                     <h3 class="topic-left">Personal Info</h3>
-                    <div class="content-left">
-                        <b>ADDRESS: </b>
-                        <label class="info-profile">Suranaree University of Technology, 111 Nakhon Ratcasima</label><br>
-                        <b>PHONE: </b>
-                        <label class="info-profile">08-xxxx-xxxx</label><br>
-                        <b>E-MAIL: </b>
-                        <label class="info-profile">adafactor@gmail.con</label><br> 
-                    </div><br>
-                    
-                    <h3 class="topic-left">PROFILE</h3>
                     <div class="content-left">
                         <b>Date of Birth: </b>
                         <label class="info-profile">12 Jan 2011</label><br>
@@ -35,6 +32,12 @@
                         <label class="info-profile">Thai</label><br> 
                         <b>Marital Status: </b>
                         <label class="info-profile">Single</label>
+                        <b>ADDRESS: </b>
+                        <label class="info-profile">Suranaree University of Technology, 111 Nakhon Ratcasima</label><br>
+                        <b>PHONE: </b>
+                        <label class="info-profile">08-xxxx-xxxx</label><br>
+                        <b>E-MAIL: </b>
+                        <label class="info-profile">adafactor@gmail.con</label><br> 
                     </div><br>
 
                     <h3 class="topic-left">SKILLS</h3>
@@ -143,5 +146,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock resume_template %}
