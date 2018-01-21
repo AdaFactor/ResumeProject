@@ -20,14 +20,14 @@ def to_pdf(request, template_no):
     html_file = ''.join([template_dir, template_no, '.html'])
     html_string = render_to_string(html_file)
     html = HTML(string=html_string)
-    # css = ['/home/adadesions/Githubs/ResumeProject/resumeSite/resumeApp/static/css/prints/template1_print.css']
     html.write_pdf(target="/tmp/mypdf.pdf", stylesheets=None)
 
     fs = FileSystemStorage('/tmp')
     with fs.open('mypdf.pdf') as pdf:
         response = HttpResponse(pdf, content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="mypdf.pdf"'
+        response['Content-Disposition'] = 'inline; filename="mypdf.pdf"'
     return response
+
 
 
 def cv(request, cv_lang):
