@@ -1,0 +1,53 @@
+@import url(/fonts/thsarabunnew.css);
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    margin: 10mm auto;
+    border: 1px #D3D3D3 solid;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    font-family: 'THSarabunNew', sans-serif;
+    font-size: 10pt;    
+    padding-left: 25mm;
+    padding-right: 20mm;
+    padding-top: 19mm;
+    padding-bottom: 10mm;
+}
+
+.head-letter {
+    padding-left: 105mm;
+}
+
+.date-letter {
+    padding-left: 70mm;
+}
+
+.content { 
+    text-indent: 19mm;
+    text-align: justify;
+}
+
+.signature {
+    padding-left: 45mm;
+}
+
+.sub-signature {
+    text-align: center;
+}
