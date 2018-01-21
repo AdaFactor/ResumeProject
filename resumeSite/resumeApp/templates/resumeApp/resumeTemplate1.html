@@ -11,12 +11,6 @@
     <link rel="stylesheet" type="text/css" media="print" href="/static/css/prints/template1_print.css" />
 {% endblock style %}
 
-{% block download %}
-    <a type="button" class="w3-btn w3-green w3-block" href="{% url 'to_pdf' template_no %}">
-        Download PDF {{template_no}}    
-    </a>
-{% endblock download %}
-
 {% block resume_template %}
     <div class="page">
         <div class="col-container">

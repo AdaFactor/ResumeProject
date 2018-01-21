@@ -7,7 +7,11 @@
     {% block style %}{% endblock style %}
 </head>
 <body>
-    {% block download %}{% endblock download %}
+     {% block download %}
+        <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf/{{template_no}}">
+            Download PDF {{template_no}}
+        </a>
+    {% endblock download %}
     {% block resume_template %}{% endblock resume_template %}
 </body>
 </html>

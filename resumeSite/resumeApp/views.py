@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string
 from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
 from weasyprint import HTML
 
 template_dir = 'resumeApp/resumeTemplate'
@@ -9,7 +10,7 @@ template_dir = 'resumeApp/resumeTemplate'
 def templates(request, template_no):
     try:
         respones_html = ''.join([template_dir, template_no, '.html'])
-        context = {'template_no': 1} 
+        context = {'template_no': template_no} 
         return render(request, respones_html, context)
     except TemplateDoesNotExist:
         return redirect(templates, template_no=1)
@@ -30,7 +31,7 @@ def to_pdf(request, template_no):
 def cv(request, cv_lang):
     if cv_lang == 'en':
         respons_html = ''.join(['resumeApp/cv_eng.html'])
-    else 
+    else:
         respons_html = ''.join(['resumeApp/cv_thai.html'])
     
     return render(request, respons_html)
