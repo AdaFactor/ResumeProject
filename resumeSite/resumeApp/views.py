@@ -18,10 +18,16 @@ def templates(request, template_no):
 
 
 def to_pdf(request, template_no):
+    '''
+        Generate PDF file
+    '''
+
     html_file = ''.join([template_dir, template_no, '.html'])
     html_string = render_to_string(html_file, {'is_pdf_view': True})
-    html = HTML(string=html_string)
-    css = [CSS('/home/adadesions/Githubs/ResumeProject/resumeSite/resumeApp/static/css/screens/template1_screen.css'),]
+    html = HTML(string=html_string, base_url=request.build_absolute_uri())
+    css = [
+        CSS('/home/adadesions/Githubs/ResumeProject/resumeSite/resumeApp/static/css/screens/template'+template_no+'_screen.css'),
+    ]
     pdf_file = html.write_pdf(stylesheets=css)
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="resume.pdf"'
