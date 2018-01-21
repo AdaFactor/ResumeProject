@@ -26,14 +26,6 @@ body {
     width: 100%;
 }
 
-.col-l {
-    display: table-cell;
-}
-
-.col-r {
-    display: table-cell;
-}
-
 #background-left {
     min-height: auto;
     background-color: #9ccad8; 
