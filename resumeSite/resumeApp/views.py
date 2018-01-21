@@ -3,6 +3,7 @@ from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from weasyprint import HTML
 
 template_dir = 'resumeApp/resumeTemplate'
@@ -19,7 +20,8 @@ def to_pdf(request, template_no):
     html_file = ''.join([template_dir, template_no, '.html'])
     html_string = render_to_string(html_file)
     html = HTML(string=html_string)
-    html.write_pdf(target="/tmp/mypdf.pdf")
+    # css = ['/home/adadesions/Githubs/ResumeProject/resumeSite/resumeApp/static/css/prints/template1_print.css']
+    html.write_pdf(target="/tmp/mypdf.pdf", stylesheets=None)
 
     fs = FileSystemStorage('/tmp')
     with fs.open('mypdf.pdf') as pdf:
