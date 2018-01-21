@@ -9,9 +9,11 @@
 </head>
 <body>
      {% block download %}
-        <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf/{{template_no}}">
-            Download PDF {{template_no}}
-        </a>
+        {% if is_pdf_view is not True %}
+            <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf/{{template_no}}">
+                Download PDF {{template_no}}
+            </a>
+        {% endif %}
     {% endblock download %}
     {% block resume_template %}{% endblock resume_template %}
 </body>
