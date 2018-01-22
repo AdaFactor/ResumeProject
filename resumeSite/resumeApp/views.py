@@ -5,6 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.conf import settings
 from weasyprint import HTML, CSS
+import os
 
 template_dir = 'resumeApp/resumeTemplate'
 
