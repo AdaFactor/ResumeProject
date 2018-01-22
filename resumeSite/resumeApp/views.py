@@ -23,7 +23,7 @@ def to_pdf(request, template_no):
     '''
 
     html_file = ''.join([template_dir, template_no, '.html'])
-    css_dir = os.getcwd() + '/resumeApp/static/css
+    css_dir = os.getcwd() + '/resumeApp/static/css'
     html_string = render_to_string(html_file, {'is_pdf_view': True})
     html = HTML(string=html_string, base_url=request.build_absolute_uri())
     css = [
