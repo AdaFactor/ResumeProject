@@ -20,9 +20,18 @@
         background: initial;
         page-break-after: always;
     }
-    .form {
+    .form-thai {
         font-family: 'THSarabunNew', sans-serif;
         font-size: 10pt;    
+        padding-left: 25mm;
+        padding-right: 20mm;
+        padding-top: 19mm;
+        padding-bottom: 10mm;
+    }
+    
+    .form-eng {
+        font-family: 'THSarabunNew', sans-serif;
+        font-size: 12pt;    
         padding-left: 25mm;
         padding-right: 20mm;
         padding-top: 19mm;

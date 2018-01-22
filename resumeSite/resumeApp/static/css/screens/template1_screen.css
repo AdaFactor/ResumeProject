@@ -23,12 +23,22 @@ body {
 
 .col-container {
     display: table;
-    width: 100%;
+    width: 100%
 }
 
-#background-left {
+.col-left {
+    display: table-cell;
+    width: 40%;
+}
+
+.col-right {
+    display: table-cell;
+    width: 60%;
+}
+
+.bg-left {
     min-height: auto;
-    background-color: #9ccad8; 
+    background-color: #9ccad8;
 }
 
 .col-education-l {

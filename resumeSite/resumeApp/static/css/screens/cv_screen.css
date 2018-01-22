@@ -22,9 +22,18 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.form {
+.form-thai {
     font-family: 'THSarabunNew', sans-serif;
     font-size: 10pt;    
+    padding-left: 25mm;
+    padding-right: 20mm;
+    padding-top: 19mm;
+    padding-bottom: 10mm;
+}
+
+.form-eng {
+    font-family: 'THSarabunNew', sans-serif;
+    font-size: 12pt;    
     padding-left: 25mm;
     padding-right: 20mm;
     padding-top: 19mm;
