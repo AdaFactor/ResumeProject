@@ -10,8 +10,8 @@
 
 {% block resume_template %}
     <div class="page">
-        <div class="w3-row">
-            <div class="w3-col m4 l5 bg-left">
+        <div class="col-container">
+            <div id="background-left" class="col">
                 <div class="w3-center">
                     <img class="img-logo" src="/static/images/sutLogo.png" alt="">
                 </div>
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <br>
-       
+        
                 <h3 id="bg-topic-left" class="topic-left">HOBBIES</h3>
                 <div class="content-resume">
                     <ul class="content">
@@ -73,12 +73,12 @@
                         <li>Play football</li>
                     </ul>
                 </div>
-            </div> 
+            </div>
 
             {% comment %} RIGHT {% endcomment %}
-            <div class="w3-col m8 l7">
-                <div class="w3-row background-head">
-                    <div class="w3-col m8 l7">
+            <div class="col">
+                <div class="background-head">
+                    <div class="col">
                         <h1 class="name">FirstName LastName</h1>
                     </div>
                     <div class="col">
@@ -137,6 +137,7 @@
                     </div>
                 </div>
                 <br>
+    
                 <h3 class="topic-right">REFERECES</h3>
                 <div class="content-resume">
                     <h5 class="sub-topic-right">REFERECES Name</h5>
@@ -150,4 +151,3 @@
         </div>
     </div>
 {% endblock resume_template %}
-
