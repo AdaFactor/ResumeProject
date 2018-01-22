@@ -1,14 +1,8 @@
 @page {
-    margin: 0;
-    padding: 0; 
-}
-
-body {
-    width: 100%;
-    height: 100%;
+    height: auto;
     margin: 0;
     padding: 0;
-    background-color: rgb(255, 255, 255);
+    margin-top: -2mm;
 }
 
 h1 {
@@ -22,22 +16,6 @@ h2 {
 h3 {
     font-size: 1em !important;
 }
-
-* {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    float: none !important;
-}
-
-
-.page {
-    width: 210mm;
-    min-height: auto;
-    margin: 10mm auto;
-    background: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
 
 .col-container {
     display: table;
@@ -58,18 +36,6 @@ h3 {
     min-height: auto;
     background-color: grey;
     text-align: center;
-}
-
-.img-resume {
-    width: 210px !important;
-    height: 200px !important;
-    padding-top: 20px;
-}
-
-.img-logo {
-    width: 70%;
-    height: 70%;
-    padding-top: 20px;
 }
 
 .topic-left {
