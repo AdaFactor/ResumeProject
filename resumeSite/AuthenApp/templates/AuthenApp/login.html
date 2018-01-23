@@ -1,42 +1,32 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
-    <script type="text/javascript" src="/static/js/login.js"></script>
-</head>
-<body>
+{% extends "./base_site.html" %}
+
+{% block authen_body %}
     <div id="container">
         <h1>Log In</h1>
-        <form>
+        <form method="POST">{% csrf_token %}
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
-            <p id="validate" class="valid"></p>              
+            <p id="validate" class="valid"></p>
             <button class="loginBtn">Log in</button>
             <div id="remember-container">
                 <span id="forget">Forget password</span>
             </div>
         </form>
     </div>
-
+    
     <!-- Forgotten Password Container -->
     <div id="forget-container">
         <h1>Forget</h1>
         <span class="btn-close">
             <img src="https://png.icons8.com/small/32/000000/filled-cancel.png">
         </span>
-        
+    
         <form>
             <input type="email" name="email" placeholder="E-mail">
             <a href="#" class="orange-btn">Get new password</a>
         </form>
     </div>
-
+    
     <!-- Username or Password empty -->
     <div id="empty-container">
         <h1>Username or Password cannot empty</h1>
@@ -44,5 +34,4 @@
             <img src="https://png.icons8.com/small/32/000000/filled-cancel.png">
         </span>
     </div>
-</body>
-</html>
+{% endblock authen_body %}
