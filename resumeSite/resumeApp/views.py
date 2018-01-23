@@ -47,7 +47,7 @@ def cv(request, cv_lang):
         View for CVs
     '''
     if cv_lang == 'en':
-        respons_html = ''.join(['resumeApp/cv_eng.html'])
+        respons_html = ''.join(['resumeApp/cv_en.html'])
     else:
         respons_html = ''.join(['resumeApp/cv_th.html'])
     context = {'cv_lang': cv_lang}

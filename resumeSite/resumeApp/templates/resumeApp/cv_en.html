@@ -1,13 +1,18 @@
 {% extends "./base_site.html" %}
 
 {% block title %}
-    CV Thai
+    CV English version
 {% endblock title %}
 
 {% block style %}
     <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screens/cv_screen.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="/static/css/prints/cv_print.css" />
 {% endblock style %}
+
+{% block download %} {% if is_pdf_view is not True %}
+    <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf_cv/{{cv_lang}}">
+        Download as PDF
+    </a>
+{% endif %} {% endblock download %}
 
     
 {% block resume_template %}
