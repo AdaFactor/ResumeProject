@@ -5,11 +5,17 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.conf import settings
 from weasyprint import HTML, CSS
+from weasyprint.fonts import FontConfiguration
 import os
 
 template_dir = 'resumeApp/resumeTemplate'
+css_dir = os.getcwd() + '/resumeApp/static/css'
+fonts_dir = os.getcwd() + '/resumeApp/static/fonts'
 
 def templates(request, template_no):
+    '''
+        View for templates
+    '''
     try:
         respones_html = ''.join([template_dir, template_no, '.html'])
         context = {'template_no': template_no}
@@ -22,9 +28,7 @@ def to_pdf(request, template_no):
     '''
         Generate PDF file
     '''
-
     html_file = ''.join([template_dir, template_no, '.html'])
-    css_dir = os.getcwd() + '/resumeApp/static/css'
     html_string = render_to_string(html_file, {'is_pdf_view': True})
     html = HTML(string=html_string, base_url=request.build_absolute_uri())
     css = [
@@ -34,13 +38,37 @@ def to_pdf(request, template_no):
     pdf_file = html.write_pdf(stylesheets=css)
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename="resume.pdf"'
+
     return response
 
 
 def cv(request, cv_lang):
+    '''
+        View for CVs
+    '''
     if cv_lang == 'en':
         respons_html = ''.join(['resumeApp/cv_eng.html'])
     else:
-        respons_html = ''.join(['resumeApp/cv_thai.html'])
-    
-    return render(request, respons_html)
+        respons_html = ''.join(['resumeApp/cv_th.html'])
+    context = {'cv_lang': cv_lang}
+
+    return render(request, respons_html, context)
+
+def to_pdf_cv(request, cv_lang):
+    '''
+        Generata pdf for CVs
+    '''
+    html_file = ''.join(['resumeApp/cv_', cv_lang, '.html'])
+    font_config = FontConfiguration()
+    html_string = render_to_string(html_file, {'is_pdf_view': True})
+    html = HTML(string=html_string, base_url=request.build_absolute_uri())
+    css = [
+        CSS(css_dir + '/screens/common_style.css'),
+        CSS(fonts_dir + '/thsarabunnew.css', font_config=font_config),
+        CSS(css_dir + '/screens/cv_screen.css'),
+    ]
+    pdf_file = html.write_pdf(stylesheets=css, font_config=font_config)
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'inline; filename="resume.pdf"'
+
+    return response

@@ -1,0 +1,85 @@
+{% extends "./base_site.html" %}
+
+{% block title %}
+    CV Thai
+{% endblock title %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screens/cv_screen.css" />
+{% endblock style %}
+
+{% block download %} {% if is_pdf_view is not True %}
+    <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf_cv/{{cv_lang}}">
+        Download as PDF
+    </a>
+{% endif %} {% endblock download %}
+
+    
+{% block resume_template %}
+    <div class="page">
+        <div class="form-thai">
+            <div class="head-letter">
+                <label>สาขาวิชาวิศวกรรมคอมพิวเตอร์</label>
+                <br>
+                <label>สำนักวิชาวิศวกรรมศาสตร์</label>
+                <br>
+                <label>มหาวิทยาลัยเทคโนโลยีสุรนารี</label>
+                <br> 
+                <label>111 ถ.มหาวิทยาลัย ต.สุรนารี</label>
+                <br>
+                <label>อ.เมือง จ.นครราชสีมา 30000</label>
+                <br><br>
+            </div>
+            
+            <div class="date-letter">
+                <label>25 มีนาคม 2561</label><br><br>
+            </div>
+            
+            <div>
+                <label>เรื่อง สมัครงานสหกิจศึกษา</label>
+                <br>
+                <label>เรียน ผู้จัดการฝ่ายทรัพยากรบุคคล บริษัท เอด้าแฟคเตอร์ จํากัด</label>
+            </div>
+            
+            <div>
+                <label>สิ่งที่แนบมาด้วย </label>
+                <label>1. จดหมายสมัครงานสหกิจศึกษา</label>
+                <label>2. ประวัติย่อ</label>
+                <label>3. สำเนาผลการศึกษา</label>
+                <label>4. สำเนาประกาศนียบัตร</label>
+            </div>
+            
+            <div class="content">
+                <p>ด้วยมหาวิทยาลัยเทคโนโลยีสุรนารีได้จัดให้นักศึกษามีการออกปฏิบัติงานสหกิจศึกษาในภาคการศึกษาที่ 1/2561 ดิฉันนางสาวเพียงพลอย บุญเกิด อายุ 22 ปี นักศึกษาชั้นปีที่ 4 สาขาวิชาวิศวกรรมคอมพิวเตอร์ สำนักวิชาวิศวกรรมศาสตร์ มีความสนใจของสมัครงานในตำแหน่ง โปรแกรมเมอร์ ด้วยเหตุผลดังนี้คือ</p>
+            </div>
+            <div class="content">
+                <p>ประการแรกบริษัทของท่านเป็นบริษัทชั้นนำที่มีชื่อเสียงเป็นที่รู้จักโดยทั่วไปทั้งในประเทศและต่างประเทศในด้านการออกแบบเว็บไซต์ และพัฒนาโปรแกรม วิเคราะห์ความต้องการของลูกค้าเพื่อนำมาออกแบบแผนงานและพัฒนาโปรแกรม</p>
+            </div>
+            <div class="content">
+                <p>ในระหว่างที่ศึกษาที่มหาวิทยาลัยดิฉันได้เข้ารับการอบรมหลักสูตรการพัฒนาบุคลิกภาพเข้าร่วมกิจกรรม “Coaching for Changmakers Camp#2” และเป็นนักศึกษาจ้างงานของหน่วยการเรียนรู้ภาษาอังกฤษ มหาวิทยาลัยเทคโนโลยีสุรนารี ซี่งนอกจากความรู้ที่ได้รับแล้ว ดิฉันยังได้แลกเปลี่ยนความรู้กับเพื่อนต่างสาขาวิชา ทำให้รู้จักการปรับตัวเข้ากับสังคม สามารถทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ</p>
+            </div>
+            <div class="content">
+                <p>ด้วยเหตุผลดังกล่าวดิฉันจึงมีความมั่นใจเป็นอย่างมากว่าจะสามารถนำความรู้และประสบการณ์ที่ได้รับ มาประยุกต์ใช้ในการปฏิบัติงานตามที่ได้รับมอบหมายอย่างสุดความสามารถ และดิฉันยินดีที่จะให้สัมภาษณ์และให้ข้อมูลเพิ่มเติมหากท่านต้องการ</p>
+            </div>
+            <div class="content">
+                <p>จึงเรียนมาเพื่อโปรดพิจารณา</p>
+            </div>
+            
+            <div class="signature">
+                <div class="sub-signature">
+                    <label>ขอแสดงความนับถือ</label>
+                    <br><br>
+                    <label>(นางสาวเพียงพลอย บุญเกิด)</label>
+                </div>
+            </div>
+            <br>
+            
+            <div>
+                <label>โทรศัพท์ : 08-xxxx-xxxx</label>
+                <br>
+                <label>E-mail Address : aaaaaa@gmail.com</label>
+            </div>
+            
+        </div>
+    </div>
+{% endblock resume_template %}
