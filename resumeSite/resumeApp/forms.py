@@ -1,7 +1,13 @@
 from django.forms import ModelForm
-from .models import Student
+from .models import Student, Letter
 
 class StudentForm(ModelForm):
     class Meta:
         model = Student
-        fields = ['first_name', 'last_name']
+        exclude = ['letter',]
+
+class LetterForm(ModelForm):
+    class Meta:
+        model = Letter
+        exclude = ['pub_date']
+        

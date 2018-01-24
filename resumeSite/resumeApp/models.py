@@ -11,6 +11,7 @@ class Address(models.Model):
     area = models.CharField(max_length=20)
     province = models.CharField(max_length=20)
     postcode = models.CharField(max_length=5)
+    pub_date = models.DateTimeField(auto_now=True)
 
 
 class Language(models.Model):
@@ -43,6 +44,7 @@ class Letter(models.Model):
     date = models.CharField(max_length=32, default="-/-/-")
     time_period = models.CharField(max_length=20, default="xx/xx - yy/yy")
     attachments = ArrayField(models.CharField(max_length=64), size=10, default=list())
+    pub_date = models.DateTimeField(auto_now=True)
 
 
 class Experience(models.Model):
@@ -105,5 +107,6 @@ class Student(models.Model):
     activity = ArrayField(models.CharField(max_length=32), size=10)
     hobbie = ArrayField(models.CharField(max_length=32), size=10)
     letter = models.ManyToManyField('Letter', related_name='student_letter')
+    pub_date = models.DateTimeField(auto_now=True)
 
     

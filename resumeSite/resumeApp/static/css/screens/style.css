@@ -110,3 +110,8 @@ html {
     display: table-cell;
     padding-right: 250px;
 }
+
+label{
+    color: #fff;
+    text-align: center
+}
