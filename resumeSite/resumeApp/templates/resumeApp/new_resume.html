@@ -1,0 +1,12 @@
+{% extends "./base_site.html" %}
+
+{% block title %}
+    New/Edit Resume
+{% endblock title %}
+
+{% block content %}
+    <form class="new-form" action="#" method='post'>
+        {% csrf_token %}
+        {{ form.as_ul }}
+    </form>
+{% endblock content %}

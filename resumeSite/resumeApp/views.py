@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
-from .forms import StudentForm 
+from .forms import StudentForm, LetterForm
 import os
 
 template_dir = 'resumeApp/resumeTemplate'
@@ -15,20 +15,7 @@ fonts_dir = os.getcwd() + '/resumeApp/static/fonts'
 
 
 def index(request):
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = StudentForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return HttpResponse('/thanks/')
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = StudentForm()
-    return render(request, 'resumeApp/index.html', {'form': form})
+    return render(request, 'resumeApp/index.html')
 
 
 def templates(request, template_no):
@@ -94,5 +81,17 @@ def to_pdf_cv(request, cv_lang):
 
 
 def view_doc(request, doc_type):
-    html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
     return render(request, html_file)
+    
+
+def new_doc(request, doc_type):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            return HttpResponse('/thanks/')
+    else:
+        form = StudentForm()
+
+    html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
+    return render(request, html_file, {'form': form})
+    

@@ -111,6 +111,7 @@ html {
     padding-right: 250px;
 }
 
+
 /* view resume css */
 .container {
     width: 80%;
@@ -133,4 +134,9 @@ html {
 .img-template {
     width: 300px;
     height: 400px;
+}
+
+label{
+    color: #fff;
+    text-align: center
 }
