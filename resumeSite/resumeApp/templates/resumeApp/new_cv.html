@@ -1,5 +1,8 @@
 {% extends "./base_site.html" %}
 
 {% block content %}
-    New CV
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+    </form>
 {% endblock content %}

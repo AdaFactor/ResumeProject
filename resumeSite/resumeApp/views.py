@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
-from .forms import StudentForm 
+from .forms import StudentForm, LetterForm
 import os
 
 template_dir = 'resumeApp/resumeTemplate'
@@ -81,7 +81,6 @@ def to_pdf_cv(request, cv_lang):
 
 
 def view_doc(request, doc_type):
-    html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
     return render(request, html_file)
     
 
