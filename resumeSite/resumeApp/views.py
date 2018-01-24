@@ -16,6 +16,7 @@ fonts_dir = os.getcwd() + '/resumeApp/static/fonts'
 def index(request):
     return render(request, 'resumeApp/index.html')
 
+
 def templates(request, template_no):
     '''
         View for templates
