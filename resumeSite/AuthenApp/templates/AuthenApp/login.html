@@ -3,15 +3,17 @@
 {% block authen_body %}
     <div id="container">
         <h1>Log In</h1>
-        <form method="POST">{% csrf_token %}
+        {% comment %} <form method="POST">{% csrf_token %} {% endcomment %}
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
             <p id="validate" class="valid"></p>
-            <button class="loginBtn">Log in</button>
+            <a href="{% url 'resumeApp:index' %}">
+                <button class="loginBtn">Log in</button>
+            </a>
             <div id="remember-container">
                 <span id="forget">Forget password</span>
             </div>
-        </form>
+        {% comment %} </form> {% endcomment %}
     </div>
     
     <!-- Forgotten Password Container -->
@@ -34,4 +36,9 @@
             <img src="https://png.icons8.com/small/32/000000/filled-cancel.png">
         </span>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+    {% comment %} <script type="text/javascript" src="/static/js/login.js"></script> {% endcomment %}
 {% endblock authen_body %}
