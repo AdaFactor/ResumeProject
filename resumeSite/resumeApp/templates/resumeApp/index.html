@@ -17,9 +17,13 @@
     </div>
 
     <div class="welcome">
-        <p>Welcome to Resume and CV</p>
+        <p>Welcome to Resume and CV</p>        
     </div>
 
+    <form action="" method="post">
+        {% csrf_token %} {{ form }}
+    </form>
+    
     <div class="row">
         <div class="w3-col s6">
             <div class="card">
