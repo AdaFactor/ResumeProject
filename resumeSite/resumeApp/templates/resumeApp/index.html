@@ -15,7 +15,9 @@
                 <img class="img-views" src="https://png.icons8.com/color/200/000000/resume.png">
                 <h1>Resume</h1>
                 <button class="w3-btn w3-green w3-block">New</button>
-                <button class="w3-btn w3-blue w3-block">View</button>                
+                <a href="{% url 'resumeApp:view_doc' 'resume' %}">
+                    <button class="w3-btn w3-blue w3-block">View</button>                
+                </a>
             </div>
         </div>
     
@@ -24,7 +26,9 @@
                 <img class="img-views" src="https://png.icons8.com/color/200/000000/overview-pages-2.png">
                 <h1>CV Letter</h1>                
                 <button class="w3-btn w3-green w3-block">New</button>
-                <button class="w3-btn w3-blue w3-block">View</button>                
+                <a href="{% url 'resumeApp:view_doc' 'cv' %}">
+                    <button class="w3-btn w3-blue w3-block">View</button>
+                </a>
             </div>
         </div>
     </div>

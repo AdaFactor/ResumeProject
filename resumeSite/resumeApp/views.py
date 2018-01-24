@@ -91,3 +91,8 @@ def to_pdf_cv(request, cv_lang):
     response['Content-Disposition'] = 'inline; filename="resume.pdf"'
 
     return response
+
+
+def view_doc(request, doc_type):
+    html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
+    return render(request, html_file)
