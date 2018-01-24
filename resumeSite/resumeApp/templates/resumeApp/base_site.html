@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Resume Generator{% endblock title %}</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/screens/common_style.css" />
+    <link rel="stylesheet" href="/static/css/screens/style.css">
     {% block style %}{% endblock style %}
 </head>
 <body>
-     {% block download %}
-        {% if is_pdf_view is not True %}
-            <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf/{{template_no}}">
-                Download as PDF
+     {% block header %}
+        <div class="topnav">
+            <a class="active" href="#home">
+                <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
+                Username
             </a>
-        {% endif %}
-    {% endblock download %}
-    {% block resume_template %}{% endblock resume_template %}
+            <a class="right" href="#logout">LOG OUT</a>
+        </div>
+    {% endblock header %}
+    {% block content %}{% endblock content %}
+    {% block footer %}
+        <div class="footer">
+            <p>Copyright &copy; 2018</p>
+        </div>
+    {% endblock footer %}
 </body>
 </html>
