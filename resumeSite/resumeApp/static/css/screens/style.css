@@ -1,17 +1,18 @@
-body {
+html {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('/static/images/bg.JPEG') no-repeat fixed;
+    background: url('/static/images/sut.jpg') no-repeat center center fixed;
+    width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover; 
+    background-size: 100% 100%;
 }
 
 .topnav {
     overflow: hidden;
     background-color: rgba(182, 182, 182, 0.603);
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .topnav a {
@@ -41,27 +42,32 @@ body {
 
 .welcome {
     text-align: center;
-    font-size: 60px;
+    font-size: 45px;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: #ff6600;
+}
+
+.img-logo {
+    width: 4em !important;
+    height: auto;
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.678);
-    max-width: 500px;
+    max-width: 350px;
     margin: auto;
     text-align: center;
     color: white;
     font-family: arial;
-    background-color: #3e3831;
+    background-color: rgba(62, 56, 49, 0.678);
 }
 
-h1 {
-    text-align: left;
-    padding-left: 50px;
+.img-views {
+    padding-top: 10px;
 }
 
-button {
+.button {
+    margin-top: 5px;
     border: none;
     outline: 0;
     display: inline-block;
@@ -74,9 +80,8 @@ button {
     font-size: 18px;
 }
 
-button:hover {
-    color: black;
-    background-color: #94d000;
+.button:hover {
+    border-bottom: rgba(0, 0, 0, 0.548) solid 1px;
 }
 
 .footer {
@@ -85,8 +90,23 @@ button:hover {
     bottom: 0;
     width: 100%;
     background-color: rgba(108, 129, 95, 0);
-    color: black;
+    color: white;
     font-size: 20px;
     text-align: right;
     padding-right: 20px;
+}
+
+.col-container {
+    display: table;
+    width: 100%
+}
+
+.col-left {
+    display: table-cell;
+    padding-left: 250px;
+}
+
+.col-right {
+    display: table-cell;
+    padding-right: 250px;
 }

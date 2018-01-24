@@ -1,49 +1,31 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SUT | Welcome to Resume and CV</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="/static/css/screens/index.css">
-</head>
-<body>
-    <div class="topnav">
-        <a class="active" href="#home">
-            <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
-            Username
-        </a>
-        <a class="right" href="#logout">LOG OUT</a>
-    </div>
+{% extends "./base_site.html" %}
 
+{% block title %}
+    SUT | Welcome to Resume and CV   
+{% endblock title %}
+
+{% block content %}
     <div class="welcome">
-        <p>Welcome to Resume and CV</p>        
+        <img class="img-logo" src="/static/images/sutLogo.png" alt="">
     </div>
 
-    <form action="" method="post">
-        {% csrf_token %} {{ form }}
-    </form>
-    
-    <div class="row">
-        <div class="w3-col s6">
+    <div class="col-container">
+        <div class="col-left">
             <div class="card">
-                <img src="https://png.icons8.com/color/300/000000/resume.png">
+                <img class="img-views" src="https://png.icons8.com/color/200/000000/resume.png">
                 <h1>Resume</h1>
-                <button>Click</button>
+                <button class="w3-btn w3-green w3-block">New</button>
+                <button class="w3-btn w3-blue w3-block">View</button>                
             </div>
         </div>
     
-        <div class="w3-col s6">
+        <div class="col-right">
             <div class="card">
-                <img src="https://png.icons8.com/color/300/000000/overview-pages-2.png">
-                <h1>Job Application Letter</h1>                
-                <button>Click</button>
+                <img class="img-views" src="https://png.icons8.com/color/200/000000/overview-pages-2.png">
+                <h1>CV Letter</h1>                
+                <button class="w3-btn w3-green w3-block">New</button>
+                <button class="w3-btn w3-blue w3-block">View</button>                
             </div>
         </div>
     </div>
-
-    <div class="footer">
-        <p>Copyright &copy; 2017</p>
-    </div>
-</body>
-</html>
+{% endblock content %}
