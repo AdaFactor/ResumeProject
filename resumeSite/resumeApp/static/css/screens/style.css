@@ -85,7 +85,7 @@ html {
 }
 
 .footer {
-    /* position: fixed; */
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -137,8 +137,8 @@ html {
 }
 
 .img-template {
-    width: 300px;
-    height: 400px;
+    width: 450px;
+    height: 550px;
 }
 
 /* new template page */
@@ -155,6 +155,15 @@ html {
     background-color: rgba(119, 119, 119, 0.445);
 }
 
+.form-cv {
+    width: auto;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(119, 119, 119, 0.616);
+}
+
 ul, li {
     list-style: none;
 }
@@ -162,11 +171,23 @@ ul, li {
 label{
     display: block;
     color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     text-align-last: auto;
     border-style: hidde;
     border-width: 2px;      
+}
+
+.label-topic {
+    display: initial;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.label-cv {
+    display: initial;
+    font-size: 18px;    
+    font-weight: initial;    
 }
 
 input {
@@ -188,10 +209,15 @@ input {
 
 select {
     width: 100%;
+    height: 30px;
     margin-bottom: 15px;    
     border: 2px #fff solid;
     border-radius: 3px;    
     background-color: rgba(255, 255, 255, 0.445);
+}
+
+.select-cv {
+    width: 90%;
 }
 
 input:focus, select:focus, textarea:focus {

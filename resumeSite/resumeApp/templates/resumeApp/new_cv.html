@@ -2,7 +2,156 @@
 
 {% block content %}
     <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_ul }}
+        {% comment %} {% csrf_token %}
+        {{ form.as_ul }} {% endcomment %}
+        <div class="form-cv">
+            <div class="w3-row">
+                <div class="w3-col s5">
+                    <label for="id_first_name">First name / ชื่อ :</label>
+                    <input type="text" name="first_name" maxlength="32" required="" id="id_first_name"> 
+                </div>
+    
+                <div class="w3-col s5">
+                    <label for="id_last_name">Last name / นามสกุล :</label>
+                    <input type="text" name="last_name" maxlength="32" required="" id="id_last_name"> 
+                </div>
+                        
+                <div class="w3-col s2">
+                    <label for="id_age">Age / อายุ :</label>
+                    <input type="number" name="age" value="0" required="" id="id_age">
+                </div>
+    
+                <div class="w3-col s4">
+                    <label for="">Branch / สาขาวิชา :</label>
+                    <select id="" class="select-cv">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="w3-col s4">
+                    <label for="">Branch / สาขาวิชา :</label>
+                    <select id="" class="select-cv">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="w3-col s4">
+                    <label for="">Major / สำนักวิชา :</label>
+                    <select id="" class="select-cv">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-cv">
+            <div class="w3-row">
+                <div class="w3-col s2">
+                    <label for="id_date">Date / วันที่ :</label>
+                    <input type="date" name="date" required="" id="id_date"><br>
+                </div>
+                <div class="w3-col s5">
+                    <label for="">Person / เรียน :</label>
+                    <div class="w3-col s8">
+                        <input class="w3-radio" type="radio" name="person" value="1">
+                        <label class="label-cv">ผู้จัดการฝ่ายทรัพยากร</label>
+                        <input class="w3-radio" type="radio" name="person" value="2">
+                        <label class="label-cv">ผู้อำนวยการ</label>
+                        <input class="w3-radio" type="radio" name="person" value="3">
+                        <label class="label-cv">อื่นๆ</label>
+                        <label class="label-cv"> *โปรดระบุ</label>                        
+                    </div>    
+                    <div class="w3-col s4">            
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="w3-col s5">
+                    <label for="id_attachments">Attachments / สิ่งที่แนบมาด้วย :</label>
+                    <input class="w3-check" type="checkbox">
+                    <label class="label-cv">จดหมายสมัครงาน</label>
+                    <input class="w3-check" type="checkbox">
+                    <label class="label-cv">ประวัติย่อ</label>
+                    <input class="w3-check" type="checkbox">
+                    <label class="label-cv">สำเนาผลการศึกษา</label>
+                    <input class="w3-check" type="checkbox">
+                    <label class="label-cv">สำเนาประกาศนียบัตร</label><br>
+                </div>
+            </div>
+            <br>
+
+            <div class="w3-row">
+                <div class="w3-col s3">
+                    <label for="">Time Period / ระยะเวลาสหกิจสึกษา :</label>                               
+                </div>
+                <div class="w3-col s3">
+                    <input type="date" name="time_period" required="" id="id_time_period">                                                   
+                </div>
+                <div class="w3-col s1">
+                    <label for="">To :</label>                                                   
+                </div>
+                <div class="w3-col s3">
+                    <input type="date" name="time_period" required="" id="id_time_period">                                                   
+                </div>
+            </div>
+
+            <div class="w3-row">
+                <div class="w3-col s6">
+                    <label for="">Phone / เบอร์โทรศัพท์ :</label>
+                    <input type="text" name="phone_no" required id="id_phone_no">
+                </div>
+                <div class="w3-col s6">
+                    <label for="">Email / อีเมลล์ :</label>
+                    <input type="text" name="email" required id="id_email"><br>
+                </div>
+            </div>
+            
+            <label for="id_contents" class="label-topic">Contents / เนื้อความจดหมาย</label>
+            <div class="w3-row">
+                <div class="w3-col s2">
+                    <label for="" class="label-cv">Paragrahp 1 / ย่อหน้าที่ 1 : </label>
+                </div>
+                <div class="w3-col s7">
+                    <textarea name="contents" id="" cols="100" rows="6"></textarea><br>                    
+                </div>
+            </div><br>
+
+            <div class="w3-row">
+                <div class="w3-col s2">
+                    <label for="" class="label-cv">Paragrahp 2 / ย่อหน้าที่ 2 : </label>
+                </div>
+                <div class="w3-col s7">
+                    <textarea name="contents" id="" cols="100" rows="6"></textarea><br>                    
+                </div>
+            </div><br>
+
+            <div class="w3-row">
+                <div class="w3-col s2">
+                    <label for="" class="label-cv">Paragrahp 3 / ย่อหน้าที่ 3 : </label>
+                </div>
+                <div class="w3-col s7">
+                    <textarea name="contents" id="" cols="100" rows="6"></textarea><br>                    
+                </div>
+            </div><br>
+
+            <div class="w3-row">
+                <div class="w3-col s2">
+                    <label for="" class="label-cv">Paragrahp 4 / ย่อหน้าที่ 4 : </label>
+                </div>
+                <div class="w3-col s7">
+                    <textarea name="contents" id="" cols="100" rows="6"></textarea><br>                    
+                </div>
+            </div><br>
+            
+            <div class="w3-row">
+                <div class="w3-col s2">
+                    <label for="" class="label-cv">Paragrahp 5 / ย่อหน้าที่ 5 : </label>
+                </div>
+                <div class="w3-col s7">
+                    <textarea name="contents" id="" cols="100" rows="6"></textarea><br>                    
+                </div>
+            </div><br>
+            
+            <div class="w3-center">
+                <button class="w3-button w3-blue w3-xlarge">SAVE</button>                
+            </div>
+        </div>
     </form>
 {% endblock content %}
