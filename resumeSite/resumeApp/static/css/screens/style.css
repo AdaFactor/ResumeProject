@@ -89,9 +89,10 @@ html {
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 45px;
     background-color: rgba(108, 129, 95, 0);
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     text-align: right;
     padding-right: 20px;
 }
@@ -136,11 +137,148 @@ html {
 }
 
 .img-template {
-    width: 300px;
-    height: 400px;
+    width: 450px;
+    height: 550px;
+}
+
+/* view cv css */
+.container-cv{
+    width: 60%;
+    margin: auto;
+}
+
+.ul-cv {
+    list-style-type: none;
+    width: 100%;
+}
+
+.li-cv {
+    border-radius: 5px;     
+    padding-left: 20px;
+    overflow: auto;
+    background-color: #058668;
+    color: white;
+    margin: 20px;
+}
+
+.li-font-cv {
+    font-weight: bold;
+}
+
+.li-cv:hover {
+    background: #00ab85;
+    /* border-left: 5px solid #ff0000;      */
+    cursor: pointer;
+}
+
+.label-view-cv {
+    padding-left: 10px;    
+    font-weight: initial;
+    font-size: 18px;
+    color: #000000;
+}
+
+
+table {
+    width: 100%;
+    border: 3px solid #00ab85;
+    border-right: 7px solid #00ab85;    
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+td {
+    padding: 10px;
+    background-color: rgb(233, 233, 233);
+    border: 1px solid #00ab85;
+	color: rgb(0, 0, 0);
+}
+
+
+/* new template page */
+.content {
+    margin-left: 130px;
+}
+
+.form-new {
+    width: auto;
+    margin-left: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(119, 119, 119, 0.445);
+}
+
+.form-cv {
+    width: auto;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(119, 119, 119, 0.616);
+}
+
+ul, li {
+    list-style: none;
 }
 
 label{
+    display: block;
     color: #fff;
-    text-align: center
+    font-size: 20px;
+    font-weight: bold;
+    text-align-last: auto;
+    border-style: hidde;
+    border-width: 2px;      
 }
+
+.label-topic {
+    display: initial;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.label-cv {
+    display: initial;
+    font-size: 18px;    
+    font-weight: initial;    
+}
+
+input {
+    width: 90%;
+    margin-bottom: 15px;
+    border: 2px #fff solid;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.445);
+}
+
+#id_age, #id_nationality, #id_religion, #id_level {
+    width: 60%;
+    text-align: center;
+}
+
+#id_alley {
+    width: 75%;
+}
+
+select {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 15px;    
+    border: 2px #fff solid;
+    border-radius: 3px;    
+    background-color: rgba(255, 255, 255, 0.445);
+}
+
+.select-cv {
+    width: 90%;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 2px solid rgb(255, 72, 0);
+    background-color: rgb(245, 245, 245);
+}
+
+
+
