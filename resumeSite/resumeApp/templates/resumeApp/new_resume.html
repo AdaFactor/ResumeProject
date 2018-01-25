@@ -5,8 +5,223 @@
 {% endblock title %}
 
 {% block content %}
-    <form class="new-form" action="#" method='post'>
-        {% csrf_token %}
-        {{ form.as_ul }}
-    </form>
+    <div class="content">
+        <div class="w3-row">
+            <form class="new-form" action="#" method='post'>
+                <div class="w3-row">
+                    <div class="w3-col s6">
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <label for="id_first_name">First name:</label>
+                                    <input type="text" name="first_name" maxlength="32" required="" id="id_first_name">        
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_last_name">Last name:</label>
+                                    <input type="text" name="last_name" maxlength="32" required="" id="id_last_name">
+                                </div>
+                            </div>
+
+                            <div class="w3-row">
+                                <div class="w3-col s3">
+                                    <label for="id_birthday">Birthday:</label>
+                                    <input type="text" name="birthday" maxlength="10" required="" id="id_birthday">        
+                                </div>
+                                <div class="w3-col s3">
+                                    <label for="id_age">Age:</label>
+                                    <input type="number" name="age" value="0" required="" id="id_age">
+                                </div>
+                                <div class="w3-col s3">
+                                    <label for="id_nationality">Nationality:</label>
+                                    <input type="text" name="nationality" maxlength="16" required="" id="id_nationality">
+                                </div>
+                                <div class="w3-col s3">
+                                    <label for="id_religion">Religion:</label>
+                                    <input type="text" name="religion" maxlength="16" required="" id="id_religion">
+                                </div>
+
+                                <div class="w3-col s6">
+                                    <label for="id_phone_no">Phone no:</label>
+                                    <input type="text" name="phone_no" required id="id_phone_no">
+                                </div>
+                                <div class="w3-col s6">                        
+                                    <label for="id_email">Email:</label>
+                                    <input type="text" name="email" required id="id_email"> 
+                                </div>
+                            </div>
+
+                            <div class="w3-row">
+                                <div class="w3-col s12">
+                                    <label for="id_address">Address</label>
+                                    <div class="w3-col s4">
+                                        <label for="id_address_no">Address no:</label>
+                                        <input type="text" name="address_no" maxlength="10" required="" id="id_address_no">
+                                    </div>
+                                    <div class="w3-col s3">
+                                        <label for="id_address">Village:</label>                                
+                                        <input type="text" name="village_no" maxlength="3" required="" id="id_village_no">
+                                    </div>
+                                    <div class="w3-col s5">
+                                        <label for="id_alley">Alley:</label>
+                                        <input type="text" name="alley" maxlength="20" required="" id="id_alley">
+                                    </div>
+
+                                    <div class="w3-col s3">
+                                        <label for="id_road">Road:</label>                                    
+                                        <input type="text" name="road" maxlength="20" required="" id="id_road">                                    
+                                    </div>  
+                                    <div class="w3-col s3">
+                                        <label for="id_sub_area">Sub area:</label>                                                                        
+                                        <input type="text" name="sub_area" maxlength="20" required="" id="id_sub_area">
+                                    </div>
+                                    
+                                    <div class="w3-col s3">
+                                        <label for="id_province">Province:</label>
+                                        <input type="text" name="province" maxlength="20" required="" id="id_province">                                                                        
+                                    </div>  
+                                    <div class="w3-col s3">
+                                        <label for="id_postcode">Postcode:</label>
+                                        <input type="text" name="postcode" maxlength="5" required="" id="id_postcode">                                                                                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <label for="id_education">Education:</label>
+                                    <input name="education" required="" id="id_education">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_major_name">Major:</label>
+                                    <input name="major_name" required="" id="id_major_name">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_time_period">Time Period:</label>                        
+                                    <input type="date" required="" id="id_time_period">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_time_period">To:</label>                                                
+                                    <input type="date" required="" id="id_time_period">
+                                </div>
+                            </div>
+                            <button class="w3-button w3-black">+</button>                    
+                        </div>
+
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <label for="id_experience">WORK EXPERIENCE:</label>
+                                    <input name="experience" required="" maxlength="32" id="id_experience">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_company_name">Company name:</label>
+                                    <input name="company_name" required="" maxlength="32" id="id_company_name">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_time_period">Time Period:</label>                        
+                                    <input type="date" required="" id="id_time_period">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_time_period">To:</label>                                                
+                                    <input type="date" required="" id="id_time_period">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_position">Position:</label>                        
+                                    <input type="text" required="" id="id_position">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_role">Role:</label>                                                
+                                    <input type="text" required="" maxlength="400" id="id_role">
+                                </div>
+                            </div>
+                            <button class="w3-button w3-black">+</button>                                    
+                        </div>
+                    </div>
+
+                    <div class="w3-col s5">
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <label for="id_reference">Reference:</label>
+                                <input name="reference" required="" maxlength="32" id="id_reference">
+                                <label for="id_postion">Position:</label>
+                                <input name="position" type="text" required="" maxlength="32" id="id_postion">
+                                <label for="id_Affiliation">Affiliation:</label>
+                                <input name="Affiliation" type="text" required="" maxlength="64" id="id_Affiliation">
+                                <div class="w3-col s6">
+                                    <label for="id_phone_no">Phone no:</label>
+                                    <input type="text" name="phone_no" required id="id_phone_no">                        
+                                            
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_email">Email:</label>
+                                    <input type="text" name="email" required id="id_email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <label for="id_language">Language:</label>
+                                    <input name="language" required="" id="id_language" multiple="multiple">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_level">Level:</label>
+                                    <select id="id_level">
+                                        <option value="level"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="w3-button w3-black">+</button>
+                        </div>
+
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <div class="w3-col s6">
+                                    <label for="id_skill">Skill:</label>
+                                    <input name="skill" required="" id="id_skill" multiple="multiple">
+                                </div>
+                                <div class="w3-col s6">
+                                    <label for="id_level">Level:</label>
+                                    <select id="id_level">
+                                        <option value="level"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button class="w3-button w3-black">+</button>                                            
+                        </div>
+
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <label for="id_activity">Activity:</label>
+                                <div class="w3-col s10">
+                                    <input type="text" name="activity" required="" id="id_activity">
+                                </div>
+                                <div class="w3-col s2">
+                                    <button class="w3-button w3-black">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-new">
+                            <div class="w3-row">
+                                <label for="id_hobbie">Hobbie:</label>
+                                <div class="w3-col s10">
+                                    <input type="text" name="hobbie" required="" id="id_hobbie">
+                                </div>
+                                <div class="w3-col s2">
+                                    <button class="w3-button w3-black">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-center">
+                    <button class="w3-button w3-blue w3-xlarge">SAVE</button>                
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock content %}
