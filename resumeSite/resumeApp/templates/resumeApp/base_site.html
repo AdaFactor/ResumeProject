@@ -10,13 +10,23 @@
 </head>
 <body>
      {% block header %}
-        <div class="topnav">
-            <a class="active" href="#home">
-                <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
-                Username
-            </a>
-            <a class="right" href="#logout">LOG OUT</a>
-        </div>
+        <ul class="ul-top">
+            <li class="li-top">
+                <a href="#home">
+                    <img class="img-home" src="/static/images/sutLogo.png" alt="">
+                    HOME
+                </a>
+            </li>
+            <li class="dropdown li-top right">
+                <a href="" class="dropbtn">
+                    <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
+                    Username
+                </a>
+                <div class="dropdown-content">
+                    <a href="#">LOG OUT</a>
+                </div>
+            </li>
+        </ul>
     {% endblock header %}
     {% block content %}{% endblock content %}
     {% block footer %}
