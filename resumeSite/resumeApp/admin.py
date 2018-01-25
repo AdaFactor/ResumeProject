@@ -87,7 +87,6 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = (
         'first_name', 
         'last_name', 
-        # 'address',
         'phone_no',
         'email',
         'birthday', 
@@ -95,11 +94,7 @@ class StudentAdmin(admin.ModelAdmin):
         'religion', 
         'age',
         'reference',
-        # 'language',
-        # 'skill',
-        # 'experience',
         'activity',
         'hobbie',
-        # 'letter',
         'pub_date',
     )
