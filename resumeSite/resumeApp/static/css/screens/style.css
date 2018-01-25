@@ -141,6 +141,61 @@ html {
     height: 550px;
 }
 
+/* view cv css */
+.container-cv{
+    width: 60%;
+    margin: auto;
+}
+
+.ul-cv {
+    list-style-type: none;
+    width: 100%;
+}
+
+.li-cv {
+    border-radius: 5px;     
+    padding-left: 20px;
+    overflow: auto;
+    background-color: #058668;
+    color: white;
+    margin: 20px;
+}
+
+.li-font-cv {
+    font-weight: bold;
+}
+
+.li-cv:hover {
+    background: #00ab85;
+    /* border-left: 5px solid #ff0000;      */
+    cursor: pointer;
+}
+
+.label-view-cv {
+    padding-left: 10px;    
+    font-weight: initial;
+    font-size: 18px;
+    color: #000000;
+}
+
+
+table {
+    width: 100%;
+    border: 3px solid #00ab85;
+    border-right: 7px solid #00ab85;    
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+td {
+    padding: 10px;
+    background-color: rgb(233, 233, 233);
+    border: 1px solid #00ab85;
+	color: rgb(0, 0, 0);
+}
+
+
 /* new template page */
 .content {
     margin-left: 130px;
