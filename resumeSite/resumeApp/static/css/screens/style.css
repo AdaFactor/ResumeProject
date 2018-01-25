@@ -152,7 +152,7 @@ html {
 
 /* view resume css */
 .container {
-    width: 72%;
+    width: 80%;
     margin: auto;
     text-align: center;
 }
@@ -174,8 +174,8 @@ html {
 }
 
 .img-template {
-    width: 450px;
-    height: 550px;
+    width: 400px;
+    height: 500px;
 }
 
 /* view cv css */
