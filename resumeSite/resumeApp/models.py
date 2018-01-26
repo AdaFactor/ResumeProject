@@ -135,7 +135,7 @@ class Student(models.Model):
     last_name = models.CharField(max_length=32)
     address = models.ManyToManyField('Address', related_name='student_address')
     phone_no = ArrayField(models.CharField(max_length=10), size=2)
-    email = ArrayField(models.CharField(max_length=10), size=2)
+    email = ArrayField(models.CharField(max_length=32), size=2)
     birthday = models.CharField(max_length=10)
     nationality = models.CharField(max_length=16)
     religion = models.CharField(max_length=16)
