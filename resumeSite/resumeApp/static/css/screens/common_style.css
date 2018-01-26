@@ -8,6 +8,10 @@ body {
     font-family: Arial;
 }
 
+p {
+    padding-top: -0.5em !important;
+}
+
 * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;

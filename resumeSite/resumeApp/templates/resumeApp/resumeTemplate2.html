@@ -17,7 +17,7 @@
                     <img class="img-logo" src="/static/images/sutLogo.png" alt="">
                 </div>
                 <div class="col">
-                    <h1 class="head-name">FirstName LastName</h1>
+                    <h1 class="head-name"> {{student.first_name}} {{student.last_name}}</h1>
                 </div>
                 <div class="col">
                     <div class="w3-center"><img class="img-resume" src="/static/images/user.png" alt=""></div>                
@@ -29,51 +29,54 @@
                 <div class="col-content-l">
                     <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
                     <div class="col-container">
-                        <b>1 Jan 2017 to 31 JAN 2017</b><br>
-                        <b>JAVA Company Co, td., Web Developer</b>                                
-                        <ul class="content">
-                            <li>Design and Develop Web Application with PHP, HTML5, CSS, JavaScript</li> 
-                            <li>Build high quality of software solutions</li>
-                            <li>Communicate and maintain good relationship with the team and users to ensure smooth delivery of the projects and support systems</li>
-                            <li>Work as Back-End and Front-End developer</li>
-                        </ul>
+                        {% for exp in student.get_experience %}
+                            <b> {{exp.time_period}} </b>
+                            <br>
+                            <b>{{exp.company_name}} {{exp.position}}</b>
+                            <p>
+                                {{exp.role|linebreaks}}
+                            </p>
+                        {% empty %}
+                            <h4>No experience</h4>
+                        {% endfor %}
                     </div>
                     
                     <h3 class="topic"><i class="fa fa-university" aria-hidden="true"></i>Education</h3>
-                    <div class="col-container">
-                        <div class="col-education-l">
-                            <b>Mar 2013 - Mar 2017</b>
-                        </div>
-                        <div class="col-education-r">
-                            <label>Suranaree University of Technology,<br> Nakhon Ratchasima</label><br>
-                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                            <label>Computer Engineering</label><p></p>
-                        </div>
-                    </div>
-                    <div class="col-container">
-                        <div class="col-education-l">
-                            <b>Jan 2006 - Jan 2012</b>
-                        </div>
-                        <div class="col-education-r">
-                            <label>Nakhon Ratchasima School,<br> Nakhon Ratchasima</label><br>
-                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                            <label>High school</label><p></p>
-                        </div>
-                    </div>
-
-
+                        {% for edu in student.get_education %}
+                            <div class="col-container">
+                                <div class="col-education-l">
+                                    <b> {{edu.time_period}} </b>
+                                </div>
+                                <div class="col-education-r">
+                                    <label> {{edu.academy_name}} </label>
+                                    <br>
+                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                    <label>{{edu.major.major_name}}, {{edu.major.branch.branch_name}}</label>
+                                    <br>
+                                    <label > ({{edu.major.course.course_name}}) </label>
+                                </div>
+                            </div>
+                            <br>
+                        {% empty %}
+                            <h4>No Education</h4>
+                        {% endfor %}
+                    
                     <h3 class="topic"><i class="fa fa-users" aria-hidden="true"></i>Activities</h3>
                     <ul class="content">
-                        <li>Volunteer Reader, Reading for the Blinds Project at Nakhon Ratchasima</li>
+                        {% for acti in student.activity %}
+                            <li>{{acti}}</li>
+                        {% empty %}
+                            <li>No Activity</li>
+                        {% endfor %}
                     </ul><br>
 
                     <div class="col-container">
                         <h3 class="topic"><i class="fa fa-quote-left" aria-hidden="true"></i>Refereces</h3>
-                        <b>Ada Factor</b>
+                        <b>{{student.reference.advisor_name}}</b>
                         <ul class="content">
-                            <li>Founder, ADA FACTOR</li>
-                            <li>08-xxxx-xxxx</li>
-                            <li>adafactor@gmail.com</li>                                    
+                            <li>{{student.reference.position}}, {{student.reference.affiliation}}</li>
+                            <li>{{student.reference.phone_no}}</li>
+                            <li>{{student.reference.email|first}}</li>                                    
                         </ul>
                     </div>
 
@@ -83,40 +86,61 @@
                 <div class="col-content-r">
                     <h3 class="topic"><i class="fa fa-user" aria-hidden="true"></i>Personal Info</h3>
                     <div>
-                        <b>Date of Birth: </b><label>12 Jan 2996</label><br>
-                        <b>Nationality: </b><label>Thai</label><br>                        
-                        <b>Religion: </b><label>Thai</label><br>                        
+                        <b>Date of Birth: </b><label>{{student.birthday}}</label><br>
+                        <b>Nationality: </b><label>{{student.nationality}}</label><br>                        
+                        <b>Religion: </b><label>{{student.religion}}</label><br>                        
                         <b>Marital Status: </b><label>Single</label><br>
-                        <b>PHONE: </b><label>08-xxxx-xxxx</label><br>
-                        <b>E-MAIL: </b><label>adafactor@gmail.com</label><br>
-                        <b>ADDRESS: </b><label>Suranaree University of Technology, 111 Suranaree Nakhon Ratchasima</label>
+                        <b>PHONE: </b>
+                        <ul>
+                            {% for phone in student.phone_no %}
+                                <li>{{phone}}</li>
+                            {% empty %}
+                                <li>No phone number</li>
+                            {% endfor %}
+                        </ul>
+                        <b>EMAIL: </b>
+                        <ul>
+                            {% for e in student.email %}
+                            <li>{{e}}</li>
+                            {% empty %}
+                            <li>No Email address</li>
+                            {% endfor %}
+                        </ul>
+                        <b>ADDRESS: </b><label>{{student.get_address}}</label>
                     </div><br>
                     
                     <h3 class="topic"><i class="fa fa-language" aria-hidden="true"></i>Languages</h3>
                     <div class="w3-container">
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-blue w3-center" style="width:80%">English</div>
-                        </div><br>
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-blue w3-center" style="width:60%">Japanese</div>
-                        </div>
-                    </div><br>
+                        {% for lang in student.get_language %}
+                            <div class="w3-light-grey">
+                                <div class="w3-container w3-blue w3-center" style="width:{{lang.level}}%">{{lang.name}}</div>
+                            </div>
+                            <br>
+                        {% empty %}
+                            <h4>No languages</h4>
+                        {% endfor %}      
+                    </div>
+                    <br>
 
                     <h3 class="topic"><i class="fa fa-deaf" aria-hidden="true"></i>Skills</h3>
                     <div class="w3-container">
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-blue w3-center" style="width:20%">PHP</div>
-                        </div><br>
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-blue w3-center" style="width:60%">JavaScirpt</div>
-                        </div>
-                    </div><br>
+                        {% for skill in student.get_skill %}
+                            <div class="w3-light-grey">
+                                <div class="w3-container w3-blue w3-center" style="width:{{skill.level}}%">{{skill.name}}</div>
+                            </div>
+                            <br> {% empty %}
+                            <h4>No skills</h4>
+                        {% endfor %}
+                    </div>
+                    <br>
 
                     <h3 class="topic"><i class="fa fa-gamepad" aria-hidden="true"></i>Hobbies</h3>
                     <ul class="content">
-                        <li>Play Games</li>
-                        <li>ROV</li>
-                        <li>etc.</li>
+                        {% for hobby in student.hobbie %}
+                            <li>{{hobby}}</li>
+                        {% empty %}
+                            <li>No hobby</li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
