@@ -385,7 +385,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .save-btn {
-    width: 99%;
+    width: 98%;
     font-weight: bold;
     font-size: 18px;
 }
