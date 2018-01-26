@@ -9,24 +9,26 @@
     {% block style %}{% endblock style %}
 </head>
 <body>
-     {% block header %}
-        <ul class="ul-top">
-            <li class="li-top">
-                <a href="#home">
-                    <img class="img-home" src="/static/images/sutLogo.png" alt="">
-                    SUT-RESUME
-                </a>
-            </li>
-            <li class="dropdown li-top right">
-                <a href="" class="dropbtn">
-                    <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
-                    Username
-                </a>
-                <div class="dropdown-content">
-                    <a href="#">LOG OUT</a>
-                </div>
-            </li>
-        </ul>
+    {% block header %}
+        <div class="nav-collapse">
+            <ul class="ul-top">
+                <li class="li-top">
+                    <a href="#home">
+                        <img class="img-home" src="/static/images/sutLogo.png" alt="">
+                        SUT-RESUME
+                    </a>
+                </li>
+                <li class="dropdown li-top right">
+                    <a href="" class="dropbtn">
+                        <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
+                        Username
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">LOG OUT</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     {% endblock header %}
     {% block content %}{% endblock content %}
     {% block footer %}
