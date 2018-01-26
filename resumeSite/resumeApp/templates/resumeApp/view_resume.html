@@ -3,20 +3,14 @@
 {% block content %}
     <div class="container">
         <h1 class="w3-center text-choose">Choose your resume template</h1>
-        <div class="gallery">
-            <a href="#">
-                <img class="img-template" src="/static/images/templates/template1.png" alt="">
-            </a>
-        </div>
-        <div class="gallery">
-            <a href="#">
-                <img class="img-template" src="/static/images/templates/template2.png" alt="">
-            </a>
-        </div>
-        <div class="gallery">
-            <a href="#">
-                <img class="img-template" src="/static/images/templates/template3.png" alt="">
-            </a>
-        </div>
+        {% for template_no in number_of_template  %}
+            <div class="gallery">
+                <a href={% url 'resumeApp:templates' template_no %}>
+                    <img class="img-template" src="/static/images/templates/template{{ template_no }}.png" alt="">
+                </a>
+            </div>
+        {% empty %}
+            <h2>We're really sorry something went wrong...</h4>
+        {% endfor %}
     </div>
 {% endblock content %}

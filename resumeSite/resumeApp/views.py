@@ -7,6 +7,7 @@ from django.conf import settings
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 from .forms import StudentForm, LetterForm
+import numpy as np
 import os
 
 template_dir = 'resumeApp/resumeTemplate'
@@ -27,7 +28,7 @@ def templates(request, template_no):
         context = {'template_no': template_no}
         return render(request, respones_html, context)
     except TemplateDoesNotExist:
-        return redirect(templates, template_no=1)
+        return redirect('/templates/view/resume')
 
 
 def to_pdf(request, template_no):
@@ -83,7 +84,10 @@ def to_pdf_cv(request, cv_lang):
 
 def view_doc(request, doc_type):
     html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
-    return render(request, html_file)
+    context = {
+        'number_of_template': np.arange(1, 4)
+    }
+    return render(request, html_file, context)
     
 
 def new_doc(request, doc_type):
