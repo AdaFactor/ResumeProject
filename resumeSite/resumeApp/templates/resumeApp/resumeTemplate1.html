@@ -19,132 +19,144 @@
                 <h3 id="bg-topic-left" class="topic-left">Personal Info</h3>
                 <div class="content-resume">
                     <label class="text-bold">Date of Birth:</label>
-                    <label>12 Jan 2996</label>
+                    <label>{{student.birthday}}</label>
                     <br>
                     <label class="text-bold">Nationality:</label>
-                    <label>Thai</label>
+                    <label>{{student.nationality}}</label>
                     <br>
                     <label class="text-bold">Religion:</label>
-                    <label>Thai</label>
+                    <label>{{student.religion}}</label>
                     <br>
                     <label class="text-bold">Marital Status:</label>
                     <label>Single</label>
                     <br>
                     <label class="text-bold">ADDRESS: </label>
-                    <label>Suranaree University of Technology, 111 University road</label>
+                    <label>{{student.get_address}}</label>
                     <br>
                     <label class="text-bold">PHONE: </label>
-                    <label>08-xxxx-xxxx</label>
-                    <br>
+                    <ul>
+                        {% for phone in student.phone_no %}
+                        <li>{{phone}}</li>
+                        {% empty %}
+                        <li>No phone number</li>
+                        {% endfor %}
+                    </ul>
                     <label class="text-bold">E-MAIL: </label>
-                    <label>university@gmail.com</label>
+                    <ul>
+                        {% for e in student.email %}
+                        <li>{{e}}</li>
+                        {% empty %}
+                        <li>No Email Address</li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <br>
         
                 <h3 id="bg-topic-left" class="topic-left">SKILLS</h3>
                 <div class="w3-container">
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-blue w3-center" style="width:20%">PHP</div>
-                    </div>
-                    <br>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-blue w3-center" style="width:60%">JavaScirpt</div>
-                    </div>
+                    {% for sk in student.get_skill  %}
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-blue w3-center" style="width:{{sk.level}}%">{{sk.name}}</div>
+                        </div>
+                        <br>
+                    {% empty %}
+                        <h4>No Skills</h4>
+                    {% endfor %}
                 </div>
-                <br>
-        
+                
                 <h3 id="bg-topic-left" class="topic-left">LANGUAGES</h3>
                 <div class="w3-container">
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-red w3-center" style="width:80%">English</div>
-                    </div>
-                    <br>
-                    <div class="w3-light-grey">
-                        <div class="w3-container w3-red w3-center" style="width:60%">Japanese</div>
-                    </div>
+                    {% for lang in student.get_language %}
+                        <div class="w3-light-grey">
+                            <div class="w3-container w3-red w3-center" style="width:{{lang.level}}%"> {{lang.name}} </div>
+                        </div>
+                        <br>
+                    {% empty %}
+                        <h4>No languages</h4>
+                    {% endfor %}
+                    
                 </div>
-                <br>
         
                 <h3 id="bg-topic-left" class="topic-left">HOBBIES</h3>
                 <div class="content-resume">
                     <ul class="content">
-                        <li>play games</li>
-                        <li>ROV</li>
-                        <li>Play football</li>
+                        {% for hobby in student.hobbie%}
+                            <li>{{hobby}}</li>
+                        {% empty %}
+                            <li>No hobby</li>
+                        {% endfor %}
                     </ul>
                 </div>
+
+                {% comment %} <h3 id="bg-topic-left" class="topic-left">Activities</h3>
+                <div class="content-resume">
+                    <ul class="content">
+                        {% for act in student.activity%}
+                        <li>{{act}}</li>
+                        {% empty %}
+                        <li>No Activity</li>
+                        {% endfor %}
+                    </ul>
+                </div> {% endcomment %}
             </div>
 
             {% comment %} RIGHT {% endcomment %}
             <div class="col">
                 <div class="background-head">
                     <div class="col">
-                        <h1 class="name">FirstName LastName</h1>
+                        <h1 class="name">{{student.first_name}} {{student.last_name}}</h1>
                     </div>
                     <div class="col">
-                        <img class="img-resume" src="/static/images/test_port.jpeg" alt="">
+                        <img class="img-resume" src="/static/images/user.png" alt="">
                     </div>
                 </div>
                 
 
                 <h3 class="topic-right">WORK EXPERIENCE</h3>
-                <div class="content-resume">
-                <label class="sub-topic-right">1 Jan 2017 - 31 JAN 2017</label>
-                <br>
-                <label class="text-bold">JAVA Company Co, td., Web Developer</label>
-                <ul class="content">
-                    <li>Design and Develop Web Application with PHP, HTML5, CSS, JavaScript</li>
-                    <li>Build high quality of software solutions</li>
-                    <li>Communicate and maintain good relationship with the team and users to ensure smooth delivery of the projects and support systems</li>
-                    <li>Work as Back-End and Front-End developer</li>
-                </ul>
-    
-                <label class="sub-topic-right">Time period</label>
-                    <br>
-                    <label class="text-bold">Company, Position</label>
-                    <ul class="content">
-                        <li>Role</li>
-                    </ul>
-                </div>
+                {% for exp in student.get_experience %}
+                    <div class="content-resume">
+                        <label class="sub-topic-right"> {{exp.time_period}} </label>
+                        <br>
+                        <h4 class="text-bold">{{exp.company_name}}, {{exp.position}}</h4>
+                        <p>
+                            {{exp.role|linebreaks}}
+                        </p>
+                    </div>
+                {% empty %}
+                    <div class="content-resume">
+                        <h4>No experience</h4>
+                    </div>
+                {% endfor %}
     
                 <h3 class="topic-right">EDUCATION</h3>
                 <div class="content-resume">
-                    <div class="col-container">
-                        <div class="col-education-l">
-                            <label class="sub-topic-right">1 Mar 2013 -
-                                <br> 31 Mar 2017</label>
-                            <br>
+                    {% for edu in student.get_education %}
+                        <div class="col-container">
+                            <div class="col-education-l">
+                                <label class="sub-topic-right"> {{edu.time_period}} </label>
+                                <br>
+                                <label class="sub-topic-right"> {{edu.get_level_display}} </label>
+                            </div>
+                            <div class="col-education-r">
+                                <label class="text-bold"> {{edu.academy_name}} </label>
+                                <br>
+                                <label> {{edu.major.major_name}}, {{edu.major.branch.branch_name}} </label>
+                                <br />
+                                <label >( {{edu.major.course.course_name}} )</label>
+                            </div>
                         </div>
-                        <div class="col-education-r">
-                            <label class="text-bold">Suranaree Unuversity of Technology</label>
-                            <br>
-                            <label>Computer Engineering</label>
-                        </div>
-                    </div>
-                    <br>
-    
-                    <div class="col-container">
-                        <div class="col-education-l">
-                            <label class="sub-topic-right">1 Jan 2006 -
-                                <br> 1 Jan 2012</label>
-                            <br>
-                        </div>
-                        <div class="col-education-r">
-                            <label class="text-bold">Nakhon Ratchasima School</label>
-                            <br>
-                            <label>High School</label>
-                        </div>
-                    </div>
+                        <br />
+                    {% empty %}
+                        <h4>No Education</h4>
+                    {% endfor %}
                 </div>
-                <br>
     
                 <h3 class="topic-right">REFERECES</h3>
                 <div class="content-resume">
-                    <h5 class="sub-topic-right">REFERECES Name</h5>
+                    <h5 class="sub-topic-right"> {{student.reference.advisor_name}} </h5>
                     <ul class="content">
-                        <li>Position, Company name</li>
-                        <li>Phone</li>
-                        <li>E-mail</li>
+                        <li>{{student.reference.position}}, {{student.reference.affiliation}}</li>
+                        <li>{{student.reference.phone_no}}</li>
+                        <li>{{student.reference.email|first}}</li>
                     </ul>
                 </div>
             </div>

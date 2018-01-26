@@ -6,13 +6,21 @@ from django.http import HttpResponse
 from django.conf import settings
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
-from .forms import StudentForm, LetterForm
+from resumeApp.models import Student
 import numpy as np
 import os
 
 template_dir = 'resumeApp/resumeTemplate'
 css_dir = os.getcwd() + '/resumeApp/static/css'
 fonts_dir = os.getcwd() + '/resumeApp/static/fonts'
+
+
+def query_student(id):
+    student = Student.objects.get(id=id)
+    context = {
+        'student': student,
+    }
+    return context
 
 
 def index(request):
@@ -25,7 +33,8 @@ def templates(request, template_no):
     '''
     try:
         respones_html = ''.join([template_dir, template_no, '.html'])
-        context = {'template_no': template_no}
+        context = query_student(1)
+        context.update({'template_no': template_no})
         return render(request, respones_html, context)
     except TemplateDoesNotExist:
         return redirect('/templates/view/resume')
@@ -35,8 +44,13 @@ def to_pdf(request, template_no):
     '''
         Generate PDF file
     '''
+    context = query_student(1)
+    context.update({
+        'template_no': template_no,
+        'is_pdf_view': True
+    })
     html_file = ''.join([template_dir, template_no, '.html'])
-    html_string = render_to_string(html_file, {'is_pdf_view': True})
+    html_string = render_to_string(html_file, context)
     html = HTML(string=html_string, base_url=request.build_absolute_uri())
     css = [
         CSS(css_dir + '/screens/common_style.css'),

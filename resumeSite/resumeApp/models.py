@@ -72,7 +72,7 @@ class Letter(models.Model):
 class Experience(models.Model):
     company_name = models.CharField(max_length=32)
     position = models.CharField(max_length=32)
-    role = models.CharField(max_length=400, blank=True)
+    role = models.TextField(max_length=400, blank=True)
     time_period = models.CharField(max_length=32)
 
     def __str__(self):
@@ -149,6 +149,52 @@ class Student(models.Model):
     hobbie = ArrayField(models.CharField(max_length=32), size=10)
     letter = models.ManyToManyField('Letter', related_name='student_letter')
     pub_date = models.DateTimeField(auto_now=True)
+
+
+    def get_m2m_or_empty(self, objs):
+        return [] if objs.count() < 1 else [ obj for obj in objs ]
+
+
+    def get_address(self):
+        address = self.address.all()
+        return self.get_m2m_or_empty(address)[0]
+
+
+    def get_experience(self):
+        experience = self.experience.all()
+        return self.get_m2m_or_empty(experience)
+
+
+    def get_education(self):
+        education = self.education.all()
+        return self.get_m2m_or_empty(education)
+
+    def level_to_number(self, objs):
+        numeric_level = {
+            'b': 20,
+            'e': 40,
+            'i': 60,
+            'a': 80,
+            'p': 100
+        }
+        origin_objs = self.get_m2m_or_empty(objs)
+        modified_objs = []
+        if len(origin_objs) > 0:
+            for obj in origin_objs:
+                level = obj.level
+                obj.level = numeric_level[level]
+                modified_objs.append(obj)
+        return modified_objs
+
+
+    def get_skill(self):
+        skill = self.skill.all()
+        return self.level_to_number(skill)
+        
+
+    def get_language(self):
+        language = self.language.all()
+        return self.level_to_number(language)
 
 
     def __str__(self):
