@@ -140,16 +140,16 @@ html {
 }
 
 .footer {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 55px;
-    background-color: #2727275e;
+    height: 30px;
     color: white;
     font-size: 18px;
     text-align: right;
-    padding-right: 20px;
+    padding: 0px 20px 0px 0px;
+    background-color: #0088cc;    
 }
 
 .col-container {
@@ -159,20 +159,18 @@ html {
 
 .col-left {
     display: table-cell;
-    padding-left: 250px;
+    padding-left: 200px;
 }
 
 .col-right {
     display: table-cell;
-    padding-right: 250px;
+    padding-right: 200px;
 }
 
 
 /* view resume css */
 .container-resume {
-    width: 90%;
-    margin: auto;
-    text-align: center;
+    width: 100%;
     padding-top: 64px;
     padding-bottom: 64px;
 }
@@ -183,25 +181,20 @@ html {
 }
 
 .gallery {
-    margin: 5px;
-    float: left;
-    width: auto;
+    padding: 10px;
+    width: 30%;
     height: auto;
     text-align: center;
 }
 
-.gallery:hover {
-    border: 2px solid #777;
-}
-
 .img-template {
     width: 100%;
-    height: 70%;
+    height: 61%;
 }
 
 /* view cv css */
 .container-cv{
-    width: 60%;
+    width: 90%;
     margin: auto;
     padding-top: 64px;
     padding-bottom: 64px;    
@@ -257,10 +250,9 @@ td {
 
 /* new page */
 .content-resume {
-    margin-left: 100px;
-    margin-right: 80px; 
+    margin-left: 30px;
+    margin-right: 20px; 
     padding-top: 65px;
-    padding-bottom: 64px;
 }
 
 .content-cv {
@@ -271,7 +263,7 @@ td {
 .form-new {
     width: auto;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 20px;
     background-color: rgba(119, 119, 119, 0.445);
 }
@@ -282,6 +274,27 @@ td {
     margin-right: 60px;
     margin-bottom: 20px;
     padding: 20px;
+    background-color: rgba(119, 119, 119, 0.616);
+}
+
+.head-topic-resume {
+    color: white;
+    font-weight: bold;
+    width: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: rgba(119, 119, 119, 0.445);
+}
+
+.head-topic-cv {
+    color: white;
+    font-weight: bold;
+    width: auto;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
     background-color: rgba(119, 119, 119, 0.616);
 }
 
@@ -308,39 +321,37 @@ label{
 .label-cv {
     display: initial;
     font-size: 18px;    
-    font-weight: initial;    
+    font-weight: initial;
+    margin-right: 10px;     
+}
+
+.please-specify {
+    display: initial;
+    width: 500px;
 }
 
 input {
     width: 95%;
     margin-bottom: 15px;
-    font-size: 16px;
+    padding: 0px 2px;
+    font-size: 18px;
     border: 2px #fff solid;
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0.5);
 }
 
 #input-file {
-    position: absolute;
-    width: 90%;  
-    opacity: 0;
-    padding: 14px 0;
-    color: white;
     cursor: pointer;
+    width: 90%
 }
 
-.input-file-trigger {
-    display: block;
-    padding: 2px 10px;
-    color: #fff;
-    font-size: 1em;
-    background-color: #000000;
-    cursor: pointer;
-}
-
-.input-file-container {
-    width: 90%;
-    position: inherit;
+#img-box {
+    background-image:url('');
+    background-size:cover;
+    background-position: center;
+    height: 5cm;
+    width: 90%; 
+    border: 2px solid #a3a3a3;
 } 
 
 #id_level {
@@ -350,20 +361,28 @@ input {
 
 select {
     width: 100%;
-    height: 30px;
-    margin-bottom: 15px;    
+    height: auto;
+    margin-bottom: 15px;
+    font-size: 18px;    
+    padding: 5px;    
     border: 2px #fff solid;
     border-radius: 3px;    
     background-color: rgba(255, 255, 255, 0.445);
 }
 
 textarea {
-    width: 95%;
-    height: 85px;
+    width: 100%;
+    height: 20%;
+    font-size: 18px;        
     padding: 5px;
     border: 2px #fff solid;
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0.445);
+}
+
+#id_role {
+    width: 95%;
+    height: 85px;
 }
 
 .select-cv {
@@ -373,15 +392,6 @@ textarea {
 input:focus, select:focus, textarea:focus {
     border: 2px solid rgb(255, 72, 0);
     background-color: rgb(245, 245, 245);
-}
-
-#clock {
-    background-image:url('');
-    background-size:cover;
-    background-position: center;
-    height: 68mm;
-    width: 90%; 
-    border: 2px solid rgb(163, 163, 163);
 }
 
 .save-btn {
@@ -411,5 +421,9 @@ input:focus, select:focus, textarea:focus {
     border-color: #000000;
     color: #000000;
     background-color: #ffffff;
+}
+
+.checkbox, .radio{
+    position: inherit;
 }
 

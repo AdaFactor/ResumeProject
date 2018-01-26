@@ -9,34 +9,42 @@
 
 {% block content %}
     <div class="content-resume">
+        <h1 class="head-topic-resume">Resume</h1>
         <div class="w3-row">
             <form class="new-form" action="#" method='post'>
                 <div class="w3-col s6">
                     <div class="form-new">
                         <div class="w3-row">
                             <div class="w3-col s4">
-                                <div id='clock'></div>
-                                <div class="input-file-container">
-                                    <input type='file' id='input-file'>
-                                    <label for="my-file" class="input-file-trigger">+ add image</label>
-                                </div>                           
+                                <div id='img-box'></div> 
+                                <input type='file' id='input-file'>                    
                             </div>
-                            <div class="w3-col s4">
+
+                            <div class="w3-col s8">
                                 <label for="id_first_name">First name:</label>
                                 <input type="text" name="first_name" maxlength="32" required="" id="id_first_name">
-                                <label for="id_birthday" class="label-topic">Birthday:</label>
-                                <label for="" class="comment">*(dd/mm/yyyy)</label>
-                                <input type="text" name="birthday" maxlength="10" required="" id="id_birthday">
-                                <label for="id_age">Age:</label>
-                                <input type="number" name="age" value="0" min="0" required="" id="id_age">
-                                <label for="id_phone_no">Phone no:</label>
-                                <input type="text" name="phone_no" maxlength="10" required id="id_phone_no">        
-                            </div>
-                            <div class="w3-col s4">
                                 <label for="id_last_name">Last name:</label>
                                 <input type="text" name="last_name" maxlength="32" required="" id="id_last_name">
+                                <div class="w3-col s7">
+                                    <label for="id_birthday" class="label-topic">Birthday:</label>
+                                    <label for="" class="comment">*(dd/mm/yyyy)</label>
+                                    <input type="text" name="birthday" maxlength="10" required="" id="id_birthday">
+                                </div>
+                                <div class="w3-col s5">
+                                    <label for="id_age">Age:</label>
+                                    <input type="number" name="age" value="0" min="0" required="" id="id_age">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w3-row">
+                            <div class="w3-col s6">
                                 <label for="id_nationality">Nationality:</label>
                                 <input type="text" name="nationality" maxlength="16" required="" id="id_nationality">
+                                <label for="id_phone_no">Phone no:</label>
+                                <input type="text" name="phone_no" maxlength="10" required id="id_phone_no">
+                            </div>
+                            <div class="w3-col s6">
                                 <label for="id_religion">Religion:</label>
                                 <input type="text" name="religion" maxlength="16" required="" id="id_religion">
                                 <label for="id_email">Email:</label>
@@ -53,28 +61,28 @@
                                 <label for="id_address">Village:</label>                                
                                 <input type="text" name="village_no" maxlength="3" required="" id="id_village_no">
                             </div>
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_alley">Alley:</label>
                                 <input type="text" name="alley" maxlength="20" required="" id="id_alley">
                             </div>
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_road">Road:</label>                                    
                                 <input type="text" name="road" maxlength="20" required="" id="id_road">                                    
                             </div> 
 
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_sub_area">Sub area:</label>                                                                        
                                 <input type="text" name="sub_area" maxlength="20" required="" id="id_sub_area">
                             </div>
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_area">Area:</label>                                                                        
                                 <input type="text" name="sub_area" maxlength="20" required="" id="id_area">
                             </div>
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_province">Province:</label>
                                 <input type="text" name="province" maxlength="20" required="" id="id_province">                                                                        
                             </div>  
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_postcode">Postcode:</label>
                                 <input type="text" name="postcode" maxlength="5" required="" id="id_postcode">                                                                                                            
                             </div>
@@ -132,7 +140,9 @@
                             <button class="add-btn">+ add activity</button>
                         </div>
                     </div>
+                </div>
 
+                <div class="w3-col s6">
                     <div class="form-new">
                         <div class="w3-row">
                             <label for="id_hobbie">Hobbie:</label>
@@ -142,9 +152,7 @@
                             <button class="add-btn">+ add hobbie</button>
                         </div>
                     </div>
-                </div>
 
-                <div class="w3-col s6">
                     <div class="form-new">
                         <div class="w3-row">
                             <div class="w3-col s6">
@@ -179,11 +187,11 @@
                                 <input type="text" maxlength="32" required="" id="id_position">
                             </div>
 
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_time_period">Start:</label>                        
                                 <input type="date" required="" id="id_time_period">
                             </div>
-                            <div class="w3-col s3">
+                            <div class="w3-col s6">
                                 <label for="id_time_period">End:</label>                                                
                                 <input type="date" required="" id="id_time_period">
                             </div><br>
