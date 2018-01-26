@@ -9,6 +9,10 @@ html {
     background-size: 100% 100%;
 }
 
+body{
+    position: relative;
+}
+
 .nav-collapse {
     position: relative;
     display: block;
@@ -139,16 +143,14 @@ html {
     border-bottom: rgba(0, 0, 0, 0.548) solid 1px;
 }
 
-.footer {
-    position: relative;
+.page-footer {
+    position: absolute;
+    right: 0;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 30px;
     color: white;
-    font-size: 18px;
-    text-align: right;
-    padding: 0px 20px 0px 0px;
+    text-align: center;
     background-color: #0088cc;    
 }
 
@@ -193,8 +195,8 @@ html {
 }
 
 /* view cv css */
-.container-cv{
-    width: 90%;
+.view-cv{
+    width: 70%;
     margin: auto;
     padding-top: 64px;
     padding-bottom: 64px;    
@@ -227,7 +229,7 @@ html {
 .label-view-cv {
     padding-left: 10px;    
     font-weight: initial;
-    font-size: 18px;
+    font-size: 14px;
     color: #000000;
 }
 
@@ -241,7 +243,7 @@ table {
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
-td {
+td {    
     padding: 10px;
     background-color: rgb(233, 233, 233);
     border: 1px solid #00ab85;
@@ -253,6 +255,7 @@ td {
     margin-left: 30px;
     margin-right: 20px; 
     padding-top: 65px;
+    padding-bottom: 64px;        
 }
 
 .content-cv {
@@ -322,7 +325,7 @@ label{
     display: initial;
     font-size: 18px;    
     font-weight: initial;
-    margin-right: 10px;     
+    margin-right: 10px;
 }
 
 .please-specify {

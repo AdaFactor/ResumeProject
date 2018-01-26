@@ -4,7 +4,7 @@
     <div class="container-resume">
         <h1 class="w3-center text-choose">Choose your resume template</h1>
         {% for template_no in number_of_template  %}
-            <div class="gallery">
+            <div class="w3-col m4 gallery">
                 <a href={% url 'resumeApp:templates' template_no %}>
                     <img class="img-template" src="/static/images/templates/template{{ template_no }}.png" alt="">
                 </a>
