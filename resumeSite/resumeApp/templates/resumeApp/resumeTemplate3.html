@@ -17,50 +17,66 @@
                     <h3 class="topic-left">Personal Info</h3>
                     <div class="content-left">
                         <b>Date of Birth: </b>
-                        <label class="info-profile">12 Jan 2011</label><br>
+                        <label class="info-profile">{{student.birthday}}</label><br>
                         <b>Nationality: </b>
-                        <label class="info-profile">Thai</label><br>
+                        <label class="info-profile">{{student.nationality}}</label><br>
                         <b>Religion: </b>
-                        <label class="info-profile">Thai</label><br> 
+                        <label class="info-profile">{{student.religion}}</label><br> 
                         <b>Marital Status: </b>
-                        <label class="info-profile">Single</label>
+                        <label class="info-profile">Single</label><br>
                         <b>ADDRESS: </b>
-                        <label class="info-profile">Suranaree University of Technology, 111 Nakhon Ratcasima</label><br>
-                        <b>PHONE: </b>
-                        <label class="info-profile">08-xxxx-xxxx</label><br>
-                        <b>E-MAIL: </b>
-                        <label class="info-profile">adafactor@gmail.con</label><br> 
+                        <label class="info-profile">{{student.get_address}}</label><br>
+                        <label class="text-bold">PHONE: </label>
+                        <ul class="content">
+                            {% for phone in student.phone_no %}
+                            <li>{{phone}}</li>
+                            {% empty %}
+                            <li>No phone number</li>
+                            {% endfor %}
+                        </ul>
+                        <label class="text-bold">E-MAIL: </label>
+                        <ul class="content">
+                            {% for e in student.email %}
+                            <li>{{e}}</li>
+                            {% empty %}
+                            <li>No Email Address</li>
+                            {% endfor %}
+                        </ul>
                     </div><br>
 
                     <h3 class="topic-left">SKILLS</h3>
                     <div class="w3-container">
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-orange w3-center" style="width:20%">PHP</div>
-                        </div><br>
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-orange w3-center" style="width:60%">JavaScirpt</div>
-                        </div>
-                    </div><br>
-
+                        {% for skill in student.get_skill %}
+                            <div class="w3-light-grey">
+                                <div class="w3-container w3-orange w3-center" style="width:{{skill.level}}%">{{skill.name}}</div>
+                            </div>
+                            <br>
+                        {% empty %}
+                            <h4>No skills</h4>
+                        {% endfor %}
+                    </div>
                     <h3 class="topic-left">LANGUAGES</h3>
                     <div class="w3-container">
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-orange w3-center" style="width:80%">English</div>
-                        </div><br>
-                        <div class="w3-light-grey">
-                            <div class="w3-container w3-orange w3-center" style="width:60%">Japanese</div>
-                        </div>
+                        {% for lang in student.get_language %}
+                            <div class="w3-light-grey">
+                                <div class="w3-container w3-orange w3-center" style="width:{{lang.level}}%">{{lang.name}}</div>
+                            </div><br>
+                        {% empty %}
+                            <h4>No languages</h4>
+                        {% endfor %}
+
                     </div><br>
 
                     <h3 class="topic-left">HOBBIES</h3>
                     <div class="content-left">
                         <ul class="content">
-                            <li>Play Games</li>
-                            <li>ROV</li>
-                            <li>etc.</li>
+                            {% for hobby in student.hobbie %}
+                                <li>{{hobby}}</li>
+                            {% empty %}
+                                <li>No Hobby</li>
+                            {% endfor %}
                         </ul>
                     </div>
-                    
                 </div>
 
             </div>
@@ -68,7 +84,7 @@
             <div class="col-right">
                 <div class="col-container">
                     <div class="col-right">
-                        <h1>FirstName LastName</h1>                        
+                        <h1>{{student.first_name}} {{student.last_name}}</h1>                        
                     </div>
                     <div class="col-left">
                         <img class="img-resume" src="/static/images/user.png" alt="">
@@ -78,15 +94,20 @@
                 <div class="col-container">
                     <h2 class="topic-right">EDUCATION</h2>
                     <div class="timeline">
-                        <div class="column">
-                            <div class="title">
-                                <h3> 1 Mar 2013 - 31 Mar 2017 </h3>
-                                <h4> Suranaree University of Technology, <br> Nakhon Ratchasima</h4>
+                        {% for edu in student.get_education %}
+                            <div class="column">
+                                <div class="title">
+                                    <h3> {{edu.time_period}} </h3>
+                                    <h4> {{edu.academy_name}} </h4>
+                                </div>
+                                <div class="description">
+                                    <p>{{edu.major.major_name}}</p>
+                                </div>
                             </div>
-                            <div class="description">
-                                <p>Computer Engineering</p>
-                            </div>
-                        </div>
+                        {% empty %}
+                        
+                        {% endfor %}
+                        
                             
                         <div class="column">
                             <div class="title">
