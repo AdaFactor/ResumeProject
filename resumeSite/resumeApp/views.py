@@ -60,6 +60,7 @@ def cv(request, cv_lang):
 
     return render(request, respons_html, context)
 
+
 def to_pdf_cv(request, cv_lang):
     '''
         Generata pdf for CVs
@@ -86,13 +87,6 @@ def view_doc(request, doc_type):
     
 
 def new_doc(request, doc_type):
-    # if request.method == 'POST':
-    #     form = StudentForm(request.POST)
-    #     if form.is_valid():
-    #         return HttpResponse('/thanks/')
-    # else:
-    #     form = StudentForm()
-
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
     return render(request, html_file)
     
