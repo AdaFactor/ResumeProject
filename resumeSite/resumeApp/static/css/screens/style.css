@@ -290,7 +290,7 @@ input {
     background-color: rgba(255, 255, 255, 0.445);
 }
 
-#id_age, #id_nationality, #id_religion, #id_level {
+#id_age, #id_level {
     width: 60%;
     text-align: center;
 }
@@ -315,6 +315,15 @@ select {
 input:focus, select:focus, textarea:focus {
     border: 2px solid rgb(255, 72, 0);
     background-color: rgb(245, 245, 245);
+}
+
+#clock {
+    background-image:url('');
+    background-size:cover;
+    background-position: center;
+    height: 7cm;
+    width: 90%; 
+    border: 1px solid #bbb;
 }
 
 

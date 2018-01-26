@@ -2,8 +2,6 @@
 
 {% block content %}
     <form action="" method="post">
-        {% comment %} {% csrf_token %}
-        {{ form.as_ul }} {% endcomment %}
         <div class="form-cv">
             <div class="w3-row">
                 <div class="w3-col s5">
@@ -22,19 +20,19 @@
                 </div>
     
                 <div class="w3-col s4">
-                    <label for="">Branch / สาขาวิชา :</label>
-                    <select id="" class="select-cv">
+                    <label for="id_branch">Branch / สาขาวิชา :</label>
+                    <select id="id_course" class="select-cv">
                         <option value=""></option>
                     </select>
                 </div>
                 <div class="w3-col s4">
-                    <label for="">Course / หลักสูตร :</label>
-                    <select id="" class="select-cv">
+                    <label for="id_course">Course / หลักสูตร :</label>
+                    <select id="id_course" class="select-cv">
                         <option value=""></option>
                     </select>
                 </div>
                 <div class="w3-col s4">
-                    <label for="">Major / สำนักวิชา :</label>
+                    <label for="id_major">Major / สำนักวิชา :</label>
                     <select id="" class="select-cv">
                         <option value=""></option>
                     </select>
