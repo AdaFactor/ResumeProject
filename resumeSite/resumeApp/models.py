@@ -169,6 +169,12 @@ class Student(models.Model):
         education = self.education.all()
         return self.get_m2m_or_empty(education)
 
+
+    def get_letter(self):
+        letter = self.letter.all()
+        return self.get_m2m_or_empty(letter)
+
+
     def level_to_number(self, objs):
         numeric_level = {
             'b': 20,
