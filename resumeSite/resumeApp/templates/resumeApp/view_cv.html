@@ -3,7 +3,7 @@
 {% block content %}
     <div class="view-cv">
         <ul class="ul-cv">
-            {% for letter in student.get_letter %}
+            {% for letter in student.letter.all %}
                 <li class="li-cv">
                     <a href= {% url 'resumeApp:cv' 'th' letter.id%}>
                         <div class="w3-row">

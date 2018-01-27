@@ -158,15 +158,6 @@ class Student(models.Model):
     pub_date = models.DateTimeField(auto_now=True)
 
 
-    def get_m2m_or_empty(self, objs):
-        return [] if objs.count() < 1 else [ obj for obj in objs ]
-
-
-    def get_letter(self):
-        letter = self.letter.all()
-        return self.get_m2m_or_empty(letter)
-
-
     def level_to_number(self, objs):
         numeric_level = {
             'b': 20,
