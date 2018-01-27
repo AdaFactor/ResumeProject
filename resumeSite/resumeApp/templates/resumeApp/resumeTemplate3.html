@@ -98,8 +98,8 @@
                         {% for edu in student.get_education %}
                             <div class="column">
                                 <div class="title">
-                                    <h3> {{edu.time_period}} </h3>
-                                    <h4> {{edu.academy_name}} </h4>
+                                    <h3><b> {{edu.time_period}} </b></h3>
+                                    <h4><b> {{edu.academy_name}} </b></h4>
                                 </div>
                                 <div class="description">
                                     <p> 
@@ -119,8 +119,8 @@
                         {% for exp in student.get_experience %}
                             <div class="column">
                                 <div class="title">
-                                    <h3> {{exp.time_period}} </h3>
-                                    <h4> {{exp.company_name}} <br> {{exp.position}}</h4>
+                                    <h3><b> {{exp.time_period}} </b></h3>
+                                    <h4><b> {{exp.company_name}} <br> {{exp.position}} </b></h4>
                                 </div>
                                 <p>
                                     {{exp.role|linebreaks}}

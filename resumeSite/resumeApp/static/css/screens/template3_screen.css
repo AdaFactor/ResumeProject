@@ -33,7 +33,7 @@ h3 {
 }
 
 #bg-left {
-    min-height: auto;
+    min-height: 297mm;
     background-color: grey;
     text-align: center;
 }
@@ -69,7 +69,7 @@ h3 {
 }
 
 .timeline {
-	width: 80%;
+	width: 100%;
 	margin-left: 5%;
     margin-bottom: 40px;
     padding-left: 10px;
@@ -79,9 +79,9 @@ h3 {
 	content: "";
 	position: absolute;
 	top: 0px;
-	left: 10px;
+    left: 10px;
 	width: 3px;
-	height: calc(100% - 50px);
+    height: 80%;
     background: #f29e39;
 }
 
