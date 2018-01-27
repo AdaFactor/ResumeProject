@@ -8,6 +8,9 @@ i {
     padding-right: 10px;
 }
 
+.progress-level {
+    padding-bottom: 5px;
+}
 
 .col-container {
     display: table;
@@ -20,18 +23,12 @@ i {
 
 .col-content-l {
     padding-right: 5px;    
-    display: table-cell;
-    width: 60%;
-    height: auto;
 }
 
 .col-content-r {
     /* background-color: powderblue; */
     padding-left: 5px;
-    padding-right: 5px;
-    display: table-cell;    
-    width: 40%;
-    height: auto;    
+    padding-right: 5px;    
 }
 
 .col-education-l {

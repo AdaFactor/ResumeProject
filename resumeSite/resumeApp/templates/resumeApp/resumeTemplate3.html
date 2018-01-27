@@ -14,7 +14,7 @@
             <div id="bg-left" class="col-left">
                 <div>
                     <img class="img-logo" src="/static/images/sutLogo.png" alt=""><br>
-                    <h3 class="topic-left">Personal Info</h3>
+                    <h2 class="topic-left"><b>Personal Info</b></h2>
                     <div class="content-left">
                         <b>Date of Birth: </b>
                         <label class="info-profile">{{student.birthday}}</label><br>
@@ -26,7 +26,7 @@
                         <label class="info-profile">Single</label><br>
                         <b>ADDRESS: </b>
                         <label class="info-profile">{{student.get_address}}</label><br>
-                        <label class="text-bold">PHONE: </label>
+                        <b>PHONE: </b>
                         <ul class="content">
                             {% for phone in student.phone_no %}
                             <li>{{phone}}</li>
@@ -34,7 +34,7 @@
                             <li>No phone number</li>
                             {% endfor %}
                         </ul>
-                        <label class="text-bold">E-MAIL: </label>
+                        <b>E-MAIL: </b>
                         <ul class="content">
                             {% for e in student.email %}
                             <li>{{e}}</li>
@@ -42,9 +42,9 @@
                             <li>No Email Address</li>
                             {% endfor %}
                         </ul>
-                    </div><br>
+                    </div>
 
-                    <h3 class="topic-left">SKILLS</h3>
+                    <h2 class="topic-left"><b>SKILLS</b></h2>
                     <div class="w3-container">
                         {% for skill in student.get_skill %}
                             <div class="w3-light-grey">
@@ -55,7 +55,8 @@
                             <h4>No skills</h4>
                         {% endfor %}
                     </div>
-                    <h3 class="topic-left">LANGUAGES</h3>
+
+                    <h2 class="topic-left"><b>LANGUAGES</b></h2>
                     <div class="w3-container">
                         {% for lang in student.get_language %}
                             <div class="w3-light-grey">
@@ -65,9 +66,9 @@
                             <h4>No languages</h4>
                         {% endfor %}
 
-                    </div><br>
+                    </div>
 
-                    <h3 class="topic-left">HOBBIES</h3>
+                    <h2 class="topic-left"><b>HOBBIES</b></h2>
                     <div class="content-left">
                         <ul class="content">
                             {% for hobby in student.hobbie %}
@@ -84,7 +85,7 @@
             <div class="col-right">
                 <div class="col-container">
                     <div class="col-right">
-                        <h1>{{student.first_name}} {{student.last_name}}</h1>                        
+                        <h1><b>{{student.first_name}} {{student.last_name}}</b></h1>                        
                     </div>
                     <div class="col-left">
                         <img class="img-resume" src="/static/images/user.png" alt="">
@@ -92,13 +93,13 @@
                 </div>
 
                 <div class="col-container">
-                    <h2 class="topic-right">EDUCATION</h2>
+                    <h2 class="topic-right"><b>EDUCATION</b></h2>
                     <div class="timeline">
                         {% for edu in student.get_education %}
                             <div class="column">
                                 <div class="title">
-                                    <h3> {{edu.time_period}} </h3>
-                                    <h4> {{edu.academy_name}} </h4>
+                                    <h3><b> {{edu.time_period}} </b></h3>
+                                    <h4><b> {{edu.academy_name}} </b></h4>
                                 </div>
                                 <div class="description">
                                     <p> 
@@ -113,13 +114,13 @@
                         {% endfor %}
                     </div>
 
-                    <h2 class="topic-right">WORK EXPERIENCE</h2>
+                    <h2 class="topic-right"><b>WORK EXPERIENCE</b></h2>
                     <div class="timeline">
                         {% for exp in student.get_experience %}
                             <div class="column">
                                 <div class="title">
-                                    <h3> {{exp.time_period}} </h3>
-                                    <h4> {{exp.company_name}} <br> {{exp.position}}</h4>
+                                    <h3><b> {{exp.time_period}} </b></h3>
+                                    <h4><b> {{exp.company_name}} <br> {{exp.position}} </b></h4>
                                 </div>
                                 <p>
                                     {{exp.role|linebreaks}}
@@ -131,7 +132,7 @@
                         
                     </div>
 
-                    <h2 class="topic-right">REFERECES</h2>
+                    <h2 class="topic-right"><b>REFERECES</b></h2>
                     <div class="refereces">
                         <b> {{student.reference.advisor_name}} </b>
                         <ul class="content">

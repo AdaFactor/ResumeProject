@@ -13,21 +13,21 @@
     <div class="page">
         <div class="w3-container">
             <!-- HEAD -->
-            <div class="col-container">
+            <div class="row">
                 <div class="col">
                     <img class="img-logo" src="/static/images/sutLogo.png" alt="">
                 </div>
                 <div class="col">
-                    <h1 class="head-name"> {{student.first_name}} {{student.last_name}}</h1>
+                    <h1 class="head-name"><b> {{student.first_name}} {{student.last_name}}</b></h1>
                 </div>
                 <div class="col">
                     <div class="w3-center"><img class="img-resume" src="/static/images/user.png" alt=""></div>                
-                </div>            
+                </div> 
             </div>
-
+                  
             <!-- CONTENT -->
-            <div class="col-container">
-                <div class="col-content-l">
+            <div class="row">
+                <div class="col m7 col-content-l">
                     <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
                     <div class="col-container">
                         {% for exp in student.get_experience %}
@@ -84,7 +84,7 @@
                 </div>
 
                 <!-- RIGHT -->
-                <div class="col-content-r">
+                <div class="col m5 col-content-r">
                     <h3 class="topic"><i class="fa fa-user" aria-hidden="true"></i>Personal Info</h3>
                     <div>
                         <b>Date of Birth: </b><label>{{student.birthday}}</label><br>
@@ -108,32 +108,29 @@
                             {% endfor %}
                         </ul>
                         <b>ADDRESS: </b><label>{{student.get_address}}</label>
-                    </div><br>
+                    </div>
                     
                     <h3 class="topic"><i class="fa fa-language" aria-hidden="true"></i>Languages</h3>
                     <div class="w3-container">
                         {% for lang in student.get_language %}
-                            <div class="w3-light-grey">
+                            <div class="w3-light-grey progress-level">
                                 <div class="w3-container w3-blue w3-center" style="width:{{lang.level}}%">{{lang.name}}</div>
                             </div>
-                            <br>
                         {% empty %}
                             <h4>No languages</h4>
                         {% endfor %}      
                     </div>
-                    <br>
 
                     <h3 class="topic"><i class="fa fa-deaf" aria-hidden="true"></i>Skills</h3>
                     <div class="w3-container">
                         {% for skill in student.get_skill %}
-                            <div class="w3-light-grey">
+                            <div class="w3-light-grey progress-level">
                                 <div class="w3-container w3-blue w3-center" style="width:{{skill.level}}%">{{skill.name}}</div>
                             </div>
-                            <br> {% empty %}
+                        {% empty %}
                             <h4>No skills</h4>
                         {% endfor %}
                     </div>
-                    <br>
 
                     <h3 class="topic"><i class="fa fa-gamepad" aria-hidden="true"></i>Hobbies</h3>
                     <ul class="content">
@@ -144,7 +141,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-            </div>
+            </div>    
         </div>
     </div>
 {% endblock resume_template %}

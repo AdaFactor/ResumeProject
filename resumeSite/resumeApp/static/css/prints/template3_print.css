@@ -41,7 +41,7 @@
     }
     
     #bg-left {
-        min-height: auto;
+        height: 297mm;
         background-color: grey;
         text-align: center;
     }
