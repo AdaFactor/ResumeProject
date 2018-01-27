@@ -32,21 +32,23 @@
             </div>
             
             <div class="date-letter">
-                <label>25 มีนาคม 2561</label><br><br>
+            <label>{{letter.date}}</label><br><br>
             </div>
             
             <div>
                 <label>เรื่อง สมัครงานสหกิจศึกษา</label>
                 <br>
-                <label>เรียน ผู้จัดการฝ่ายทรัพยากรบุคคล บริษัท เอด้าแฟคเตอร์ จํากัด</label>
+                <label>เรียน {{letter.person_name}}, {{letter.company_name}}</label>
             </div>
             
             <div>
-                <label>สิ่งที่แนบมาด้วย </label>
-                <label>1. จดหมายสมัครงานสหกิจศึกษา</label>
-                <label>2. ประวัติย่อ</label>
-                <label>3. สำเนาผลการศึกษา</label>
-                <label>4. สำเนาประกาศนียบัตร</label>
+                <label>สิ่งที่แนบมาด้วย </label><br>
+                {% for attach in letter.attachments %}
+                    <label> {{attach}} </label>
+                    <br>
+                {% empty %}
+                    <labeไม่มีการแนบเอกสาร ></label>
+                {% endfor %}
             </div>
             
             <div class="content">

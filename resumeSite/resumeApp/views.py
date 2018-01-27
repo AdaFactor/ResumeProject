@@ -67,11 +67,15 @@ def cv(request, cv_lang):
     '''
         View for CVs
     '''
+    context = query_student(1)
+
     if cv_lang == 'en':
         respons_html = ''.join(['resumeApp/cv_en.html'])
     else:
         respons_html = ''.join(['resumeApp/cv_th.html'])
-    context = {'cv_lang': cv_lang}
+    context.update({
+        'cv_lang': cv_lang,
+    })
 
     return render(request, respons_html, context)
 
@@ -97,10 +101,12 @@ def to_pdf_cv(request, cv_lang):
 
 
 def view_doc(request, doc_type):
+    context = query_student(1)
     html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
-    context = {
+    context.update({
         'number_of_template': np.arange(1, 4)
-    }
+    })
+    
     return render(request, html_file, context)
     
 

@@ -3,89 +3,37 @@
 {% block content %}
     <div class="view-cv">
         <ul class="ul-cv">
-            <li class="li-cv">
-                <a href="#">
-                    <div class="w3-row">
-                        <div class="w3-col m5">
-                            <h1 class="li-font-cv">CV Letter Thai</h1>
-                        </div>
-                        <div class="w3-col m7">
-                            <div class="container-tabel">
-                                <table>
-                                    <tr>
-                                        <td class="label-view-cv">นางสาว....... นามสกุล..........</td>
-                                        <td class="label-view-cv">วันที่ 25 มีนาคม 2561</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-view-cv">สาขาวิชาวิศวกรรมคอมพิวเตอร์</td>
-                                        <td class="label-view-cv">บริษัท xxxxxxxxxxxxxxxxxxxxxx จำกัด</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-view-cv">สำนักวิชาวิศวกรรมศาสตร์</td>
-                                        <td></td>
-                                    </tr>
-                                </table>
+            {% for letter in student.get_letter %}
+                <li class="li-cv">
+                    <a href= {% url 'resumeApp:cv' 'th' %}>
+                        <div class="w3-row">
+                            <div class="w3-col m5">
+                                <h1 class="li-font-cv">CV Letter Thai</h1>
+                            </div>
+                            <div class="w3-col m7">
+                                <div class="container-tabel">
+                                    <table>
+                                        <tr>
+                                            <td class="label-view-cv"> {{student.first_name}} {{student.last_name}} </td>
+                                            <td class="label-view-cv"> {{letter.date}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-view-cv">สาขาวิชา {{student.education.major.branch.branch.name|first}}</td>
+                                            <td class="label-view-cv">บริษัท {{letter.company_name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label-view-cv">สำนักวิชา{{student.education.major.major_name|first}}</td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </li>
-            
-            <li class="li-cv">
-                <a href="#">
-                    <div class="w3-row">
-                        <div class="w3-col m5">
-                            <h1 class="li-font-cv">CV Letter Thai</h1>
-                        </div>
-                        <div class="w3-col m7">
-                            <div class="container-tabel">
-                                <table>
-                                    <tr>
-                                        <td class="label-view-cv">นางสาว....... นามสกุล..........</td>
-                                        <td class="label-view-cv">วันที่ 25 มีนาคม 2561</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-view-cv">สาขาวิชาวิศวกรรมคอมพิวเตอร์</td>
-                                        <td class="label-view-cv">บริษัท xxxxxxxxxxxxxxxxxxxxxx จำกัด</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-view-cv">สำนักวิชาวิศวกรรมศาสตร์</td>
-                                        <td></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
-
-            <li class="li-cv">
-                <a href="#">
-                    <div class="w3-row">
-                        <div class="w3-col m5">
-                            <h1 class="li-font-cv">CV Letter Thai</h1>
-                        </div>
-                        <div class="w3-col m7">
-                            <div class="container-tabel">
-                                <table>
-                                    <tr>
-                                        <td class="label-view-cv">นางสาว....... นามสกุล..........</td>
-                                        <td class="label-view-cv">วันที่ 25 มีนาคม 2561</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-view-cv">สาขาวิชาวิศวกรรมคอมพิวเตอร์</td>
-                                        <td class="label-view-cv">บริษัท xxxxxxxxxxxxxxxxxxxxxx จำกัด</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="label-view-cv">สำนักวิชาวิศวกรรมศาสตร์</td>
-                                        <td></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </li>
+                    </a>
+                </li>
+            {% empty %}
+                <h3>ไม่มีจดหมายสมัครงาน CV</h3>
+            {% endfor %}
         </ul>
     </div>
 
