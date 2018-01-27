@@ -34,9 +34,14 @@
                             <b> {{exp.time_period}} </b>
                             <br>
                             <b>{{exp.company_name}} {{exp.position}}</b>
-                            <p>
-                                {{exp.role|linebreaks}}
-                            </p>
+                            <ul>
+                                {% for role in exp.get_role_list %}
+                                    <li>{{role}}</li>
+                                {% empty %}
+                                    <li>No description</li>
+                                {% endfor %}
+                            </ul>
+                                
                         {% empty %}
                             <h4>No experience</h4>
                         {% endfor %}

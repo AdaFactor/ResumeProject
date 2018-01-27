@@ -76,6 +76,12 @@ class Experience(models.Model):
     role = models.TextField(max_length=400, blank=True)
     time_period = models.CharField(max_length=32)
 
+
+    def get_role_list(self):
+        role = self.role
+        role_list = filter(None, role.split('-'))
+        return role_list
+
     def __str__(self):
         return self.company_name
 
