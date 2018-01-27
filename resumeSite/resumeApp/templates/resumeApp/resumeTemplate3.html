@@ -25,7 +25,7 @@
                         <b>Marital Status: </b>
                         <label class="info-profile">Single</label><br>
                         <b>ADDRESS: </b>
-                        <label class="info-profile">{{student.get_address}}</label><br>
+                        <label class="info-profile">{{student.address.all|first}}</label><br>
                         <b>PHONE: </b>
                         <ul class="content">
                             {% for phone in student.phone_no %}
@@ -95,7 +95,7 @@
                 <div class="col-container">
                     <h2 class="topic-right"><b>EDUCATION</b></h2>
                     <div class="timeline">
-                        {% for edu in student.get_education %}
+                        {% for edu in student.education.all %}
                             <div class="column">
                                 <div class="title">
                                     <h3><b> {{edu.time_period}} </b></h3>
@@ -116,15 +116,19 @@
 
                     <h2 class="topic-right"><b>WORK EXPERIENCE</b></h2>
                     <div class="timeline">
-                        {% for exp in student.get_experience %}
+                        {% for exp in student.experience.all %}
                             <div class="column">
                                 <div class="title">
                                     <h3><b> {{exp.time_period}} </b></h3>
                                     <h4><b> {{exp.company_name}} <br> {{exp.position}} </b></h4>
                                 </div>
-                                <p>
-                                    {{exp.role|linebreaks}}
-                                </p>
+                                <ul class="content">
+                                    {% for role in exp.get_role_list %}
+                                        <li>{{role}}</li>
+                                    {% empty %}
+                                        <li>No description</li>                                    
+                                    {% endfor %}
+                                </ul>
                             </div>
                         {% empty %}
                             <h4>No Experience</h4>

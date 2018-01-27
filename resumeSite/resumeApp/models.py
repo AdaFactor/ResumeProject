@@ -162,21 +162,6 @@ class Student(models.Model):
         return [] if objs.count() < 1 else [ obj for obj in objs ]
 
 
-    def get_address(self):
-        address = self.address.all()
-        return self.get_m2m_or_empty(address)[0]
-
-
-    def get_experience(self):
-        experience = self.experience.all()
-        return self.get_m2m_or_empty(experience)
-
-
-    def get_education(self):
-        education = self.education.all()
-        return self.get_m2m_or_empty(education)
-
-
     def get_letter(self):
         letter = self.letter.all()
         return self.get_m2m_or_empty(letter)

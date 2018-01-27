@@ -30,7 +30,7 @@
                 <div class="col m7 col-content-l">
                     <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
                     <div class="col-container">
-                        {% for exp in student.get_experience %}
+                        {% for exp in student.experience.all %}
                             <b> {{exp.time_period}} </b>
                             <br>
                             <b>{{exp.company_name}} {{exp.position}}</b>
@@ -48,7 +48,7 @@
                     </div>
                     
                     <h3 class="topic"><i class="fa fa-university" aria-hidden="true"></i>Education</h3>
-                        {% for edu in student.get_education %}
+                        {% for edu in student.education.all %}
                             <div class="col-container">
                                 <div class="col-education-l">
                                     <b> {{edu.time_period}} </b>
@@ -112,7 +112,7 @@
                             <li>No Email address</li>
                             {% endfor %}
                         </ul>
-                        <b>ADDRESS: </b><label>{{student.get_address}}</label>
+                        <b>ADDRESS: </b><label>{{student.address.all|first}}</label>
                     </div>
                     
                     <h3 class="topic"><i class="fa fa-language" aria-hidden="true"></i>Languages</h3>
