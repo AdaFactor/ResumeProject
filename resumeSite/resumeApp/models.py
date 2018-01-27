@@ -4,10 +4,10 @@ from django.contrib.postgres.fields import ArrayField
 
 class Address(models.Model):
     address_no = models.CharField(max_length=10)
-    village_building = models.CharField(max_length=64, blank=True)
+    village_building = models.CharField(max_length=64, blank=True, null=True)
     village_no = models.CharField(max_length=3)
-    alley = models.CharField(max_length=20)
-    road = models.CharField(max_length=20)
+    alley = models.CharField(max_length=20, blank=True, null=True)
+    road = models.CharField(max_length=20, blank=True, null=True)
     sub_area = models.CharField(max_length=20)
     area = models.CharField(max_length=20)
     province = models.CharField(max_length=20)
@@ -34,7 +34,7 @@ class Language(models.Model):
         ('a', 'Advanced'),
         ('p', 'Proficiency'),
     )
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=32)
     level = models.CharField(max_length=1, choices=LEVEL, default='b')
 
     def __str__(self):
@@ -49,7 +49,7 @@ class Skill(models.Model):
         ('a', 'Advanced'),
         ('p', 'Proficiency'),
     )
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=64)
     level = models.CharField(max_length=1, choices=LEVEL, default='b')
 
     def __str__(self):
@@ -57,11 +57,12 @@ class Skill(models.Model):
 
 
 class Letter(models.Model):
-    company_name = models.CharField(max_length=32)
-    person_name = models.CharField(max_length=32)
-    contents = ArrayField(models.CharField(max_length=500), size=10, default=list())
+    company_name = models.CharField(max_length=128)
+    person_name = models.CharField(max_length=64)
+    major = models.ForeignKey('Major', on_delete=models.CASCADE)
+    contents = ArrayField(models.TextField(max_length=1400), size=10, default=list())
     date = models.CharField(max_length=32, default="-/-/-")
-    time_period = models.CharField(max_length=20, default="xx/xx - yy/yy")
+    time_period = models.CharField(max_length=32, default="xx/xx - yy/yy")
     attachments = ArrayField(models.CharField(max_length=64), size=10, default=list())
     pub_date = models.DateTimeField(auto_now=True)
 
@@ -107,10 +108,10 @@ class Branch(models.Model):
 class Major(models.Model):
     major_name = models.CharField(max_length=64)
     branch = models.ForeignKey('Branch', on_delete=models.CASCADE)
-    course = models.ForeignKey('Course', on_delete=models.CASCADE,)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.major_name
+        return ', '.join([self.major_name, self.branch.branch_name, self.course.course_name])
 
 
 class Education(models.Model):
@@ -147,7 +148,7 @@ class Student(models.Model):
     experience = models.ManyToManyField('Experience', related_name='student_experience')
     activity = ArrayField(models.CharField(max_length=32), size=10)
     hobbie = ArrayField(models.CharField(max_length=32), size=10)
-    letter = models.ManyToManyField('Letter', related_name='student_letter')
+    letter = models.ManyToManyField('Letter', related_name='student_letter', blank=True, null=True)
     pub_date = models.DateTimeField(auto_now=True)
 
 
