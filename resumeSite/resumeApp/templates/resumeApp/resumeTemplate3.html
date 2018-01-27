@@ -101,58 +101,43 @@
                                     <h4> {{edu.academy_name}} </h4>
                                 </div>
                                 <div class="description">
-                                    <p>{{edu.major.major_name}}</p>
+                                    <p> 
+                                        {{edu.major.major_name}}, {{edu.major.branch.branch_name}}
+                                        <br />
+                                        ( {{edu.major.course.course_name}} )
+                                    </p>
                                 </div>
                             </div>
                         {% empty %}
-                        
+                            <h4>No Education</h4>
                         {% endfor %}
-                        
-                            
-                        <div class="column">
-                            <div class="title">
-                                <h3> Time period </h3>
-                                <h4> University / School, <br> County  </h4>
-                            </div>
-                            <div class="description">
-                                <p> Major </p>
-                            </div>
-                        </div>
                     </div>
 
                     <h2 class="topic-right">WORK EXPERIENCE</h2>
                     <div class="timeline">
-                        <div class="column">
-                            <div class="title">
-                                <h3> 1 Jan 2017 - 31 JAN 2017 </h3>
-                                <h4> JAVA Company Co, td.,<br> Web Developer</h4>
+                        {% for exp in student.get_experience %}
+                            <div class="column">
+                                <div class="title">
+                                    <h3> {{exp.time_period}} </h3>
+                                    <h4> {{exp.company_name}} <br> {{exp.position}}</h4>
+                                </div>
+                                <p>
+                                    {{exp.role|linebreaks}}
+                                </p>
                             </div>
-                            <ul class="content">
-                                <li>Design and Develop Web Application with PHP, HTML5, CSS, JavaScript</li> 
-                                <li>Build high quality of software solutions</li>
-                                <li>Communicate and maintain good relationship with the team and users to ensure smooth delivery of the projects and support systems</li>
-                                <li>Work as Back-End and Front-End developer</li>
-                            </ul>
-                        </div>
-                            
-                        <div class="column">
-                            <div class="title">
-                                <h3> Time period </h3>
-                                <h4> Company Name, <br> Position  </h4>
-                            </div>
-                            <ul class="content">
-                                <li>Role</li> 
-                            </ul>
-                        </div>
+                        {% empty %}
+                            <h4>No Experience</h4>
+                        {% endfor %}
+                        
                     </div>
 
                     <h2 class="topic-right">REFERECES</h2>
                     <div class="refereces">
-                        <b>Ada Factor</b>
+                        <b> {{student.reference.advisor_name}} </b>
                         <ul class="content">
-                            <li>Founder, ADA FACTOR</li>
-                            <li>08-xxxx-xxxx</li>
-                            <li>adafactor@gmail.com</li>                                    
+                            <li> {{student.reference.position}}, {{student.reference.affiliation}}</li>
+                            <li>{{student.reference.phone_no}}</li>
+                            <li>{{student.reference.email|first}}</li>                                    
                         </ul>
                     </div>
                 </div>
