@@ -9,7 +9,7 @@
 {% endblock style %}
 
 {% block download %} {% if is_pdf_view is not True %}
-    <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf_cv/{{cv_lang}}">
+    <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf_cv/{{cv_lang}}/{{cv_id}}">
         Download as PDF
     </a>
 {% endif %} {% endblock download %}
@@ -19,9 +19,9 @@
     <div class="page">
         <div class="form-thai">
             <div class="head-letter">
-                <label>สาขาวิชาวิศวกรรมคอมพิวเตอร์</label>
+                <label>สาขาวิชา {{letter.major.branch.branch_name}} </label>
                 <br>
-                <label>สำนักวิชาวิศวกรรมศาสตร์</label>
+                <label>สำนักวิชา {{letter.major.major_name}}</label>
                 <br>
                 <label>มหาวิทยาลัยเทคโนโลยีสุรนารี</label>
                 <br> 
@@ -44,25 +44,21 @@
             <div>
                 <label>สิ่งที่แนบมาด้วย </label><br>
                 {% for attach in letter.attachments %}
-                    <label> {{attach}} </label>
+                    <label class="attachment">{{forloop.counter}}. {{attach}} </label>
                     <br>
                 {% empty %}
                     <labeไม่มีการแนบเอกสาร ></label>
                 {% endfor %}
             </div>
             
-            <div class="content">
-                <p>ด้วยมหาวิทยาลัยเทคโนโลยีสุรนารีได้จัดให้นักศึกษามีการออกปฏิบัติงานสหกิจศึกษาในภาคการศึกษาที่ 1/2561 ดิฉันนางสาวเพียงพลอย บุญเกิด อายุ 22 ปี นักศึกษาชั้นปีที่ 4 สาขาวิชาวิศวกรรมคอมพิวเตอร์ สำนักวิชาวิศวกรรมศาสตร์ มีความสนใจของสมัครงานในตำแหน่ง โปรแกรมเมอร์ ด้วยเหตุผลดังนี้คือ</p>
-            </div>
-            <div class="content">
-                <p>ประการแรกบริษัทของท่านเป็นบริษัทชั้นนำที่มีชื่อเสียงเป็นที่รู้จักโดยทั่วไปทั้งในประเทศและต่างประเทศในด้านการออกแบบเว็บไซต์ และพัฒนาโปรแกรม วิเคราะห์ความต้องการของลูกค้าเพื่อนำมาออกแบบแผนงานและพัฒนาโปรแกรม</p>
-            </div>
-            <div class="content">
-                <p>ในระหว่างที่ศึกษาที่มหาวิทยาลัยดิฉันได้เข้ารับการอบรมหลักสูตรการพัฒนาบุคลิกภาพเข้าร่วมกิจกรรม “Coaching for Changmakers Camp#2” และเป็นนักศึกษาจ้างงานของหน่วยการเรียนรู้ภาษาอังกฤษ มหาวิทยาลัยเทคโนโลยีสุรนารี ซี่งนอกจากความรู้ที่ได้รับแล้ว ดิฉันยังได้แลกเปลี่ยนความรู้กับเพื่อนต่างสาขาวิชา ทำให้รู้จักการปรับตัวเข้ากับสังคม สามารถทำงานร่วมกับผู้อื่นได้อย่างมีประสิทธิภาพ</p>
-            </div>
-            <div class="content">
-                <p>ด้วยเหตุผลดังกล่าวดิฉันจึงมีความมั่นใจเป็นอย่างมากว่าจะสามารถนำความรู้และประสบการณ์ที่ได้รับ มาประยุกต์ใช้ในการปฏิบัติงานตามที่ได้รับมอบหมายอย่างสุดความสามารถ และดิฉันยินดีที่จะให้สัมภาษณ์และให้ข้อมูลเพิ่มเติมหากท่านต้องการ</p>
-            </div>
+            {% for paragraph in letter.contents %}
+                <div class="content">
+                    <p> {{paragraph}} </p>
+                </div>
+            {% empty %}
+                <p>ไม่มีข้อมูล</p>
+            {% endfor %}
+
             <div class="content">
                 <p>จึงเรียนมาเพื่อโปรดพิจารณา</p>
             </div>
@@ -70,16 +66,23 @@
             <div class="signature">
                 <div class="sub-signature">
                     <label>ขอแสดงความนับถือ</label>
-                    <br><br>
-                    <label>(นางสาวเพียงพลอย บุญเกิด)</label>
+                    <br>
+                    <label>({{student.first_name}} {{student.last_name}})</label>
                 </div>
             </div>
             <br>
             
             <div>
-                <label>โทรศัพท์ : 08-xxxx-xxxx</label>
+                <label>
+                    โทรศัพท์ : 
+                    {% for phone in student.phone_no %}
+                        {{phone}} 
+                    {% empty %}
+                        ไม่มีเบอร์โทรศัพท์
+                    {% endfor %}
+                </label>
                 <br>
-                <label>E-mail Address : aaaaaa@gmail.com</label>
+                <label>อีเมล : {{student.email|last}} </label>
             </div>
             
         </div>

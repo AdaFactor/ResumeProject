@@ -63,11 +63,12 @@ def to_pdf(request, template_no):
     return response
 
 
-def cv(request, cv_lang):
+def cv(request, cv_lang, cv_id):
     '''
         View for CVs
     '''
     context = query_student(1)
+    letter = context['student'].letter.get(id=cv_id)
 
     if cv_lang == 'en':
         respons_html = ''.join(['resumeApp/cv_en.html'])
@@ -75,18 +76,29 @@ def cv(request, cv_lang):
         respons_html = ''.join(['resumeApp/cv_th.html'])
     context.update({
         'cv_lang': cv_lang,
+        'cv_id': cv_id,
+        'letter': letter
     })
 
     return render(request, respons_html, context)
 
 
-def to_pdf_cv(request, cv_lang):
+def to_pdf_cv(request, cv_lang, cv_id):
     '''
         Generata pdf for CVs
     '''
+    context = query_student(1)
+    letter = context['student'].letter.get(id=cv_id)
+    context.update({
+        'cv_lang': cv_lang,
+        'cv_id': cv_id,
+        'letter': letter,
+        'is_pdf_view': True
+    })
+
     html_file = ''.join(['resumeApp/cv_', cv_lang, '.html'])
     font_config = FontConfiguration()
-    html_string = render_to_string(html_file, {'is_pdf_view': True})
+    html_string = render_to_string(html_file, context)
     html = HTML(string=html_string, base_url=request.build_absolute_uri())
     css = [
         CSS(css_dir + '/screens/common_style.css'),
