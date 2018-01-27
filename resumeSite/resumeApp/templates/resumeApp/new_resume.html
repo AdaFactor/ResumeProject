@@ -12,6 +12,7 @@
         <h1 class="head-topic-resume">Resume</h1>
         <div class="w3-row">
             <form class="new-form" action="#" method='post'>
+                {% csrf_token %}
                 <div class="w3-col m6">
                     <div class="form-new">
                         <div class="w3-row">
@@ -34,7 +35,7 @@
                                     <label for="id_age">Age:</label>
                                     <input type="number" name="age" value="0" min="0" required="" id="id_age">
                                 </div>
-                            </div>
+                            </div>/
                         </div>
 
                         <div class="w3-row">

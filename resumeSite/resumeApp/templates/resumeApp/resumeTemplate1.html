@@ -31,10 +31,10 @@
                     <label>Single</label>
                     <br>
                     <label class="text-bold">ADDRESS: </label>
-                    <label>{{student.get_address}}</label>
+                    <label>{{student.address.all|first}}</label>
                     <br>
                     <label class="text-bold">PHONE: </label>
-                    <ul>
+                    <ul class="content">
                         {% for phone in student.phone_no %}
                         <li>{{phone}}</li>
                         {% empty %}
@@ -42,7 +42,7 @@
                         {% endfor %}
                     </ul>
                     <label class="text-bold">E-MAIL: </label>
-                    <ul>
+                    <ul class="content">
                         {% for e in student.email %}
                         <li>{{e}}</li>
                         {% empty %}
@@ -110,14 +110,18 @@
                 
 
                 <h3 class="topic-right"><b>WORK EXPERIENCE</b></h3>
-                {% for exp in student.get_experience %}
+                {% for exp in student.experience.all %}
                     <div class="content-resume">
                         <label class="sub-topic-right"> {{exp.time_period}} </label>
                         <br>
                         <h4 class="text-bold"><b>{{exp.company_name}}, {{exp.position}}</b></h4>
-                        <p>
-                            {{exp.role|linebreaks}}
-                        </p>
+                        <ul class="content">
+                            {% for role in exp.get_role_list %}
+                                <li>{{role}}</li>
+                            {% empty %}
+                                <li>No description</li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 {% empty %}
                     <div class="content-resume">
@@ -127,7 +131,7 @@
     
                 <h3 class="topic-right"><b>EDUCATION</b></h3>
                 <div class="content-resume">
-                    {% for edu in student.get_education %}
+                    {% for edu in student.education.all %}
                         <div class="col-container">
                             <div class="col-education-l">
                                 <label class="sub-topic-right"> {{edu.time_period}} </label>
