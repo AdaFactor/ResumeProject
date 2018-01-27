@@ -16,7 +16,7 @@
                     <img class="img-logo" src="/static/images/sutLogo.png" alt="">
                 </div>
                 
-                <h3 id="bg-topic-left" class="topic-left">Personal Info</h3>
+                <h3 id="bg-topic-left" class="topic-left"><b>Personal Info</b></h3>
                 <div class="content-resume">
                     <label class="text-bold">Date of Birth:</label>
                     <label>{{student.birthday}}</label>
@@ -51,32 +51,30 @@
                     </ul>
                 </div>
         
-                <h3 id="bg-topic-left" class="topic-left">SKILLS</h3>
+                <h3 id="bg-topic-left" class="topic-left"><b>SKILLS</b></h3>
                 <div class="w3-container">
                     {% for sk in student.get_skill  %}
                         <div class="w3-light-grey">
                             <div class="w3-container w3-blue w3-center" style="width:{{sk.level}}%">{{sk.name}}</div>
-                        </div>
-                        <br>
+                        </div><br>
                     {% empty %}
                         <h4>No Skills</h4>
                     {% endfor %}
                 </div>
                 
-                <h3 id="bg-topic-left" class="topic-left">LANGUAGES</h3>
+                <h3 id="bg-topic-left" class="topic-left"><b>LANGUAGES</b></h3>
                 <div class="w3-container">
                     {% for lang in student.get_language %}
                         <div class="w3-light-grey">
                             <div class="w3-container w3-red w3-center" style="width:{{lang.level}}%"> {{lang.name}} </div>
-                        </div>
-                        <br>
+                        </div><br>
                     {% empty %}
                         <h4>No languages</h4>
                     {% endfor %}
                     
                 </div>
         
-                <h3 id="bg-topic-left" class="topic-left">HOBBIES</h3>
+                <h3 id="bg-topic-left" class="topic-left"><b>HOBBIES</b></h3>
                 <div class="content-resume">
                     <ul class="content">
                         {% for hobby in student.hobbie%}
@@ -103,7 +101,7 @@
             <div class="col">
                 <div class="background-head">
                     <div class="col">
-                        <h1 class="name">{{student.first_name}} {{student.last_name}}</h1>
+                        <h1 class="name"><b>{{student.first_name}} {{student.last_name}}</b></h1>
                     </div>
                     <div class="col">
                         <img class="img-resume" src="/static/images/user.png" alt="">
@@ -111,12 +109,12 @@
                 </div>
                 
 
-                <h3 class="topic-right">WORK EXPERIENCE</h3>
+                <h3 class="topic-right"><b>WORK EXPERIENCE</b></h3>
                 {% for exp in student.get_experience %}
                     <div class="content-resume">
                         <label class="sub-topic-right"> {{exp.time_period}} </label>
                         <br>
-                        <h4 class="text-bold">{{exp.company_name}}, {{exp.position}}</h4>
+                        <h4 class="text-bold"><b>{{exp.company_name}}, {{exp.position}}</b></h4>
                         <p>
                             {{exp.role|linebreaks}}
                         </p>
@@ -127,7 +125,7 @@
                     </div>
                 {% endfor %}
     
-                <h3 class="topic-right">EDUCATION</h3>
+                <h3 class="topic-right"><b>EDUCATION</b></h3>
                 <div class="content-resume">
                     {% for edu in student.get_education %}
                         <div class="col-container">
@@ -150,9 +148,9 @@
                     {% endfor %}
                 </div>
     
-                <h3 class="topic-right">REFERECES</h3>
+                <h3 class="topic-right"><b>REFERECES</b></h3>
                 <div class="content-resume">
-                    <h5 class="sub-topic-right"> {{student.reference.advisor_name}} </h5>
+                    <h5 class="sub-topic-right"><b> {{student.reference.advisor_name}} </b></h5>
                     <ul class="content">
                         <li>{{student.reference.position}}, {{student.reference.affiliation}}</li>
                         <li>{{student.reference.phone_no}}</li>

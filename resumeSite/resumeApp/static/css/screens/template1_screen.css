@@ -21,7 +21,6 @@
 }
 
 .col-education-r {
-    padding-left: 10px;
     display: table-cell;
     width: 75%;
 }
@@ -79,7 +78,7 @@
 
 #background-left {
     width: 100%;
-    min-height: auto;
+    min-height: 297mm;
     background-color: #9ccad8; 
 }
 
@@ -89,4 +88,8 @@
 
 .background-head {
     background-color: #c1e5f0;
+}
+
+.progress-level {
+    padding-bottom: 5px;
 }
