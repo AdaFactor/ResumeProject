@@ -154,7 +154,7 @@ class Student(models.Model):
     experience = models.ManyToManyField('Experience', related_name='student_experience')
     activity = ArrayField(models.CharField(max_length=32), size=10)
     hobbie = ArrayField(models.CharField(max_length=32), size=10)
-    letter = models.ManyToManyField('Letter', related_name='student_letter', blank=True, null=True)
+    letter = models.ManyToManyField('Letter', related_name='student_letter', blank=True)
     pub_date = models.DateTimeField(auto_now=True)
 
 
