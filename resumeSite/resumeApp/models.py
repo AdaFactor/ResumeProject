@@ -152,8 +152,8 @@ class Student(models.Model):
     language = models.ManyToManyField('Language', related_name='student_language')
     skill = models.ManyToManyField('Skill', related_name='student_skill')
     experience = models.ManyToManyField('Experience', related_name='student_experience')
-    activity = ArrayField(models.CharField(max_length=32), size=10)
-    hobbie = ArrayField(models.CharField(max_length=32), size=10)
+    activity = models.TextField(max_length=500)
+    hobbie = models.TextField(max_length=500)
     letter = models.ManyToManyField('Letter', related_name='student_letter', blank=True)
     pub_date = models.DateTimeField(auto_now=True)
 
