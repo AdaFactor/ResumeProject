@@ -98,7 +98,7 @@ class LetterForm(ModelForm):
                         'contents',
                     ),
                     Submit('save', 'Save', css_class='btn btn-success btn-block')  
-                ),              
+                ),           
             ),  
         )
         

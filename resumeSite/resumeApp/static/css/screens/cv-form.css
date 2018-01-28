@@ -1,11 +1,13 @@
 body {
+    width: 100%;    
     background: none;
 }
 
 .form-container {
+    bottom: 0;
     padding-top: 6em;
     margin: 0 auto;
-    width: 70%;
+    width: 90%;
 }
 
 fieldset {
@@ -13,7 +15,6 @@ fieldset {
     margin: 0;
     min-width: 0;
     padding: 10px;       
-    position: relative;
     border-radius: 4px;
     background-color: rgba(245, 245, 245, 0.267);
     padding-left: 10px !important;
