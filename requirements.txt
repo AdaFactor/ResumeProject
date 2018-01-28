@@ -4,6 +4,7 @@ cffi==1.11.4
 cssselect2==0.2.1
 defusedxml==0.5.0
 Django==2.0.1
+django-crispy-forms==1.7.0
 django-grappelli==2.10.1
 docutils==0.14
 html5lib==1.0.1

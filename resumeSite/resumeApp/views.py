@@ -7,6 +7,7 @@ from django.conf import settings
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 from resumeApp.models import Student
+from  resumeApp.forms import StudentForm, LetterForm
 import numpy as np
 import os
 
@@ -123,6 +124,13 @@ def view_doc(request, doc_type):
     
 
 def new_doc(request, doc_type):
+    if request.POST:
+        return HttpResponse(request.POST['first_name'])
+
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
-    return render(request, html_file)
+    if doc_type == 'resume':
+        form = StudentForm
+    else:
+        form = LetterForm
+    return render(request, html_file, {'form': form})
     

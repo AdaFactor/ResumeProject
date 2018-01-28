@@ -166,7 +166,7 @@ class Student(models.Model):
             'a': 80,
             'p': 100
         }
-        origin_objs = self.get_m2m_or_empty(objs)
+        origin_objs = [ o for o in objs ]
         modified_objs = []
         if len(origin_objs) > 0:
             for obj in origin_objs:
