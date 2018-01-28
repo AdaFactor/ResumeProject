@@ -1,26 +1,66 @@
 from django.forms import ModelForm
 from .models import Student, Letter
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Field
-from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton
+from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div
+from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField
 
 class StudentForm(ModelForm):
     class Meta:
         model = Student
-        exclude = ['letter',]
+        fields = [
+            'first_name',
+            'last_name',
+            'address',
+            'phone_no',
+            'email',
+            'birthday',
+            'nationality',
+            'religion',
+            'age',
+            'education',
+            'reference',
+            'language',
+            'skill',
+            'experience',
+            'activity',
+            'hobbie',
+            'letter',
+        ]
     
     def __init__(self, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'POST'
-        self.helper.add_input(Submit('save', 'Save', css_class='btn-success'))
+        self.helper.form_action = 'new_doc'
         self.helper.form_class = 'form-horizontal'
-        self.helper.label_class = 'col-lg-2'
-        self.helper.field_class = 'col-lg-6'
+        self.helper.label_class = 'col-lg-4'
+        self.helper.field_class = 'col-lg-8'
         self.helper.layout = Layout(
-            'first_name',
-            'last_name',
-            'birthday',
+            Div(
+                Div(
+                    'first_name',
+                    'last_name',
+                    'birthday',
+                    'age',
+                    'nationality',
+                    'religion',
+                    'phone_no',
+                    'email',
+                    'address',
+                    css_class='col-lg-5'
+                    ),
+                Div('education',
+                    'reference',
+                    'language',
+                    'skill',
+                    'experience',
+                    'activity',
+                    'hobbie',
+                    'letter',
+                    css_class='col-lg-6')
+                ,css_class='row-fluid'
+            ),
+            Submit('save', 'Save', css_class='btn btn-success btn-lg btn-block')
         )
 
 class LetterForm(ModelForm):
@@ -28,17 +68,17 @@ class LetterForm(ModelForm):
         model = Letter
         exclude = ['pub_date']
 
-        def __init__(self, *args, **kwargs):
-            super(LetterForm, self).__init__(*args, **kwargs)
-            self.helper = FormHelper()
-            self.helper.form_method = 'POST'
-            self.helper.add_input(Submit('save', 'Save', css_class='btn-success'))
-            self.helper.form_class = 'form-horizontal'
-            self.helper.label_class = 'col-lg-2'
-            self.helper.field_class = 'col-lg-6'
-            self.helper.layout = Layout(
-                'company_name',
-                'person_name',
-                'major',
-            )
+    def __init__(self, *args, **kwargs):
+        super(LetterForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'POST'
+        self.helper.add_input(Submit('save', 'Save', css_class='btn-success'))
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-lg-2'
+        self.helper.field_class = 'col-lg-6'
+        self.helper.layout = Layout(
+            'company_name',
+            'person_name',
+            'major',
+        )
         
