@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.conf import settings
+from django.utils import timezone
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 from resumeApp.models import Student
@@ -125,12 +126,19 @@ def view_doc(request, doc_type):
 
 def new_doc(request, doc_type):
     if request.POST:
-        return HttpResponse(request.POST['first_name'])
+        if doc_type == 'resume':
+            cform = StudentForm(request, data=request.POST)
+        else:
+            cform = LetterForm(request, data=request.POST)
+
+        if cform.is_valid():
+            cform.save()
+            return redirect('resumeApp:view_doc', doc_type=doc_type)
 
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
     if doc_type == 'resume':
-        form = StudentForm
+        form = StudentForm(request)
     else:
-        form = LetterForm
+        form = LetterForm(request)
     return render(request, html_file, {'form': form})
     

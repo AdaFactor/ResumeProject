@@ -27,11 +27,11 @@ class StudentForm(ModelForm):
             'letter',
         ]
     
-    def __init__(self, *args, **kwargs):
+    def __init__(self, request, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'POST'
-        self.helper.form_action = 'new_doc'
+        self.helper.form_action = 'resume'
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-lg-4'
         self.helper.field_class = 'col-lg-8'
@@ -47,11 +47,12 @@ class StudentForm(ModelForm):
                     'phone_no',
                     'email',
                     'address',
-                    css_class='col-lg-5'
-                    ),
-                Div('education',
+                    'education',
                     'reference',
                     'language',
+                    css_class='col-lg-5'
+                    ),
+                Div(
                     'skill',
                     'experience',
                     'activity',
