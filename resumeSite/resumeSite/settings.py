@@ -127,4 +127,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
-CRISPY_FAIL_SILENTLY = not DEBUG
