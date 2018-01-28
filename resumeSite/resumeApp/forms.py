@@ -36,8 +36,10 @@ class StudentForm(ModelForm):
         self.helper.label_class = 'col-lg-4'
         self.helper.field_class = 'col-lg-8'
         self.helper.layout = Layout(
-            Div(
-                Div(
+            Fieldset(
+                'Resume',
+                Div (
+                    Div(
                     'first_name',
                     'last_name',
                     'birthday',
@@ -52,17 +54,18 @@ class StudentForm(ModelForm):
                     'language',
                     css_class='col-lg-5'
                     ),
-                Div(
-                    'skill',
-                    'experience',
-                    'activity',
-                    'hobbie',
-                    'letter',
-                    css_class='col-lg-6')
-                ,css_class='row-fluid'
-            ),
-            Submit('save', 'Save', css_class='btn btn-success btn-lg btn-block')
-        )
+                    Div(
+                        'skill',
+                        'experience',
+                        'activity',
+                        'hobbie',
+                        'letter',
+                        css_class='col-lg-6')
+                    ,css_class='row-fluid'
+                ),
+                Submit('save', 'Save', css_class='btn btn-success btn-lg btn-block')
+                ),    
+            )
 
 class LetterForm(ModelForm):
     class Meta:
