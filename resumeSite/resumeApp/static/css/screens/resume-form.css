@@ -1,0 +1,9 @@
+body {
+    background: none;
+}
+
+.form-container {
+    padding-top: 8em;
+    margin: 0 auto;
+    width: 90%;
+}
