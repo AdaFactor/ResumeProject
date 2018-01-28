@@ -80,13 +80,25 @@ class LetterForm(ModelForm):
         super(LetterForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'POST'
-        self.helper.add_input(Submit('save', 'Save', css_class='btn-success'))
+        self.helper.form_action = 'new_doc'        
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-6'
         self.helper.layout = Layout(
-            Div(
-                'company_name',
-            )
+            Div (
+                Fieldset (
+                    'CV Letter',
+                    Field (
+                        'major',                        
+                        'date',
+                        'time_period',
+                        'attachments',
+                        'person_name',
+                        'company_name',
+                        'contents',
+                    ),
+                    Submit('save', 'Save', css_class='btn btn-success btn-block')  
+                ),              
+            ),  
         )
         
