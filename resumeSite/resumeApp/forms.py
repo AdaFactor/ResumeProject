@@ -42,7 +42,7 @@ class StudentForm(ModelForm):
                     Div(
                     'first_name',
                     'last_name',
-                    'birthday',
+                    Field('birthday', placeholder="dd/mm/yyyy"),
                     'age',
                     'nationality',
                     'religion',
@@ -66,6 +66,7 @@ class StudentForm(ModelForm):
                 Submit('save', 'Save', css_class='btn btn-success btn-lg btn-block')
                 ),    
             )
+            
 
 class LetterForm(ModelForm):
     class Meta:
