@@ -46,7 +46,6 @@ class LetterAdmin(admin.ModelAdmin):
         'contents',
         'date',
         'time_period',
-        'attachments',
         'pub_date',
     )
 
@@ -97,4 +96,10 @@ class StudentAdmin(admin.ModelAdmin):
         'activity',
         'hobbie',
         'pub_date',
+    )
+    
+@admin.register(Attachment)
+class AttachmentAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
     )

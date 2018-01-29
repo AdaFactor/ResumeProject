@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string
 from django.core.files.storage import FileSystemStorage
@@ -18,7 +18,7 @@ fonts_dir = os.getcwd() + '/resumeApp/static/fonts'
 
 
 def query_student(id):
-    student = Student.objects.get(id=id)
+    student = get_object_or_404(Student, id=id)
     context = {
         'student': student,
     }

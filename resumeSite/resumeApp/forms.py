@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, DateInput
 from .models import Student, Letter
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div
@@ -68,6 +68,11 @@ class StudentForm(ModelForm):
             )
             
 
+
+class DateInput(DateInput):
+    input_type = 'date'
+
+
 class LetterForm(ModelForm):
     class Meta:
         model = Letter
@@ -78,11 +83,15 @@ class LetterForm(ModelForm):
             'contents',
             'date',
             'time_period',
-            'attachments',
+            'attachment',
         ]
+        widgets = {
+            'date': DateInput()
+        }
 
     def __init__(self, request, *args, **kwargs):
         super(LetterForm, self).__init__(*args, **kwargs)
+        self.input_formats = ('%d/%m/%Y',)
         self.helper = FormHelper()
         self.helper.form_method = 'POST'
         self.helper.form_action = 'cv'        
@@ -97,7 +106,7 @@ class LetterForm(ModelForm):
                         'major',                        
                         'date',
                         'time_period',
-                        'attachments',
+                        'attachment',
                         'person_name',
                         'company_name',
                         'contents',

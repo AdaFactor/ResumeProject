@@ -56,14 +56,21 @@ class Skill(models.Model):
         return self.name
 
 
+class Attachment(models.Model):
+    name = models.CharField(max_length=64)
+
+    def __str__(self):
+        return self.name
+
+
 class Letter(models.Model):
     company_name = models.CharField(max_length=128)
     person_name = models.CharField(max_length=64)
     major = models.ForeignKey('Major', on_delete=models.CASCADE)
-    contents = ArrayField(models.TextField(max_length=1400), size=10, default=list())
-    date = models.CharField(max_length=32, default="-/-/-")
+    contents = models.TextField(max_length=5000)
+    date = models.DateField()
     time_period = models.CharField(max_length=32, default="xx/xx - yy/yy")
-    attachments = ArrayField(models.CharField(max_length=64), size=10, default=list())
+    attachment = models.ManyToManyField('Attachment', related_name='student_attachment', blank=True)
     pub_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
