@@ -17,6 +17,7 @@ css_dir = os.getcwd() + '/resumeApp/static/css'
 fonts_dir = os.getcwd() + '/resumeApp/static/fonts'
 
 test_id = Student.objects.all()[0].id
+# test_id = 1
 
 def query_student(id):
     student = get_object_or_404(Student, id=id)
