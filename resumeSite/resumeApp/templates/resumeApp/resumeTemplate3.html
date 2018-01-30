@@ -25,7 +25,7 @@
                         <b>Marital Status: </b>
                         <label class="info-profile">Single</label><br>
                         <b>ADDRESS: </b>
-                        <label class="info-profile">{{student.address.all|first}}</label><br>
+                        <label class="info-profile">{{student.address_en}}</label><br>
                         <b>PHONE: </b>
                         <ul class="content">
                             {% for phone in student.phone_no %}
@@ -36,8 +36,8 @@
                         </ul>
                         <b>E-MAIL: </b>
                         <ul class="content">
-                            {% for e in student.email %}
-                            <li>{{e}}</li>
+                            {% for email in student.email %}
+                            <li>{{email}}</li>
                             {% empty %}
                             <li>No Email Address</li>
                             {% endfor %}
@@ -71,7 +71,7 @@
                     <h2 class="topic-left"><b>HOBBIES</b></h2>
                     <div class="content-left">
                         <ul class="content">
-                            {% for hobby in student.hobbie %}
+                            {% for hobby in student.get_hobby %}
                                 <li>{{hobby}}</li>
                             {% empty %}
                                 <li>No Hobby</li>
@@ -85,7 +85,7 @@
             <div class="col-right">
                 <div class="col-container">
                     <div class="col-right">
-                        <h1><b>{{student.first_name}} {{student.last_name}}</b></h1>                        
+                        <h1><b>{{student.first_name_en}} {{student.last_name_en}}</b></h1>                        
                     </div>
                     <div class="col-left">
                         <img class="img-resume" src="/static/images/user.png" alt="">
