@@ -251,24 +251,10 @@ td {
 }
 
 /* new page */
-.content-resume {
-    margin-left: 30px;
-    margin-right: 20px; 
-    padding-top: 65px;
-    padding-bottom: 64px;        
-}
 
 .content-cv {
     padding-top: 65px;
     padding-bottom: 64px;    
-}
-
-.form-new {
-    width: auto;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    padding: 20px;
-    background-color: rgba(119, 119, 119, 0.445);
 }
 
 .form-cv {
@@ -278,16 +264,6 @@ td {
     margin-bottom: 20px;
     padding: 20px;
     background-color: rgba(119, 119, 119, 0.616);
-}
-
-.head-topic-resume {
-    color: white;
-    font-weight: bold;
-    width: auto;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: rgba(119, 119, 119, 0.445);
 }
 
 .head-topic-cv {
@@ -301,24 +277,11 @@ td {
     background-color: rgba(119, 119, 119, 0.616);
 }
 
-ul, li {
-    list-style: none;
-}
-
 label{
-    display: block;
     color: #fff;
     font-size: 20px;
     font-weight: bold;
     text-align-last: auto;
-    border-style: hidde;
-    border-width: 2px;      
-}
-
-.label-topic {
-    display: initial;
-    font-size: 20px;
-    font-weight: bold;
 }
 
 .label-cv {
@@ -328,15 +291,10 @@ label{
     margin-right: 10px;
 }
 
-.please-specify {
-    display: initial;
-    width: 500px;
-}
-
 input {
-    width: 95%;
-    margin-bottom: 15px;
-    padding: 0px 2px;
+    width: 100%;
+    padding: 0px 5px;
+    color: #000000;
     font-size: 18px;
     border: 2px #fff solid;
     border-radius: 3px;
@@ -393,7 +351,7 @@ textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-    border: 2px solid rgb(255, 72, 0);
+    border: 2px solid #7997ef;
     background-color: rgb(245, 245, 245);
 }
 
