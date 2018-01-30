@@ -2,28 +2,28 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 
-class Address(models.Model):
-    address_no = models.CharField(max_length=10)
-    village_building = models.CharField(max_length=64, blank=True, null=True)
-    village_no = models.CharField(max_length=3)
-    alley = models.CharField(max_length=20, blank=True, null=True)
-    road = models.CharField(max_length=20, blank=True, null=True)
-    sub_area = models.CharField(max_length=20)
-    area = models.CharField(max_length=20)
-    province = models.CharField(max_length=20)
-    postcode = models.CharField(max_length=5)
-    pub_date = models.DateTimeField(auto_now=True)
+# class Address(models.Model):
+#     address_no = models.CharField(max_length=10)
+#     village_building = models.CharField(max_length=64, blank=True, null=True)
+#     village_no = models.CharField(max_length=3)
+#     alley = models.CharField(max_length=20, blank=True, null=True)
+#     road = models.CharField(max_length=20, blank=True, null=True)
+#     sub_area = models.CharField(max_length=20)
+#     area = models.CharField(max_length=20)
+#     province = models.CharField(max_length=20)
+#     postcode = models.CharField(max_length=5)
+#     pub_date = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return ' '.join([
-        self.address_no, 
-        self.village_building,
-        'หมู่ '+self.village_no,
-        'ต.'+self.sub_area,
-        'อ.'+self.area,
-        'จ.'+self.province,
-        self.postcode
-    ])
+#     def __str__(self):
+#         return ' '.join([
+#         self.address_no, 
+#         self.village_building,
+#         'หมู่ '+self.village_no,
+#         'ต.'+self.sub_area,
+#         'อ.'+self.area,
+#         'จ.'+self.province,
+#         self.postcode
+#     ])
 
 
 class Language(models.Model):
@@ -145,14 +145,28 @@ class Education(models.Model):
     
 
 class Student(models.Model):
-    first_name = models.CharField(max_length=32)
-    last_name = models.CharField(max_length=32)
-    address = models.ManyToManyField('Address', related_name='student_address')
+    religion_choice = (
+        ('b', 'Buddistsm'),
+        ('c', 'Christians'),
+        ('h', 'Hinduism'),
+    )
+
+    gender_choice = (
+        ('m', 'Male'),
+        ('f', 'Female'),
+    )
+    first_name_th = models.CharField(max_length=32)
+    last_name_th = models.CharField(max_length=32)
+    first_name_en = models.CharField(max_length=32)
+    last_name_en = models.CharField(max_length=32)
+    address_th = models.TextField(max_length=640)
+    address_en = models.TextField(max_length=640)
+    gender = models.CharField(max_length=1, choices=gender_choice)
     phone_no = ArrayField(models.CharField(max_length=10), size=2)
     email = ArrayField(models.CharField(max_length=32), size=2)
-    birthday = models.CharField(max_length=10)
+    birthday = models.DateField()
     nationality = models.CharField(max_length=16)
-    religion = models.CharField(max_length=16)
+    religion = models.CharField(max_length=16, choices=religion_choice, blank=True, null=True)
     age = models.IntegerField(default=0)
     education = models.ManyToManyField('Education', related_name='student_education')
     reference = models.ForeignKey('Reference', on_delete=models.CASCADE)
@@ -160,7 +174,7 @@ class Student(models.Model):
     skill = models.ManyToManyField('Skill', related_name='student_skill')
     experience = models.ManyToManyField('Experience', related_name='student_experience')
     activity = models.TextField(max_length=500)
-    hobbie = models.TextField(max_length=500)
+    hobby = models.TextField(max_length=500)
     letter = models.ManyToManyField('Letter', related_name='student_letter', blank=True)
     pub_date = models.DateTimeField(auto_now=True)
 
@@ -182,17 +196,20 @@ class Student(models.Model):
                 modified_objs.append(obj)
         return modified_objs
 
-
     def get_skill(self):
         skill = self.skill.all()
         return self.level_to_number(skill)
-        
 
     def get_language(self):
         language = self.language.all()
         return self.level_to_number(language)
 
+    def get_hobby(self):
+        return filter(None, self.hobby.split('-'))
+
+    def get_activity(self):
+        return filter(None, self.activity.split('-'))
 
     def __str__(self):
-        return ' '.join([self.first_name, self.last_name])
+        return ' '.join([self.first_name_th, self.last_name_th])
     

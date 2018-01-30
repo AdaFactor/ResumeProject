@@ -17,22 +17,6 @@ class BranchAdmin(admin.ModelAdmin):
     list_display = ('branch_name',)
 
 
-@admin.register(Address)
-class AddressAdmin(admin.ModelAdmin):
-    list_display = (
-        'address_no',
-        'village_building',
-        'village_no', 
-        'alley',
-        'road',
-        'sub_area',
-        'area',
-        'province',
-        'postcode', 
-        'pub_date',
-    )
-
-
 @admin.register(Language, Skill)
 class LanguageAndSkillAdmin(admin.ModelAdmin):
     list_display = ('name', 'level')
@@ -84,8 +68,11 @@ class EducationAdmin(admin.ModelAdmin):
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
     list_display = (
-        'first_name', 
-        'last_name', 
+        'id',
+        'first_name_th', 
+        'last_name_th',
+        'first_name_en',
+        'last_name_en',
         'phone_no',
         'email',
         'birthday', 
@@ -94,7 +81,7 @@ class StudentAdmin(admin.ModelAdmin):
         'age',
         'reference',
         'activity',
-        'hobbie',
+        'hobby',
         'pub_date',
     )
     

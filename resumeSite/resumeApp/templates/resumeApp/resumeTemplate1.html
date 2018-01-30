@@ -31,7 +31,7 @@
                     <label>Single</label>
                     <br>
                     <label class="text-bold">ADDRESS: </label>
-                    <label>{{student.address.all|first}}</label>
+                    <label>{{student.address_en}}</label>
                     <br>
                     <label class="text-bold">PHONE: </label>
                     <ul class="content">
@@ -77,7 +77,7 @@
                 <h3 id="bg-topic-left" class="topic-left"><b>HOBBIES</b></h3>
                 <div class="content-resume">
                     <ul class="content">
-                        {% for hobby in student.hobbie%}
+                        {% for hobby in  student.get_hobby%}
                             <li>{{hobby}}</li>
                         {% empty %}
                             <li>No hobby</li>
@@ -101,7 +101,7 @@
             <div class="col">
                 <div class="background-head">
                     <div class="col">
-                        <h1 class="name"><b>{{student.first_name}} {{student.last_name}}</b></h1>
+                        <h1 class="name"><b>{{student.first_name_en}} {{student.last_name_en}}</b></h1>
                     </div>
                     <div class="col">
                         <img class="img-resume" src="/static/images/user.png" alt="">
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                         <br />
-                    {% empty %}
+                    {% empty %}y
                         <h4>No Education</h4>
                     {% endfor %}
                 </div>

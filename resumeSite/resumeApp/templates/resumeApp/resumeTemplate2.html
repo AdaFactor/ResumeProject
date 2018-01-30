@@ -18,7 +18,7 @@
                     <img class="img-logo" src="/static/images/sutLogo.png" alt="">
                 </div>
                 <div class="col">
-                    <h1 class="head-name"><b> {{student.first_name}} {{student.last_name}}</b></h1>
+                    <h1 class="head-name"><b> {{student.first_name_en}} {{student.last_name_en}}</b></h1>
                 </div>
                 <div class="col">
                     <div class="w3-center"><img class="img-resume" src="/static/images/user.png" alt=""></div>                
@@ -69,8 +69,8 @@
                     
                     <h3 class="topic"><i class="fa fa-users" aria-hidden="true"></i>Activities</h3>
                     <ul class="content">
-                        {% for acti in student.activity %}
-                            <li>{{acti}}</li>
+                        {% for activity in student.get_activity %}
+                            <li>{{activity}}</li>
                         {% empty %}
                             <li>No Activity</li>
                         {% endfor %}
@@ -106,13 +106,13 @@
                         </ul>
                         <b>EMAIL: </b>
                         <ul>
-                            {% for e in student.email %}
-                            <li>{{e}}</li>
+                            {% for email in student.email %}
+                            <li>{{email}}</li>
                             {% empty %}
                             <li>No Email address</li>
                             {% endfor %}
                         </ul>
-                        <b>ADDRESS: </b><label>{{student.address.all|first}}</label>
+                        <b>ADDRESS: </b><label>{{student.address_en}}</label>
                     </div>
                     
                     <h3 class="topic"><i class="fa fa-language" aria-hidden="true"></i>Languages</h3>
@@ -139,7 +139,7 @@
 
                     <h3 class="topic"><i class="fa fa-gamepad" aria-hidden="true"></i>Hobbies</h3>
                     <ul class="content">
-                        {% for hobby in student.hobbie %}
+                        {% for hobby in student.get_hobby %}
                             <li>{{hobby}}</li>
                         {% empty %}
                             <li>No hobby</li>

@@ -4,13 +4,18 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div
 from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField
 
+
 class StudentForm(ModelForm):
     class Meta:
         model = Student
         fields = [
-            'first_name',
-            'last_name',
-            'address',
+            'first_name_th',
+            'last_name_th',
+            'address_th',
+            'first_name_en',
+            'last_name_en',
+            'address_en',
+            'gender',
             'phone_no',
             'email',
             'birthday',
@@ -23,7 +28,7 @@ class StudentForm(ModelForm):
             'skill',
             'experience',
             'activity',
-            'hobbie',
+            'hobby',
             'letter',
         ]
     
@@ -35,31 +40,41 @@ class StudentForm(ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-lg-4'
         self.helper.field_class = 'col-lg-8'
+
+        self.fields['first_name_en'].label = 'Firstname<br>( English )'
+        self.fields['last_name_en'].label = 'Lastname<br>( English )'
+        self.fields['first_name_th'].label = 'Firstname<br>( Thai )'
+        self.fields['last_name_th'].label = 'Lastname<br>( Thai )'
+        self.fields['address_en'].label = 'Address<br>( English )'
+        self.fields['address_th'].label = 'Address<br>( Thai )'
         self.helper.layout = Layout(
             Fieldset(
                 'Resume',
                 Div (
                     Div(
-                    'first_name',
-                    'last_name',
-                    Field('birthday', placeholder="dd/mm/yyyy"),
-                    'age',
-                    'nationality',
-                    'religion',
-                    'phone_no',
-                    'email',
-                    'address',
-                    'education',
-                    'reference',
-                    'language',
+                        'first_name_en',
+                        'last_name_en',
+                        Field('birthday', placeholder="dd/mm/yyyy"),
+                        'age',
+                        'gender',
+                        'nationality',
+                        'religion',
+                        'phone_no',
+                        'email',
+                        'address_en',
+                        'education',
+                        'reference',
+                        'language',
                     css_class='col-lg-5'
                     ),
                     Div(
+                        'first_name_th',
+                        'last_name_th',
+                        'address_th',
                         'skill',
                         'experience',
                         'activity',
-                        'hobbie',
-                        'letter',
+                        'hobby',
                         css_class='col-lg-6')
                     ,css_class='row-fluid'
                 ),
