@@ -5,6 +5,10 @@ from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div
 from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField
 
 
+class DateInput(DateInput):
+    input_type = 'date'
+    
+
 class StudentForm(ModelForm):
     class Meta:
         model = Student
@@ -31,6 +35,9 @@ class StudentForm(ModelForm):
             'hobby',
             'letter',
         ]
+        widgets = {
+            'birthday': DateInput()
+        }
     
     def __init__(self, request, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
@@ -81,11 +88,6 @@ class StudentForm(ModelForm):
                 Submit('save', 'Save', css_class='btn btn-success btn-lg btn-block')
                 ),    
             )
-            
-
-
-class DateInput(DateInput):
-    input_type = 'date'
 
 
 class LetterForm(ModelForm):

@@ -32,7 +32,7 @@
             </div>
             
             <div class="date-letter">
-            <label>{{letter.date}}</label><br><br>
+            <label>{{letter.get_th_date}}</label><br><br>
             </div>
             
             <div>
@@ -43,15 +43,15 @@
             
             <div>
                 <label>สิ่งที่แนบมาด้วย </label><br>
-                {% for attach in letter.attachments %}
-                    <label class="attachment">{{forloop.counter}}. {{attach}} </label>
+                {% for attachment in letter.attachment.all %}
+                    <label class="attachment">{{forloop.counter}}. {{attachment}} </label>
                     <br>
                 {% empty %}
                     <labeไม่มีการแนบเอกสาร ></label>
                 {% endfor %}
             </div>
             
-            {% for paragraph in letter.contents %}
+            {% for paragraph in letter.get_contents %}
                 <div class="content">
                     <p> {{paragraph}} </p>
                 </div>

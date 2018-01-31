@@ -1,5 +1,9 @@
 {% extends "./base_site.html" %}
 
+{% block title %}
+    SUT | CVs
+{% endblock title %}
+
 {% block content %}
     <div class="view-cv">
         <ul class="ul-cv">
@@ -13,10 +17,17 @@
                             <div class="w3-col m7">
                                 <div class="container-tabel">
                                     <table>
-                                        <tr>
-                                            <td class="label-view-cv"> {{student.first_name}} {{student.last_name}} </td>
-                                            <td class="label-view-cv"> {{letter.date}} </td>
-                                        </tr>
+                                        {% if letter.language == 'TH' %}
+                                            <tr>
+                                                <td class="label-view-cv"> {{student.first_name_th}} {{student.last_name_th}} </td>
+                                                <td class="label-view-cv"> {{letter.date}} </td>
+                                            </tr>
+                                        {% else %}
+                                            <tr>
+                                                <td class="label-view-cv"> {{student.first_name_en}} {{student.last_name_en}} </td>
+                                                <td class="label-view-cv"> {{letter.date}} </td>
+                                            </tr>
+                                        {% endif %}
                                         <tr>
                                             <td class="label-view-cv">สาขาวิชา {{letter.major.branch.branch_name}}</td>
                                             <td class="label-view-cv">บริษัท {{letter.company_name}}</td>
