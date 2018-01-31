@@ -21,6 +21,7 @@ from resumeApp.views import index
 urlpatterns = [
     # path('accounts/', include('django.contrib.auth.urls')),
     path('', index, name='index'),
+    path('authen/', include('AuthenApp.urls')),
     path('templates/', include('resumeApp.urls')),
     path('admin/', admin.site.urls),
     path('user/', include('AuthenApp.urls')),

@@ -3,17 +3,17 @@
 {% block authen_body %}
     <div id="container">
         <h1>Log In</h1>
-        {% comment %} <form method="POST">{% csrf_token %} {% endcomment %}
+        <form method="POST">{% csrf_token %}
             <input type="text" name="username" placeholder="Username">
             <input type="password" name="password" placeholder="Password">
             <p id="validate" class="valid"></p>
-            <a href="{% url 'resumeApp:index' %}">
+            <a href={% url 'index' %}>
                 <button class="loginBtn">Log in</button>
             </a>
             <div id="remember-container">
                 <span id="forget">Forget password</span>
             </div>
-        {% comment %} </form> {% endcomment %}
+        </form>
     </div>
     
     <!-- Forgotten Password Container -->

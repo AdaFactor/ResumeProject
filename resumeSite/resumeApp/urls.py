@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = "resumeApp"
+app_name = 'resumeApp'
 urlpatterns = [
     path('<str:template_no>/', views.templates, name='templates'),
     path('cv/<str:cv_lang>/<int:cv_id>', views.cv, name='cv'),
