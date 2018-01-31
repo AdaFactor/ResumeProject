@@ -64,6 +64,10 @@ class Attachment(models.Model):
 
 
 class Letter(models.Model):
+    language_choices = (
+        ('TH', 'Thai'),
+        ('EN', 'English'),
+    )
     company_name = models.CharField(max_length=128)
     person_name = models.CharField(max_length=64)
     major = models.ForeignKey('Major', on_delete=models.CASCADE)
@@ -71,7 +75,31 @@ class Letter(models.Model):
     date = models.DateField()
     time_period = models.CharField(max_length=32, default="xx/xx - yy/yy")
     attachment = models.ManyToManyField('Attachment', related_name='student_attachment', blank=True)
+    language = models.CharField(max_length=2, choices=language_choices, default='TH')
     pub_date = models.DateTimeField(auto_now=True)
+
+    def get_contents(self):
+        return filter(None, [ p for p in self.contents.split('#') ])
+
+    def get_th_date(self):
+        month = (
+            'มกราคม',
+            'กุมภาพันธ์',
+            'มีนาคม',
+            'เมษายน',
+            'พฤษภาคม',
+            'มิถุนายน',
+            'กรกฎาคม',
+            'สิงหาคม',
+            'กันยายน',
+            'ตุลาคม',
+            'พฤศจิกายน',
+            'ธันวาคม',
+        )
+        date = self.date
+        the_month = month[date.month-1]
+        thai_year = date.year + 543
+        return ('วันที่ %d %s %d') % (date.day, the_month, thai_year)
 
     def __str__(self):
         return self.company_name
