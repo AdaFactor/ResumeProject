@@ -19,16 +19,22 @@ i {
 
 .col {
     display: table-cell;
-}
-
-.col-content-l {
-    padding-right: 5px;    
-}
-
-.col-content-r {
-    /* background-color: powderblue; */
+    text-align: center;
     padding-left: 5px;
+}
+
+.col-l {
+    display: table-cell;
+    width: 55%;
     padding-right: 5px;    
+}
+
+.col-r {
+    display: table-cell;
+    width: 35%;
+    /* background-color: powderblue; */
+     padding-left: 5px;
+    /*padding-right: 5px;     */
 }
 
 .col-education-l {
@@ -41,7 +47,7 @@ i {
     width: 80%
 }
 
-.head-name {
+.name {
     color: #343b7d;
     font-weight: bold;
     text-align: center;
