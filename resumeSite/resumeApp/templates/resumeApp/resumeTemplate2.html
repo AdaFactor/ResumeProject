@@ -13,12 +13,12 @@
     <div class="page">
         <div class="w3-container">
             <!-- HEAD -->
-            <div class="row">
+            <div class="col-container">
                 <div class="col">
                     <img class="img-logo" src="/static/images/sutLogo.png" alt="">
                 </div>
-                <div class="col">
-                    <h1 class="head-name"><b> {{student.first_name_en}} {{student.last_name_en}}</b></h1>
+                <div class="col w3-center">
+                    <h1 class="name"><b> {{student.first_name_en}} {{student.last_name_en}}</b></h1>
                 </div>
                 <div class="col">
                     <div class="w3-center"><img class="img-resume" src="/static/images/user.png" alt=""></div>                
@@ -26,8 +26,8 @@
             </div>
                   
             <!-- CONTENT -->
-            <div class="row">
-                <div class="col m7 col-content-l">
+            <div class="col-container">
+                <div class="col-l">
                     <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
                     <div class="col-container">
                         {% for exp in student.experience.all %}
@@ -89,7 +89,7 @@
                 </div>
 
                 <!-- RIGHT -->
-                <div class="col m5 col-content-r">
+                <div class="col-r">
                     <h3 class="topic"><i class="fa fa-user" aria-hidden="true"></i>Personal Info</h3>
                     <div>
                         <b>Date of Birth: </b><label>{{student.birthday}}</label><br>
