@@ -24,4 +24,6 @@ urlpatterns = [
     path('authen/', include('AuthenApp.urls')),
     path('templates/', include('resumeApp.urls')),
     path('admin/', admin.site.urls),
+    path('user/', include('AuthenApp.urls')),
+    
 ]

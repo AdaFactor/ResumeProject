@@ -1,44 +1,53 @@
 {% extends "./base_site.html" %}
 
 {% block authen_body %}
-    <div id="container">
-        <h1>Log In</h1>
-        <form method="POST">{% csrf_token %}
-            <input type="text" name="username" placeholder="Username">
-            <input type="password" name="password" placeholder="Password">
-            <p id="validate" class="valid"></p>
-            <a href={% url 'index' %}>
-                <button class="loginBtn">Log in</button>
-            </a>
-            <div id="remember-container">
-                <span id="forget">Forget password</span>
+    <div class="tabs">
+        <div class="container">
+            <div class="tab-group">
+                <ul class="tab-links">
+                    <li class="active"><a href="#login" class="linkstab"><h1>Log In</h1></a></li>
+                    <li><a href="#signup" class="linkstab"><h1>Sign Up</h1></a></li>
+                </ul>
             </div>
-        </form>
-    </div>
+            
+            <div class="tab-content">
+                <div id="login" class="tab active">
+                    <form action="#" method="POST">
+                        <!-- <h1>Login</h1> -->
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="password" name="password" placeholder="Password">
+                        <button class="btn-forms">LOGIN</button>                
+                        <div class="remember-container">
+                            <a id="forget">Forgot password?</a>
+                        </div>
+                    </form>
+                </div>
     
-    <!-- Forgotten Password Container -->
-    <div id="forget-container">
-        <h1>Forget</h1>
-        <span class="btn-close">
-            <img src="https://png.icons8.com/small/32/000000/filled-cancel.png">
-        </span>
-    
-        <form>
-            <input type="email" name="email" placeholder="E-mail">
-            <a href="#" class="orange-btn">Get new password</a>
-        </form>
-    </div>
-    
-    <!-- Username or Password empty -->
-    <div id="empty-container">
-        <h1>Username or Password cannot empty</h1>
-        <span class="btn-close">
-            <img src="https://png.icons8.com/small/32/000000/filled-cancel.png">
-        </span>
+                <div id="signup" class="tab">
+                    <form action="#" method="POST">
+                        <!-- <h1>Sign up</h1> -->
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="text" name="email" placeholder="E-mail">
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="password" placeholder="Confirm Password">            
+                        <button class="btn-forms">SIGN UP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
-    {% comment %} <script type="text/javascript" src="/static/js/login.js"></script> {% endcomment %}
+    <script>
+        $(document).ready(function() {
+            $('.tabs .tab-links a').on('click', function(e)  {
+                var currentAttrValue = $(this).attr('href');
+                // Show/Hide Tabs
+                $('.tabs ' + currentAttrValue).show().siblings().hide();
+                // Change/remove current tab to active
+                $(this).parent('li').addClass('active').siblings().removeClass('active');
+                e.preventDefault();
+            });
+        });
+    </script>
 {% endblock authen_body %}
