@@ -38,7 +38,14 @@
             <div>
                 <label>เรื่อง สมัครงานสหกิจศึกษา</label>
                 <br>
-                <label>เรียน {{letter.person_name}}, {{letter.company_name}}</label>
+                <label>เรียน 
+                    {% if letter.position == 'ot' %}
+                        {{letter.position_other}},
+                    {% else %}
+                        {{letter.get_position_display}},
+                    {% endif %}
+                    {{letter.company_name}}
+                </label>
             </div>
             
             <div>

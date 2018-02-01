@@ -95,7 +95,8 @@ class LetterForm(ModelForm):
         model = Letter
         fields = [
             'company_name',
-            'person_name',
+            'position',
+            'position_other',
             'major',
             'language',
             'contents',
@@ -126,7 +127,8 @@ class LetterForm(ModelForm):
                         'date',
                         'time_period',
                         'attachment',
-                        'person_name',
+                        'position',
+                        'position_other',
                         'company_name',
                         'contents',
                     ),

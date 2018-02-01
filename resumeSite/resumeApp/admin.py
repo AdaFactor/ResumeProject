@@ -26,7 +26,8 @@ class LanguageAndSkillAdmin(admin.ModelAdmin):
 class LetterAdmin(admin.ModelAdmin):
     list_display = (
         'company_name',
-        'person_name',
+        'position',
+        'position_other',
         'contents',
         'date',
         'time_period',
