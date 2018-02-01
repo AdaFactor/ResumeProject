@@ -8,16 +8,21 @@
     <div class="view-cv">
         <ul class="ul-cv">
             {% for letter in student.letter.all %}
-                <li class="li-cv">
+            {% if letter.language == 'th' %}
+                <li class="li-cv li-cv-th">
+            {% else %}
+                <li class="li-cv li-cv-en">
+            {% endif %}
+                
                     <a href= {% url 'resumeApp:cv' letter.language letter.id%}>
                         <div class="w3-row">
                             <div class="w3-col m5">
-                                <h1 class="li-font-cv">CV Letter {{letter.language}}</h1>
+                                <h1 class="li-font-cv">CV Letter {{letter.language|upper}}</h1>
                             </div>
                             <div class="w3-col m7">
                                 <div class="container-tabel">
                                     <table>
-                                        {% if letter.language == 'TH' %}
+                                        {% if letter.language == 'th' %}
                                             <tr>
                                                 <td class="label-view-cv"> {{student.first_name_th}} {{student.last_name_th}} </td>
                                                 <td class="label-view-cv"> {{letter.get_th_date}} </td>
