@@ -49,3 +49,7 @@
 .attachment {
     margin-left: 1.5em;
 }
+
+.attachment > span{
+    margin-right: 2em;
+}

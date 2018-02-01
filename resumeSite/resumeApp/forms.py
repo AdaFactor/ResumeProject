@@ -97,6 +97,7 @@ class LetterForm(ModelForm):
             'company_name',
             'person_name',
             'major',
+            'language',
             'contents',
             'date',
             'time_period',
@@ -120,7 +121,8 @@ class LetterForm(ModelForm):
                 Fieldset (
                     'CV Letter',
                     Field (
-                        'major',                        
+                        'language',
+                        'major',                 
                         'date',
                         'time_period',
                         'attachment',
