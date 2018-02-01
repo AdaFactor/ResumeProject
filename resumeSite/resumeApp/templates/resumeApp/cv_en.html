@@ -28,16 +28,15 @@
             <br><br>
             
             <label>{{letter.date|date:"F j Y"}}</label><br><br>
-            {% comment %} <label>October 6, 2017</label><br><br> {% endcomment %}
             
             <div>
                 <label>Human Resources and Training Division</label>
                 <br>
-                <label>Mitsubishi Motor (Thailand) Co., Ltd.</label>
+                <label> {{letter.company_name}} </label>
             </div>
             
             <div>
-                <p>Dear {{letter.persone_name}}, {{letter.company_name}}</p>
+                <p>Dear Sir or Madam</p>
             </div>
             
             {% for paragraph in letter.get_contents %}
@@ -45,7 +44,7 @@
                     <p> {{paragraph}} </p>
                 </div>
             {% empty %}
-                <p>ไม่มีข้อมูล</p>
+                <p>No data</p>
             {% endfor %}
             
             <p>Sincerely,</p>
