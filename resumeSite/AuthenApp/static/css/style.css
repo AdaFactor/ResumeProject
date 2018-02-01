@@ -23,11 +23,25 @@ body {
     left: 0;
     right: 0;
     margin: auto;
+    padding: 0px;
+    width: 40%;
+    height: auto;
+    background: rgba(3, 3, 3, 0.3);
+    /* box-shadow: 1px 0px 5px #000;     */
+}
+
+.container-content {
+    position: absolute;    
+    top: 35%;
+    left: 0;
+    right: 0;
+    margin: auto;
     padding: 20px 30px;
     width: 40%;
     height: auto;
-    background: rgba(3, 3, 3, 0.301);
-    box-shadow: 1px 1px 50px #000;
+    /* border: 2px solid rgb(68, 68, 68); */
+    background: rgba(3, 3, 3, 0.3);
+    box-shadow: 2px 2px 20px #000;
 }
 
 /* Style the tab */
@@ -35,22 +49,6 @@ body {
     width: 100%;
     margin: 0px 0px;
 }
-/* 
-.tab-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    text-align: center;
-}
-
-.tab-links li a {
-    display: block;
-    text-decoration: none;
-    padding: 15px;
-    float: left;
-    width: 50%;
-} */
 
 .tabs {
     width: 100%;
@@ -77,7 +75,7 @@ body {
     text-align: center;
     width: 100%;        
     color: #ffffff;
-    border-radius: 6px;
+    background-color: rgba(3, 3, 3, 0.3);    
     transition: all linear 0.15s;
 }
 
@@ -86,12 +84,13 @@ body {
 }
 
 li.active a, li.active a:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(3, 3, 3, 0);
+    box-shadow: 2px 0px 10px #000;
 }
 
     /*----- Content of Tabs -----*/
 .tab-content {
-    border-radius:3px;
+    border-radius: 0px;
 }
 
 .tab {
@@ -102,7 +101,7 @@ li.active a, li.active a:hover {
     display:block;
 }
 
-h1 {
+h2 {
     text-align: center;
     color: white;
     font-weight: bold;
@@ -113,18 +112,6 @@ label {
     font-size: 20px; 
     font-weight: bold;    
 }
-
-/* input {
-    width: 100%;
-    padding: 5px 10px;
-    margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.404);
-}
-
-input:focus {
-    border: solid rgb(255, 255, 255);
-    background-color: white;
-} */
 
 input, button{
     font-family: 'Open Sans Condensed', sans-serif;
@@ -153,12 +140,13 @@ input:focus {
 }
 
 .btn-forms {
+    cursor: pointer;
     border-radius: 40px;
     background-color: rgb(76, 182, 0); 
 }
 
 .btn-forms:hover {
-    opacity: 0.9;
+    box-shadow: 1px 1px 20px #000;    
 }
 
 #forget {
@@ -171,49 +159,7 @@ input:focus {
     color: rgb(255, 255, 255);
 }
 
-/*h1 {
-    font-family: 'Open Sans Condensed', sans-serif;
-    position: relative;
-    margin-top: 10px;
-    text-align: center;
-    font-size: 40px;
-    color: #ddd;
-    text-shadow: 2px 2px 10px #000;
-}
-
-button, input{
-    font-family: 'Open Sans Condensed', sans-serif;
-    text-decoration: none;
-    position: relative;
-    width: 80%;
-    display: block;
-    margin: 9px auto;
-    font-size: 17px;
-    color: #fff;
-    padding: 8px;
-    border-radius: 6px;
-    border: none;
-    background: rgba(3,3,3,.1);
-
-}
-
-input:focus {
-    outline: none;
-    box-shadow: 3px 3px 10px #333;
-    background: rgba(3,3,3,1);
-}
-
-
-button {
-    font-family: 'Open Sans Condensed', sans-serif;
-    text-align: center;
-    padding: 4px 8px;
-    background: rgba(107,255,3, 0.6);
-}
-
-button:hover {
-    opacity: 0.9;
-}
+/*
 
 #remember-container{
     position: relative;
@@ -266,24 +212,6 @@ button:hover {
 
 .orange-btn:hover {
     opacity: 0.9;
-}
-
-.btn-close {
-    position: absolute;
-    cursor: pointer;
-    font-family: 'Open Sans Condensed', sans-serif;
-    line-height: 18px;
-    top: 3px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    border-radius: 10px;
-    opacity: .2;
-}
-
-.btn-close:hover {
-    opacity: .5;
 }
 
 #empty-container{
