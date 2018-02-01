@@ -9,7 +9,7 @@
 {% endblock style %}
 
 {% block download %} {% if is_pdf_view is not True %}
-    <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf_cv/{{cv_lang}}">
+    <a type="button" class="w3-btn w3-green w3-block" href="/templates/to_pdf_cv/{{cv_lang}}/{{cv_id}}">
         Download as PDF
     </a>
 {% endif %} {% endblock download %}
@@ -27,7 +27,8 @@
             <label>Muang, Nakhon Ratchasima 30000</label>
             <br><br>
             
-            <label>October 6, 2017</label><br><br>
+            <label>{{letter.date|date:"F j Y"}}</label><br><br>
+            {% comment %} <label>October 6, 2017</label><br><br> {% endcomment %}
             
             <div>
                 <label>Human Resources and Training Division</label>
@@ -36,17 +37,22 @@
             </div>
             
             <div>
-                <p>Dear Sir / Madam</p>
+                <p>Dear {{letter.persone_name}}, {{letter.company_name}}</p>
             </div>
             
-            <p>Paragraph 1..............................................................................................................
-                ............................................................................</p>
-            <p>Paragraph 2..............................................................................................................
-                    ............................................................................</p>
+            {% for paragraph in letter.get_contents %}
+                <div class="content">
+                    <p> {{paragraph}} </p>
+                </div>
+            {% empty %}
+                <p>ไม่มีข้อมูล</p>
+            {% endfor %}
             
             <p>Sincerely,</p>
             <br>
-            <p>(WIROJ PROMKEEREE)</p>
+            <p>
+            ( {{student.first_name_en}} {{student.last_name_en}} )
+            </p>
             <p>Enc. (2)</p>
             
         </div>

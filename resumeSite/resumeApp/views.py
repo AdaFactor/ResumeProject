@@ -13,11 +13,11 @@ import numpy as np
 import os
 
 template_dir = 'resumeApp/resumeTemplate'
-css_dir = os.getcwd() + '/resumeApp/static/css'
-fonts_dir = os.getcwd() + '/resumeApp/static/fonts'
+app_dir = os.path.dirname( os.path.realpath(__file__) )
+css_dir = app_dir + '/static/css'
+fonts_dir = app_dir + '/static/fonts'
 
-test_id = Student.objects.all()[0].id
-# test_id = 1
+test_id = Student.objects.order_by('-pub_date').first().id
 
 def query_student(id):
     student = get_object_or_404(Student, id=id)
@@ -72,7 +72,7 @@ def cv(request, cv_lang, cv_id):
         View for CVs
     '''
     context = query_student(test_id)
-    letter = context['student'].letter.get(id=cv_id)
+    letter = get_object_or_404(context['student'].letter, id=cv_id)
 
     if cv_lang == 'en':
         respons_html = ''.join(['resumeApp/cv_en.html'])

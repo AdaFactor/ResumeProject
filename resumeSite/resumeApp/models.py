@@ -65,8 +65,8 @@ class Attachment(models.Model):
 
 class Letter(models.Model):
     language_choices = (
-        ('TH', 'Thai'),
-        ('EN', 'English'),
+        ('th', 'Thai'),
+        ('en', 'English'),
     )
     company_name = models.CharField(max_length=128)
     person_name = models.CharField(max_length=64)
