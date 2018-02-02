@@ -2,30 +2,6 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 
-# class Address(models.Model):
-#     address_no = models.CharField(max_length=10)
-#     village_building = models.CharField(max_length=64, blank=True, null=True)
-#     village_no = models.CharField(max_length=3)
-#     alley = models.CharField(max_length=20, blank=True, null=True)
-#     road = models.CharField(max_length=20, blank=True, null=True)
-#     sub_area = models.CharField(max_length=20)
-#     area = models.CharField(max_length=20)
-#     province = models.CharField(max_length=20)
-#     postcode = models.CharField(max_length=5)
-#     pub_date = models.DateTimeField(auto_now=True)
-
-#     def __str__(self):
-#         return ' '.join([
-#         self.address_no, 
-#         self.village_building,
-#         'หมู่ '+self.village_no,
-#         'ต.'+self.sub_area,
-#         'อ.'+self.area,
-#         'จ.'+self.province,
-#         self.postcode
-#     ])
-
-
 class Language(models.Model):
     LEVEL = (
         ('b', 'Beginner'),
@@ -68,8 +44,14 @@ class Letter(models.Model):
         ('th', 'Thai'),
         ('en', 'English'),
     )
+    position_choices = (
+        ('dr', 'ผู้อำนวยการ'),
+        ('hr', 'ผู้จัดการฝ่ายทรัพยากรบุคคล'),
+        ('ot', 'อื่นๆ โปรดระบุ'),
+    )
     company_name = models.CharField(max_length=128)
-    person_name = models.CharField(max_length=64)
+    position = models.CharField(max_length=64, choices=position_choices, default='hr')
+    position_other = models.CharField(max_length=64, blank=True)
     major = models.ForeignKey('Major', on_delete=models.CASCADE)
     contents = models.TextField(max_length=5000)
     date = models.DateField()

@@ -211,9 +211,16 @@ body{
     border-radius: 5px;     
     padding-left: 20px;
     overflow: auto;
-    background-color: #058668;
     color: white;
     margin: 20px;
+}
+
+.li-cv-th {
+    background-color: #860554;
+}
+
+.li-cv-en {
+    background-color: #348605;
 }
 
 .li-font-cv {
@@ -222,7 +229,6 @@ body{
 
 .li-cv:hover {
     background: #00ab85;
-    /* border-left: 5px solid #ff0000;      */
     cursor: pointer;
 }
 
@@ -236,8 +242,6 @@ body{
 
 table {
     width: 100%;
-    border: 3px solid #00ab85;
-    border-right: 7px solid #00ab85;    
 	border-collapse: collapse;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -246,8 +250,8 @@ table {
 td {    
     padding: 10px;
     background-color: rgb(233, 233, 233);
-    border: 1px solid #00ab85;
-	color: rgb(0, 0, 0);
+    border: 1px solid #4b4a4a;
+	color: rgb(43, 43, 43);
 }
 
 /* new page */
