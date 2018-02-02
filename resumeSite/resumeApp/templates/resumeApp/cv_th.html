@@ -19,9 +19,9 @@
     <div class="page">
         <div class="form-thai">
             <div class="head-letter">
-                <label>สาขาวิชา {{letter.major.branch.branch_name}} </label>
+                <label>สาขาวิชา{{letter.major.branch.branch_name}} </label>
                 <br>
-                <label>สำนักวิชา {{letter.major.major_name}}</label>
+                <label>สำนักวิชา{{letter.major.major_name}}</label>
                 <br>
                 <label>มหาวิทยาลัยเทคโนโลยีสุรนารี</label>
                 <br> 
@@ -42,23 +42,21 @@
                     {% if letter.position == 'ot' %}
                         {{letter.position_other}},
                     {% else %}
-                        {{letter.get_position_display}},
+                        {{letter.get_position_display}} 
                     {% endif %}
                     {{letter.company_name}}
                 </label>
             </div>
             
             <div>
-                <label>สิ่งที่แนบมาด้วย </label><br>
-                <p class="attachment">
+                <label>สิ่งที่แนบมาด้วย  </label>
+                <label class="attachment">
                 {% for attachment in letter.attachment.all %}
-                    <span>
-                        {{forloop.counter}}. {{attachment}}
-                    </span>
+                    {{forloop.counter}}. {{attachment}} 
                 {% empty %}
                     <labe> ไม่มีการแนบเอกสาร </label>
                 {% endfor %}
-                </p>
+                </label>
             </div>
             
             {% for paragraph in letter.get_contents %}
@@ -76,7 +74,7 @@
             <div class="signature">
                 <div class="sub-signature">
                     <label>ขอแสดงความนับถือ</label>
-                    <br>
+                    <br><br>
                     <label>({{student.first_name_th}} {{student.last_name_th}})</label>
                 </div>
             </div>

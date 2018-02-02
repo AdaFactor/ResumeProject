@@ -61,7 +61,7 @@ class StudentForm(ModelForm):
                     Div(
                         'first_name_en',
                         'last_name_en',
-                        Field('birthday', placeholder="dd/mm/yyyy"),
+                        'birthday',
                         'age',
                         'gender',
                         'nationality',
@@ -130,7 +130,7 @@ class LetterForm(ModelForm):
                         'position',
                         'position_other',
                         'company_name',
-                        'contents',
+                        Field('contents', placeholder="Use # if you want a paragraph break (a new paragraph)"),
                     ),
                     Submit('save', 'Save', css_class='btn btn-success btn-block')  
                 ),           
