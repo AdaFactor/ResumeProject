@@ -216,21 +216,33 @@ body{
 }
 
 .li-cv-th {
-    background-color: #860554;
+    background-color: #525252;
+}
+
+.li-cv-th:hover {
+    background-color: #373737;
+    cursor: pointer;
+    box-shadow: 2px 2px 20px #000000;        
 }
 
 .li-cv-en {
-    background-color: #348605;
+    background-color: #ff6a00;
+}
+
+.li-cv-en:hover {
+    background-color: #e05e00;
+    cursor: pointer;
+    box-shadow: 2px 2px 20px #000000;        
 }
 
 .li-font-cv {
     font-weight: bold;
 }
 
-.li-cv:hover {
+/* .li-cv:hover {
     background: #00ab85;
     cursor: pointer;
-}
+} */
 
 .label-view-cv {
     padding-left: 10px;    
