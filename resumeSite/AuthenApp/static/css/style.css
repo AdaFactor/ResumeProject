@@ -119,7 +119,7 @@ p {
     color: white;
 }
 
-input, button{
+input, button {
     font-family: 'Open Sans Condensed', sans-serif;
     text-decoration: none;
     position: relative;
@@ -145,7 +145,12 @@ input:focus {
     float: right;
 }
 
+a {
+    text-decoration: none;    
+}
+
 .btn-forms {
+    text-align: center;
     cursor: pointer;
     border-radius: 40px;
     background-color: rgb(76, 182, 0); 
