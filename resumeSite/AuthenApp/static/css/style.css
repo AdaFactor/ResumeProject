@@ -39,6 +39,8 @@ body {
     padding: 20px 30px;
     width: 40%;
     height: auto;
+    border: 1px solid #030303;
+    border-top: rgba(3, 3, 3, 0.3);    
     /* border: 2px solid rgb(68, 68, 68); */
     background: rgba(3, 3, 3, 0.3);
     box-shadow: 2px 2px 20px #000;
@@ -84,8 +86,10 @@ body {
 }
 
 li.active a, li.active a:hover {
+    border: 1px solid #030303;
+    border-bottom: hsla(0, 0%, 1%, 0.3);        
     background-color: rgba(3, 3, 3, 0);
-    box-shadow: 2px 0px 10px #000;
+    box-shadow: 2px -2px 20px #000;
 }
 
     /*----- Content of Tabs -----*/
@@ -107,10 +111,8 @@ h2 {
     font-weight: bold;
 }
 
-label {
+p {
     color: white;
-    font-size: 20px; 
-    font-weight: bold;    
 }
 
 input, button{
