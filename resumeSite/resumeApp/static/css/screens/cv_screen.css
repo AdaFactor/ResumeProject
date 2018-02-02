@@ -35,7 +35,7 @@
 
 .content { 
     text-indent: 19mm;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .signature {
