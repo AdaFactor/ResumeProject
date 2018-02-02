@@ -42,23 +42,21 @@
                     {% if letter.position == 'ot' %}
                         {{letter.position_other}},
                     {% else %}
-                        {{letter.get_position_display}},
+                        {{letter.get_position_display}} 
                     {% endif %}
                     {{letter.company_name}}
                 </label>
             </div>
             
             <div>
-                <label>สิ่งที่แนบมาด้วย </label>
-                <p class="attachment">
+                <label>สิ่งที่แนบมาด้วย  </label>
+                <label class="attachment">
                 {% for attachment in letter.attachment.all %}
-                    <span>
-                        {{forloop.counter}}. {{attachment}}
-                    </span>
+                    {{forloop.counter}}. {{attachment}} 
                 {% empty %}
                     <labe> ไม่มีการแนบเอกสาร </label>
                 {% endfor %}
-                </p>
+                </label>
             </div>
             
             {% for paragraph in letter.get_contents %}

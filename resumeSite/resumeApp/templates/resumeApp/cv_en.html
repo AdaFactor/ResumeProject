@@ -40,9 +40,7 @@
             </div>
             
             {% for paragraph in letter.get_contents %}
-                <div class="content">
-                    <p> {{paragraph}} </p>
-                </div>
+                <p> {{paragraph}} </p>
             {% empty %}
                 <p>No data</p>
             {% endfor %}
