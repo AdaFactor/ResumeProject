@@ -46,6 +46,10 @@ body {
     box-shadow: 2px 2px 20px #000;
 }
 
+#forgotpassword {
+    display: none;
+}
+
 /* Style the tab */
 .tab-group{
     width: 100%;
@@ -115,7 +119,7 @@ p {
     color: white;
 }
 
-input, button{
+input, button {
     font-family: 'Open Sans Condensed', sans-serif;
     text-decoration: none;
     position: relative;
@@ -141,7 +145,12 @@ input:focus {
     float: right;
 }
 
+a {
+    text-decoration: none;    
+}
+
 .btn-forms {
+    text-align: center;
     cursor: pointer;
     border-radius: 40px;
     background-color: rgb(76, 182, 0); 

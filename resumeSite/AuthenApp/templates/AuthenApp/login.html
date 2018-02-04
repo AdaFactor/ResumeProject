@@ -13,10 +13,12 @@
         <div class="container-content">
             <div class="tab-content">
                 <div id="login" class="tab active">
-                    <form action="#" method="POST">
-                        <input type="text" name="username" placeholder="Username">
-                        <input type="password" name="password" placeholder="Password">
-                        <button class="btn-forms">LOGIN</button>                
+                    <form action="#" method="POST">{% csrf_token %}
+                        <input type="text" id="username" name="username" placeholder="Username">
+                        <input type="password" id="password" name="password" placeholder="Password">
+                        <a href={% url 'index' %}>
+                            <button type="submit" class="btn-forms" id="btn-login">LOGIN</button>
+                        </a>                
                         <div class="remember-container">
                             <a id="forget">Forgot password?</a>
                         </div>
@@ -24,12 +26,23 @@
                 </div>
     
                 <div id="register" class="tab">
-                    <form action="#" method="POST">
+                    <form action="#" method="POST">{% csrf_token %}
                         <input type="text" name="username" placeholder="Username">
                         <input type="text" name="email" placeholder="E-mail">
                         <input type="password" name="password" placeholder="Password">
                         <input type="password" name="password" placeholder="Confirm Password">            
-                        <button class="btn-forms">REGISTER</button>
+                        <a href="">
+                            <button class="btn-forms">REGISTER</button>                            
+                        </a>
+                    </form>
+                </div>
+
+                <div id="forgotpassword">
+                    <form action="">
+                        <h2>Forgot Password</h2>
+                        <p>Enter e-mail address to get password:</p>
+                        <input type="text" name="email" placeholder="E-mail">
+                        <button class="btn-forms">SENT TO EMAIL</button>                        
                     </form>
                 </div>
             </div>
@@ -38,16 +51,42 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
+    <script>        
+        $(document).ready(() => {
+            // tab login & register
             $('.tabs .tab-links a').on('click', function(e)  {
                 var currentAttrValue = $(this).attr('href');
                 // Show/Hide Tabs
                 $('.tabs ' + currentAttrValue).show().siblings().hide();
+
                 // Change/remove current tab to active
                 $(this).parent('li').addClass('active').siblings().removeClass('active');
                 e.preventDefault();
             });
+
+            // forget password
+            $('#forget').on('click', () => {
+                $('#login').hide(() => {
+                    $('#forgotpassword').show(() => {
+                        $('.tab-links li').removeClass('active');
+                    });
+                });
+            });
+
+            // login form
+            $('#btn-login').on('click', () => {
+                var user = $('#username').val();
+                var pass = $('#password').val();
+
+                if(user == "" || pass == ""){
+                    alert("username and password cannot null");
+                } else if (user == "sut" && pass == "1234") {
+                    alert("Success login");
+                } else {
+                    alert("No username or password");
+                }
+            });
         });
+
     </script>
 {% endblock authen_body %}

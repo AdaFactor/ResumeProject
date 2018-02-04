@@ -11,4 +11,20 @@
     <div class="form-container">
         {% crispy form %}        
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#id_position_other").attr("disabled", "disabled");
+
+            $('#id_position').change(function(){
+                if($(this).val() == "ot"){
+                    $("#id_position_other").removeAttr('disabled');
+                } else {
+                    $("#id_position_other").attr("disabled", "disabled"); 
+                }
+            });
+        });
+    </script>
 {% endblock content %}
+

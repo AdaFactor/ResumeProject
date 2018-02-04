@@ -29,3 +29,7 @@ legend{
     padding: 5px 5px 5px 10px; 
     background-color: #ffffff;
 }
+
+input[type=text]:disabled {
+    background-color: #ffffff4f;
+}
