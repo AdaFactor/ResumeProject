@@ -138,9 +138,12 @@ def new_doc(request, doc_type):
             return redirect('resumeApp:view_doc', doc_type=doc_type)
 
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
+    context = query_student(test_id)
     if doc_type == 'resume':
-        form = StudentForm(request)
+        form = StudentForm(request, instance=context['student'])
     else:
         form = LetterForm(request)
-    return render(request, html_file, {'form': form})
+    context.update({'form': form})
+    print(form.as_ul)
+    return render(request, html_file, context)
     
