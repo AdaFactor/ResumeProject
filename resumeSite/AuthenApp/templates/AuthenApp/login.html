@@ -25,14 +25,12 @@
                 </div>
     
                 <div id="register" class="tab">
-                    <form action="#" method="POST">{% csrf_token %}
+                    <form action={% url 'AuthenApp:new_user' %} method="POST">{% csrf_token %}
                         <input type="text" name="username" placeholder="Username" required>
                         <input type="email" name="email" placeholder="E-mail" required>
                         <input type="password" name="password" placeholder="Password" required>
-                        <input type="password" name="password" placeholder="Confirm Password" required>            
-                        <a href="">
-                            <button class="btn-forms">REGISTER</button>                            
-                        </a>
+                        <input type="password" name="re-password" placeholder="Confirm Password" required>            
+                        <button class="btn-forms">REGISTER</button>                            
                     </form>
                 </div>
 
