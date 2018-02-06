@@ -142,19 +142,16 @@ def new_doc(request, doc_type):
     if request.POST:
         if doc_type == 'resume':
             cform = StudentForm(request, data=request.POST)
+            if cform.is_valid():
+                new_student = cform.save(commit=False)
+                new_student.user_id = request.user.id
+                new_student.save()
         else:
             cform = LetterForm(request, data=request.POST)
+            if cform.is_valid():
+                cform.save()
 
-        if cform.is_valid():
-            new_student = cform.save(commit=False)
-            new_student.user_id = request.user.id
-            is_exists = Student.objects.filter(user_id = new_student.user_id).exists()
-            # if is_exists:
-            #     update_student = Student()
-            #     new_student.save()
-            # else:
-            new_student.save()
-            return redirect('resumeApp:view_doc', doc_type=doc_type)
+        return redirect('resumeApp:view_doc', doc_type=doc_type)
 
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
     context = query_student(request.user.id)
