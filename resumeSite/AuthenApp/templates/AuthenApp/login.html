@@ -74,18 +74,12 @@
                 });
             });
 
-            // login form
             $('#btn-login').on('click', () => {
                 var user = $('#username').val();
                 var pass = $('#password').val();
-
-                if(user == "sut" && pass == "1234"){
-                    alert("Success login"); 
-
-                } else if (user != "" || pass != ""){
-                    $(".invalidate").html("Invalidate!!");
+                if (user == "" || pass == ""){
+                    $(".invalidate").html("Username or Password can't leave blank");
                     return false;
-                    //alert("No username or passwprd");
                 }
             });
         });
