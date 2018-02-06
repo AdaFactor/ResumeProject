@@ -13,16 +13,10 @@
         <div class="container-content">
             <div class="tab-content">
                 <div id="login" class="tab active">
-<<<<<<< HEAD
-                    <form action={% url 'AuthenApp:authen_user' %} method="POST">{% csrf_token %}
-                        <input type="text" id="username" name="username" placeholder="Username">
-                        <input type="password" id="password" name="password" placeholder="Password">
-=======
                     <form action="#" method="POST">{% csrf_token %}
                         <input type="text" id="username" name="username" placeholder="Username" required>
                         <input type="password" id="password" name="password" placeholder="Password" required>
                         <p class="invalidate"></p>
->>>>>>> a828bfa05c0c2b570765f6b6cb038189c1c6eb22
                         <a href={% url 'index' %}>
                             <button type="submit" class="btn-forms" id="btn-login">LOGIN</button>
                         </a>                
