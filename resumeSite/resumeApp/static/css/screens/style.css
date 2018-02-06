@@ -404,3 +404,7 @@ input:focus, select:focus, textarea:focus {
     position: inherit;
 }
 
+.invalidate {
+    color: red;
+    font-style: italic;
+}
