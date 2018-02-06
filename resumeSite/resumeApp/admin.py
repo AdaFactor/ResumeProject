@@ -69,7 +69,7 @@ class EducationAdmin(admin.ModelAdmin):
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
+        'user_id',
         'first_name_th', 
         'last_name_th',
         'first_name_en',
