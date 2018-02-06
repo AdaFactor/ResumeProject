@@ -21,10 +21,10 @@
                 <li class="drop li-top right">
                     <a href="" class="dropbtn link-btn">
                         <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
-                        Username
+                            {{ user.username }}
                     </a>
                     <div class="dropdown-content">
-                        <a href="#" class="link-btn">LOG OUT</a>
+                        <a href={% url 'AuthenApp:logout' %} class="link-btn">LOG OUT</a>
                     </div>
                 </li>
             </ul>

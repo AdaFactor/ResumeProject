@@ -13,7 +13,7 @@
         <div class="container-content">
             <div class="tab-content">
                 <div id="login" class="tab active">
-                    <form action="#" method="POST">{% csrf_token %}
+                    <form action={% url 'AuthenApp:authen_user' %} method="POST">{% csrf_token %}
                         <input type="text" id="username" name="username" placeholder="Username">
                         <input type="password" id="password" name="password" placeholder="Password">
                         <a href={% url 'index' %}>
@@ -77,14 +77,6 @@
             $('#btn-login').on('click', () => {
                 var user = $('#username').val();
                 var pass = $('#password').val();
-
-                if(user == "" || pass == ""){
-                    alert("username and password cannot null");
-                } else if (user == "sut" && pass == "1234") {
-                    alert("Success login");
-                } else {
-                    alert("No username or password");
-                }
             });
         });
 

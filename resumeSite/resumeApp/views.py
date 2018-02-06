@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.template import TemplateDoesNotExist
+from django.template import TemplateDoesNotExist, RequestContext
 from django.template.loader import render_to_string
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
@@ -9,6 +9,7 @@ from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 from resumeApp.models import Student
 from  resumeApp.forms import StudentForm, LetterForm
+from django.contrib.auth.decorators import login_required
 import numpy as np
 import os
 
@@ -27,10 +28,12 @@ def query_student(id):
     return context
 
 
+@login_required
 def index(request):
     return render(request, 'resumeApp/index.html')
 
 
+@login_required
 def templates(request, template_no):
     '''
         View for templates
@@ -44,6 +47,7 @@ def templates(request, template_no):
         return redirect('/templates/view/resume')
 
 
+@login_required
 def to_pdf(request, template_no):
     '''
         Generate PDF file
@@ -67,6 +71,7 @@ def to_pdf(request, template_no):
     return response
 
 
+@login_required
 def cv(request, cv_lang, cv_id):
     '''
         View for CVs
@@ -87,6 +92,7 @@ def cv(request, cv_lang, cv_id):
     return render(request, respons_html, context)
 
 
+@login_required
 def to_pdf_cv(request, cv_lang, cv_id):
     '''
         Generata pdf for CVs
@@ -116,6 +122,7 @@ def to_pdf_cv(request, cv_lang, cv_id):
     return response
 
 
+@login_required
 def view_doc(request, doc_type):
     context = query_student(test_id)
     html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
@@ -126,6 +133,7 @@ def view_doc(request, doc_type):
     return render(request, html_file, context)
     
 
+@login_required
 def new_doc(request, doc_type):
     if request.POST:
         if doc_type == 'resume':
