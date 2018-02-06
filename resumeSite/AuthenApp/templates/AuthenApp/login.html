@@ -13,13 +13,11 @@
         <div class="container-content">
             <div class="tab-content">
                 <div id="login" class="tab active">
-                    <form action="#" method="POST">{% csrf_token %}
+                    <form action={% url 'AuthenApp:authen_user' %} method="POST">{% csrf_token %}
+                        <p class="invalidate"></p>
                         <input type="text" id="username" name="username" placeholder="Username" required>
                         <input type="password" id="password" name="password" placeholder="Password" required>
-                        <p class="invalidate"></p>
-                        <a href={% url 'index' %}>
-                            <button type="submit" class="btn-forms" id="btn-login">LOGIN</button>
-                        </a>                
+                        <button type="submit" class="btn-forms" id="btn-login">LOGIN</button>
                         <div class="remember-container">
                             <a id="forget">Forgot password?</a>
                         </div>
@@ -78,8 +76,8 @@
             $('#btn-login').on('click', () => {
                 var user = $('#username').val();
                 var pass = $('#password').val();
-                if (user != "" || pass != ""){
-                    $(".invalidate").html("Invalidate!!");
+                if (user == "" || pass == ""){
+                    $(".invalidate").html("Username or Password can't leave blank");
                     return false;
                 }
             });
