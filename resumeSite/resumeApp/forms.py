@@ -65,7 +65,6 @@ class StudentForm(ModelForm):
             'experience',
             'activity',
             'hobby',
-            'letter',
         ]
         widgets = {
             'birthday': DateInput()
@@ -126,6 +125,7 @@ class LetterForm(ModelForm):
     class Meta:
         model = Letter
         fields = [
+            'user_id',
             'company_name',
             'position',
             'position_other',

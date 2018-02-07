@@ -7,7 +7,7 @@
 {% block content %}
     <div class="view-cv">
         <ul class="ul-cv">
-            {% for letter in student.letter.all %}
+            {% for letter in letter.all %}
             {% if letter.language == 'th' %}
                 <li class="li-cv li-cv-th">
             {% else %}
