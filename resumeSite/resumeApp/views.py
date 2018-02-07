@@ -82,7 +82,7 @@ def cv(request, cv_lang, cv_id):
     '''
     context = query_student(request.user.id)
     letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
-    
+
     if cv_lang == 'en':
         respons_html = ''.join(['resumeApp/cv_en.html'])
     else:
@@ -94,6 +94,15 @@ def cv(request, cv_lang, cv_id):
     })
 
     return render(request, respons_html, context)
+
+@login_required
+def delete_cv(request, cv_id):
+    '''
+        Delete CVs
+    '''
+    letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
+    letter.delete()
+    return redirect('resumeApp:view_doc', doc_type='cv')
 
 
 @login_required
