@@ -33,3 +33,7 @@ legend{
 input[type=text]:disabled {
     background-color: #ffffff4f;
 }
+
+#dialog-education{
+    display: none;
+}
