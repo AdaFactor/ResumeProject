@@ -1,7 +1,7 @@
 from django.forms import ModelForm, DateInput, modelformset_factory
 from .models import Student, Letter, Experience
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div
+from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
 from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField
 
 
@@ -101,8 +101,24 @@ class StudentForm(ModelForm):
                         'email',
                         'address_en',
                         'education',
+                        Div(
+                            'education',
+                            css_id='dialog-education'
+                        ),
+                        FormActions(
+                            Button('add', '+ Add Education', css_class="btn-primary",
+                                data_dismiss="modal", aria_hidden="true"),
+                        ),
                         'reference',
+                        FormActions(
+                            Button('add', '+ Add Reference', css_class="btn-primary",
+                                data_dismiss="modal", aria_hidden="true"),
+                        ),
                         'language',
+                        FormActions(
+                            Button('add', '+ Add Language', css_class="btn-primary",
+                                data_dismiss="modal", aria_hidden="true"),
+                        ),
                     css_class='col-lg-5'
                     ),
                     Div(
@@ -110,7 +126,15 @@ class StudentForm(ModelForm):
                         'last_name_th',
                         'address_th',
                         'skill',
+                        FormActions(
+                            Button('add', '+ Add Skill', css_class="btn-primary",
+                                data_dismiss="modal", aria_hidden="true"),
+                        ),
                         'experience',
+                        FormActions(
+                            Button('add', '+ Add Experience', css_class="btn-primary",
+                                data_dismiss="modal", aria_hidden="true"),
+                        ),
                         'activity',
                         'hobby',
                         css_class='col-lg-6')
@@ -150,22 +174,50 @@ class LetterForm(ModelForm):
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-6'
         self.helper.layout = Layout(
-            Div (
-                Fieldset (
-                    'CV Letter',
-                    Field (
-                        'language',
-                        'major',                 
-                        'date',
-                        'time_period',
-                        'attachment',
-                        'position',
-                        'position_other',
-                        'company_name',
-                        Field('contents', placeholder="Use # if you want a paragraph break (a new paragraph)"),
-                    ),
-                    Submit('save', 'Save', css_class='btn btn-success btn-block')  
-                ),           
-            ),  
+            Fieldset (
+                'CV Letter',
+                Field (
+                    'language',
+                    'major',                 
+                    'date',
+                    'time_period',
+                    'attachment',
+                    'position',
+                    'position_other',
+                    'company_name',
+                    Field('contents', placeholder="Use # if you want a paragraph break (a new paragraph)"),
+                ),
+                Submit('save', 'Save', css_class='btn btn-success btn-block')  
+            ),            
         )
+
+# class EducationForm(ModelForm):
+#     class Meta:
+#         model = Education
+#         field = [
+#             'academy_name',
+#             'level',
+#             'major',
+#             'time_period',
+#         ]
+    
+#     def __init__(self, request, *args, **kwargs):
+#         super(EducationForm, self).__init__(*args, **kwargs)
+#         self.helper = FormHelper()
+#         self.helper.form_method = 'POST'
+#         self.helper.form_action = 'cv'        
+#         self.helper.form_class = 'form-horizontal'
+#         self.helper.label_class = 'col-lg-2'
+#         self.helper.field_class = 'col-lg-6'
+#         self.helper.layout = Layout(
+#             Fieldset(
+#                 'Education',
+#                 Field(
+#                     'academy_name',
+#                     'level',
+#                     'major',
+#                     'time_period',
+#                 )
+#             )
+        # )
         
