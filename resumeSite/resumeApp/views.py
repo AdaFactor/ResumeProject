@@ -18,13 +18,17 @@ app_dir = os.path.dirname( os.path.realpath(__file__) )
 css_dir = app_dir + '/static/css'
 fonts_dir = app_dir + '/static/fonts'
 
-test_id = Student.objects.order_by('-pub_date').first().id
+def query_student(user_id):
+    try:
+        student = Student.objects.get(user_id=user_id)
+        context = {
+            'student': student,
+        }
+    except Student.DoesNotExist:
+        context = {
+            'student': Student()
+        }
 
-def query_student(id):
-    student = get_object_or_404(Student, id=id)
-    context = {
-        'student': student,
-    }
     return context
 
 
@@ -40,7 +44,7 @@ def templates(request, template_no):
     '''
     try:
         respones_html = ''.join([template_dir, template_no, '.html'])
-        context = query_student(test_id)
+        context = query_student(request.user.id)
         context.update({'template_no': template_no})
         return render(request, respones_html, context)
     except TemplateDoesNotExist:
@@ -52,7 +56,7 @@ def to_pdf(request, template_no):
     '''
         Generate PDF file
     '''
-    context = query_student(test_id)
+    context = query_student(request.user.id)
     context.update({
         'template_no': template_no,
         'is_pdf_view': True
@@ -76,7 +80,7 @@ def cv(request, cv_lang, cv_id):
     '''
         View for CVs
     '''
-    context = query_student(test_id)
+    context = query_student(request.user.id)
     letter = get_object_or_404(context['student'].letter, id=cv_id)
 
     if cv_lang == 'en':
@@ -97,7 +101,7 @@ def to_pdf_cv(request, cv_lang, cv_id):
     '''
         Generata pdf for CVs
     '''
-    context = query_student(test_id)
+    context = query_student(request.user.id)
     letter = context['student'].letter.get(id=cv_id)
     context.update({
         'cv_lang': cv_lang,
@@ -124,7 +128,7 @@ def to_pdf_cv(request, cv_lang, cv_id):
 
 @login_required
 def view_doc(request, doc_type):
-    context = query_student(test_id)
+    context = query_student(request.user.id)
     html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
     context.update({
         'number_of_template': np.arange(1, 4)
@@ -138,20 +142,26 @@ def new_doc(request, doc_type):
     if request.POST:
         if doc_type == 'resume':
             cform = StudentForm(request, data=request.POST)
+            if cform.is_valid():
+                new_student = cform.save(commit=False)
+                new_student.user_id = request.user.id
+                new_student.save()
         else:
             cform = LetterForm(request, data=request.POST)
+            if cform.is_valid():
+                cform.save()
 
-        if cform.is_valid():
-            cform.save()
-            return redirect('resumeApp:view_doc', doc_type=doc_type)
+        return redirect('resumeApp:view_doc', doc_type=doc_type)
 
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
-    context = query_student(test_id)
+    context = query_student(request.user.id)
+
     if doc_type == 'resume':
         form = StudentForm(request, instance=context['student'])
     else:
         form = LetterForm(request)
+
     context.update({'form': form})
-    print(form.as_ul)
+
     return render(request, html_file, context)
     

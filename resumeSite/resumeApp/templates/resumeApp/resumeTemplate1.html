@@ -25,7 +25,7 @@
                     <label>{{student.nationality}}</label>
                     <br>
                     <label class="text-bold">Religion:</label>
-                    <label>{{student.religion}}</label>
+                    <label>{{student.get_religion_display}}</label>
                     <br>
                     <label class="text-bold">Marital Status:</label>
                     <label>Single</label>
@@ -147,7 +147,7 @@
                             </div>
                         </div>
                         <br />
-                    {% empty %}y
+                    {% empty %}
                         <h4>No Education</h4>
                     {% endfor %}
                 </div>

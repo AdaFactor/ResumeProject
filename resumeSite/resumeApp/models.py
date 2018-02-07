@@ -165,6 +165,7 @@ class Student(models.Model):
         ('m', 'Male'),
         ('f', 'Female'),
     )
+    user_id = models.IntegerField(primary_key=True)
     first_name_th = models.CharField(max_length=32)
     last_name_th = models.CharField(max_length=32)
     first_name_en = models.CharField(max_length=32)
