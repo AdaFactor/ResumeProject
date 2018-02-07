@@ -65,7 +65,6 @@ class StudentForm(ModelForm):
             'experience',
             'activity',
             'hobby',
-            'letter',
         ]
         widgets = {
             'birthday': DateInput()
@@ -150,22 +149,20 @@ class LetterForm(ModelForm):
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-6'
         self.helper.layout = Layout(
-            Div (
-                Fieldset (
-                    'CV Letter',
-                    Field (
-                        'language',
-                        'major',                 
-                        'date',
-                        'time_period',
-                        'attachment',
-                        'position',
-                        'position_other',
-                        'company_name',
-                        Field('contents', placeholder="Use # if you want a paragraph break (a new paragraph)"),
-                    ),
-                    Submit('save', 'Save', css_class='btn btn-success btn-block')  
-                ),           
-            ),  
+            Fieldset (
+                'CV Letter',
+                Field (
+                    'language',
+                    'major',                 
+                    'date',
+                    'time_period',
+                    'attachment',
+                    'position',
+                    'position_other',
+                    'company_name',
+                    Field('contents', placeholder="Use # if you want a paragraph break (a new paragraph)"),
+                ),
+                Submit('save', 'Save', css_class='btn btn-success btn-block')  
+            ),            
         )
         
