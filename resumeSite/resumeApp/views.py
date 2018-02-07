@@ -7,7 +7,7 @@ from django.conf import settings
 from django.utils import timezone
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
-from resumeApp.models import Student
+from resumeApp.models import Student, Letter
 from  resumeApp.forms import StudentForm, LetterForm
 from django.contrib.auth.decorators import login_required
 import numpy as np
@@ -81,8 +81,8 @@ def cv(request, cv_lang, cv_id):
         View for CVs
     '''
     context = query_student(request.user.id)
-    letter = get_object_or_404(context['student'].letter, id=cv_id)
-
+    letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
+    
     if cv_lang == 'en':
         respons_html = ''.join(['resumeApp/cv_en.html'])
     else:
@@ -102,7 +102,7 @@ def to_pdf_cv(request, cv_lang, cv_id):
         Generata pdf for CVs
     '''
     context = query_student(request.user.id)
-    letter = context['student'].letter.get(id=cv_id)
+    letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
     context.update({
         'cv_lang': cv_lang,
         'cv_id': cv_id,
@@ -128,7 +128,13 @@ def to_pdf_cv(request, cv_lang, cv_id):
 
 @login_required
 def view_doc(request, doc_type):
-    context = query_student(request.user.id)
+    if doc_type == 'resume':
+        context = query_student(request.user.id)
+    else:
+        context = {
+            'student': Student.objects.get(pk=request.user.id),
+            'letter': Letter.objects.filter(user_id=request.user.id)
+        }
     html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
     context.update({
         'number_of_template': np.arange(1, 4)
@@ -149,7 +155,11 @@ def new_doc(request, doc_type):
         else:
             cform = LetterForm(request, data=request.POST)
             if cform.is_valid():
-                cform.save()
+                new_letter = cform.save(commit=False)
+                new_letter.user_id = request.user.id
+                new_letter.save()
+            else:
+                print(cform.errors)
 
         return redirect('resumeApp:view_doc', doc_type=doc_type)
 

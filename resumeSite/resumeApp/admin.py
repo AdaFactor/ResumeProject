@@ -25,6 +25,8 @@ class LanguageAndSkillAdmin(admin.ModelAdmin):
 @admin.register(Letter)
 class LetterAdmin(admin.ModelAdmin):
     list_display = (
+        'id',
+        'user_id',
         'company_name',
         'position',
         'position_other',

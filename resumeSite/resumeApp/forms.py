@@ -125,6 +125,7 @@ class LetterForm(ModelForm):
     class Meta:
         model = Letter
         fields = [
+            'user_id',
             'company_name',
             'position',
             'position_other',

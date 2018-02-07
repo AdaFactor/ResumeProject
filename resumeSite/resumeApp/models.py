@@ -30,7 +30,7 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
-
+# 
 
 class Attachment(models.Model):
     name = models.CharField(max_length=64)
@@ -49,7 +49,7 @@ class Letter(models.Model):
         ('hr', 'ผู้จัดการฝ่ายทรัพยากรบุคคล'),
         ('ot', 'อื่นๆ โปรดระบุ'),
     )
-    user_id = models.IntegerField()
+    user_id = models.IntegerField(blank=True, null=True)
     company_name = models.CharField(max_length=128)
     position = models.CharField(max_length=64, choices=position_choices, default='hr')
     position_other = models.CharField(max_length=64, blank=True)
