@@ -33,7 +33,10 @@
                                             </tr>
                                             <tr>
                                                 <td class="label-view-cv">สำนักวิชา {{letter.major.major_name}}</td>
-                                                <td></td>
+                                                <td class="button-cv">
+                                                    <button class="button-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button class="button-delete"><i class="fa fa-remove"></i> Delete</button>
+                                                </td>
                                             </tr>
                                         {% else %}
                                             <tr>
@@ -46,7 +49,10 @@
                                             </tr>
                                             <tr>
                                                 <td class="label-view-cv">Institude of {{letter.major.major_name}}</td>
-                                                <td></td>
+                                                <td class="button-cv">
+                                                    <button class="button-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button class="button-delete"><i class="fa fa-remove"></i> Delete</button>
+                                                </td>
                                             </tr>
                                         {% endif %}
                                     </table>
