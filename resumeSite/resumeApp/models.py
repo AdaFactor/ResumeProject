@@ -49,6 +49,7 @@ class Letter(models.Model):
         ('hr', 'ผู้จัดการฝ่ายทรัพยากรบุคคล'),
         ('ot', 'อื่นๆ โปรดระบุ'),
     )
+    user_id = models.IntegerField()
     company_name = models.CharField(max_length=128)
     position = models.CharField(max_length=64, choices=position_choices, default='hr')
     position_other = models.CharField(max_length=64, blank=True)
@@ -186,7 +187,6 @@ class Student(models.Model):
     experience = models.ManyToManyField('Experience', related_name='student_experience')
     activity = models.TextField(max_length=500)
     hobby = models.TextField(max_length=500)
-    letter = models.ManyToManyField('Letter', related_name='student_letter', blank=True)
     pub_date = models.DateTimeField(auto_now=True)
 
 
@@ -216,10 +216,10 @@ class Student(models.Model):
         return self.level_to_number(language)
 
     def get_hobby(self):
-        return filter(None, self.hobby.split('-'))
+        return filter(None, self.hobby.split('#'))
 
     def get_activity(self):
-        return filter(None, self.activity.split('-'))
+        return filter(None, self.activity.split('#'))
 
     def __str__(self):
         return ' '.join([self.first_name_th, self.last_name_th])
