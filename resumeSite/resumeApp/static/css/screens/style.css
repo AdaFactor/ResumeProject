@@ -195,6 +195,10 @@ body{
 }
 
 /* view cv css */
+h3, h2 {
+    color: #fff;
+}
+
 .view-cv{
     width: 70%;
     margin: auto;

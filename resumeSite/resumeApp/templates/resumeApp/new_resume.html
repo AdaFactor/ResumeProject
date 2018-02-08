@@ -17,13 +17,13 @@
         {% comment %} modal Education {% endcomment %}
         <div class="modal fade" id="myEducation" role="dialog">
             <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header light-blue darken-3 white-text">
+                <form action="#" class="modal-content" method="POST">
+                    <div class="modal-header">
                         <h2 class="modal-title">Education</h2>
                     </div>
                     <div class="modal-body">
                         <input type="text" id="id_academy_name" placeholder="Academy Name" required>
-                        <Select id="id_level">
+                        <Select id="id_level_educaton">
                             <option value="el">Elementary</option>
                             <option value="se">Secondary</option>
                             <option value="un">Undergraduate</option>
@@ -36,18 +36,18 @@
                         <input type="text" id="id_time_period" placeholder="Time Period *(mm/yyyy - mm/yyyy)" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="education-save" data-dismiss="modal">Save</button>
+                        <button type="submit" class="btn btn-success" id="education-save">Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         {% comment %} modal Reference {% endcomment %}
         <div class="modal fade" id="myReference" role="dialog">
             <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header light-blue darken-3 white-text">
+                <form action="#" class="modal-content" method="POST">
+                    <div class="modal-header">
                         <h2 class="modal-title">Reference</h2>
                     </div>
                     <div class="modal-body">
@@ -58,18 +58,18 @@
                         <input type="text" id="id_email" placeholder="Email" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="reference-save" data-dismiss="modal">Save</button>
+                        <button type="submit" class="btn btn-success" id="reference-save">Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         {% comment %} modal Language {% endcomment %}
         <div class="modal fade" id="myLanguage" role="dialog">
             <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header light-blue darken-3 white-text">
+                <form  action="#" class="modal-content" method="POST">
+                    <div class="modal-header">
                         <h2 class="modal-title">Language</h2>
                     </div>
                     <div class="modal-body">
@@ -83,18 +83,18 @@
                         </Select>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="language-save" data-dismiss="modal">Save</button>
+                        <button type="submit" class="btn btn-success" id="language-save">Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         {% comment %} modal Skill {% endcomment %}
         <div class="modal fade modal-demo" id="mySkill" role="dialog">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header light-blue darken-3 white-text">
+                <form action="#" class="modal-content" method="POST">
+                    <div class="modal-header">
                         <h2 class="modal-title">Skill</h2>
                     </div>
                     <div class="modal-body">
@@ -108,18 +108,18 @@
                         </Select>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="skill-save" data-dismiss="modal">Save</button>
+                        <button type="submit" class="btn btn-success" id="skill-save">Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         {% comment %} modal Experience {% endcomment %}
         <div class="modal fade" id="myExperience" role="dialog">
             <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header light-blue darken-3 white-text">
+                <form action="#" class="modal-content" method="POST">
+                    <div class="modal-header">
                         <h2 class="modal-title">Experience</h2>
                     </div>
                     <div class="modal-body">
@@ -129,10 +129,10 @@
                         <input type="text" id="id_time_period" placeholder="Time Period *(mm/yyyy - mm/yyyy)" required>                                                
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="experience-save" data-dismiss="modal">Save</button>
+                        <button type="submit" class="btn btn-success" id="experience-save">Save</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

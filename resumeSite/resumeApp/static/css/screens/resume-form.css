@@ -43,6 +43,7 @@ input[type=text]:disabled {
     border: none;
     border-radius: 0px;    
 }
+
 .modal-header{
     text-align: center;
     color: #ffffff;
