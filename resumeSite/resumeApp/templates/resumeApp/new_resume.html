@@ -13,5 +13,130 @@
 {% block content %}
     <div class="form-container">
         {% crispy form %}
+        
+        {% comment %} modal Education {% endcomment %}
+        <div class="modal fade" id="myEducation" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <h2 class="modal-title">Education</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" placeholder="Academy Name" required>
+                        <Select>
+                            <option value="el">Elementary</option>
+                            <option value="se">Secondary</option>
+                            <option value="un">Undergraduate</option>
+                            <option value="ms">Master</option>
+                            <option value="dr">Doctorate</option>                                                                                                                
+                        </Select>
+                        <input type="text" placeholder="Major" required>
+                        <input type="text" placeholder="Branch" required>
+                        <input type="text" placeholder="Course" required>                                                
+                        <input type="text" placeholder="Time Period *(mm/yyyy - mm/yyyy)" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="education-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} modal Reference {% endcomment %}
+        <div class="modal fade" id="myReference" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <h2 class="modal-title">Reference</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" placeholder="Advisor Name" required>
+                        <input type="text" placeholder="Position" required>
+                        <input type="text" placeholder="Affiliation" required>
+                        <input type="text" placeholder="Phone no" required>                                                
+                        <input type="text" placeholder="Email" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="reference-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} modal Language {% endcomment %}
+        <div class="modal fade" id="myLanguage" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <h2 class="modal-title">Language</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" placeholder="Name" required>
+                        <Select>
+                            <option value="b">Beginner</option>
+                            <option value="e">Elementary</option>
+                            <option value="i">Intermediate</option>
+                            <option value="a">Advanced</option>
+                            <option value="p">Proficiency</option>                                                                                                                
+                        </Select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="language-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} modal Skill {% endcomment %}
+        <div class="modal fade modal-demo" id="mySkill" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <h2 class="modal-title">Skill</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" placeholder="Name" required>
+                        <Select>
+                            <option value="b">Beginner</option>
+                            <option value="e">Elementary</option>
+                            <option value="i">Intermediate</option>
+                            <option value="a">Advanced</option>
+                            <option value="p">Proficiency</option>                                                                                                                
+                        </Select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="skill-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} modal Experience {% endcomment %}
+        <div class="modal fade" id="myExperience" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <h2 class="modal-title">Experience</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" placeholder="Company Name" required>
+                        <input type="text" placeholder="Position" required>
+                        <textarea type="text" placeholder="Role **Use - if you want a new role" required></textarea>
+                        <input type="text" placeholder="Time Period *(mm/yyyy - mm/yyyy)" required>                                                
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="experience-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endblock content %}

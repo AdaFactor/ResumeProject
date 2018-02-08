@@ -34,6 +34,33 @@ input[type=text]:disabled {
     background-color: #ffffff4f;
 }
 
-#dialog-education{
-    display: none;
+/* modal */
+.modal {
+    overflow: hidden;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 0px;    
+}
+.modal-header{
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    background-color: #ff6600;
+}
+
+.modal-body input {
+    margin: 5px 0px;
+    padding: 5px;
+    border: 2px solid #585858;
+}
+
+.modal-body select, .modal-body textarea {
+    border: 2px solid #585858;
+}
+
+.modal-footer {
+    text-align: center;
 }
