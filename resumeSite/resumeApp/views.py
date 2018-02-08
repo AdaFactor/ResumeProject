@@ -161,6 +161,7 @@ def new_doc(request, doc_type):
                 new_student = cform.save(commit=False)
                 new_student.user_id = request.user.id
                 new_student.save()
+                cform.save_m2m()
         else:
             cform = LetterForm(request, data=request.POST)
             if cform.is_valid():
@@ -183,4 +184,15 @@ def new_doc(request, doc_type):
     context.update({'form': form})
 
     return render(request, html_file, context)
+
+
+@login_required
+def edit_cv(request, cv_id):
+    if request.POST:
+        form = LetterForm(request, data=request.POST)
+        print('HOLO')
+    letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
+    form = LetterForm(request, instance=letter)
+    return render(request, 'resumeApp/new_cv.html', {'form': form})
+
     
