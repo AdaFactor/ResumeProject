@@ -8,7 +8,7 @@ from django.utils import timezone
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 from resumeApp.models import Student, Letter
-from  resumeApp.forms import StudentForm, LetterForm
+from  resumeApp.forms import StudentForm, LetterForm 
 from django.contrib.auth.decorators import login_required
 import numpy as np
 import os
@@ -189,8 +189,17 @@ def new_doc(request, doc_type):
 @login_required
 def edit_cv(request, cv_id):
     if request.POST:
-        form = LetterForm(request, data=request.POST)
-        print('HOLO')
+        edit_cv_object = get_object_or_404(Letter, id=cv_id)
+        form = LetterForm(request, data=request.POST or None, instance=edit_cv_object)
+        if form.is_valid():
+            update_cv = form.save(commit=False)
+            update_cv.user_id = request.user.id
+            update_cv.save()
+            form.save_m2m()
+            cv_lang = form.cleaned_data['language']
+            return redirect('resumeApp:cv', cv_lang=cv_lang, cv_id=cv_id)
+        else:
+            print(form.errors)
     letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
     form = LetterForm(request, instance=letter)
     return render(request, 'resumeApp/new_cv.html', {'form': form})

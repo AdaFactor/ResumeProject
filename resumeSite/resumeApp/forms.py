@@ -105,7 +105,7 @@ class LetterForm(ModelForm):
         self.input_formats = ('%d/%m/%Y',)
         self.helper = FormHelper()
         self.helper.form_method = 'POST'
-        self.helper.form_action = 'cv'        
+        self.helper.form_action = request.path
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-6'
@@ -126,5 +126,3 @@ class LetterForm(ModelForm):
                 Submit('save', 'Save', css_class='btn btn-success btn-block')  
             ),            
         )
-
-        
