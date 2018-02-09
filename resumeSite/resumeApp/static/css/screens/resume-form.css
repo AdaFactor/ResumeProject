@@ -52,16 +52,24 @@ input[type=text]:disabled {
     background-color: #ff6600;
 }
 
-.modal-body input {
+.modal-body input, .modal-body select, .modal-body textarea {
     margin: 5px 0px;
     padding: 5px;
     border: 2px solid #585858;
 }
 
-.modal-body select, .modal-body textarea {
-    border: 2px solid #585858;
-}
-
 .modal-footer {
     text-align: center;
+}
+
+/* validation form modal */
+.error{
+    margin: 0;
+    color: red;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+input.error, select.error, textarea.error {
+    border: 2px solid red;
 }
