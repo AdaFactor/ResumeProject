@@ -158,11 +158,10 @@ def new_doc(request, doc_type):
     
     if request.POST:
         if doc_type == 'resume':
-            cform = StudentForm(request, data=request.POST, files=request.FILES)
+            cform = StudentForm(request, data=request.POST, files=request.FILES, instance=context['student'])
             if cform.is_valid():
                 new_student = cform.save(commit=False)
                 new_student.user_id = request.user.id
-                new_student.profile_image = cform.cleaned_data['profile_image']
                 new_student.save()
                 cform.save_m2m()
             else:
