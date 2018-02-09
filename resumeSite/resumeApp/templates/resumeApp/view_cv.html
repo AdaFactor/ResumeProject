@@ -54,7 +54,9 @@
                                             <tr>
                                                 <td class="label-view-cv">Institude of {{letter.major.major_name}}</td>
                                                 <td class="button-cv">
-                                                    <button class="button-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <a href={% url 'resumeApp:edit_cv' letter.id%}>
+                                                        <button class="button-edit"><i class="fa fa-edit"></i> Edit</button>                                                        
+                                                    </a>
                                                     <a href={% url 'resumeApp:delete_cv' letter.id%}>
                                                         <button class="button-delete"><i class="fa fa-remove"></i> Delete</button>
                                                     </a>
