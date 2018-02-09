@@ -88,7 +88,11 @@
                         <h1><b>{{student.first_name_en}} {{student.last_name_en}}</b></h1>                        
                     </div>
                     <div class="col-left">
-                        <img class="img-resume" src="/static/images/user.png" alt="">
+                        {% if student.profile_image %}
+                            <img src="{{student.profile_image.url}}" alt="" class="img-resume">
+                        {% else %}
+                            <img class="img-resume" src="/static/images/user.png" alt="">
+                        {% endif %}
                     </div>
                 </div>
 

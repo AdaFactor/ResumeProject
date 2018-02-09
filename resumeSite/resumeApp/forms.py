@@ -1,4 +1,4 @@
-from django.forms import ModelForm, DateInput, modelformset_factory
+from django.forms import ModelForm, DateInput, modelformset_factory, widgets
 from .models import Student, Letter, Experience
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
@@ -12,9 +12,10 @@ class DateInput(DateInput):
 class StudentForm(ModelForm):
     class Meta:
         model = Student
-        fields = '__all__'
+        exclude = ['user_id']
         widgets = {
-            'birthday': DateInput()
+            'birthday': DateInput(),
+            'profile_image': widgets.ClearableFileInput()
         }
     
     def __init__(self, request, *args, **kwargs):
@@ -37,6 +38,7 @@ class StudentForm(ModelForm):
                 'Resume',
                 Div (
                     Div(
+                        'profile_image',
                         'first_name_en',
                         'last_name_en',
                         'birthday',
