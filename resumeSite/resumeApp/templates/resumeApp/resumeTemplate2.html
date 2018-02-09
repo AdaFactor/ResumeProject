@@ -21,7 +21,13 @@
                     <h1 class="name"><b> {{student.first_name_en}} {{student.last_name_en}}</b></h1>
                 </div>
                 <div class="col">
-                    <div class="w3-center"><img class="img-resume" src="/static/images/user.png" alt=""></div>                
+                    <div class="w3-center">
+                        {% if student.profile_image %}
+                            <img src="{{student.profile_image.url}}" alt="" class="img-resume">
+                        {% else %}
+                            <img class="img-resume" src="/static/images/user.png" alt="">
+                        {% endif %}
+                    </div>                
                 </div> 
             </div>
                   

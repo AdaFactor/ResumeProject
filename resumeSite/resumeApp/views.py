@@ -154,14 +154,19 @@ def view_doc(request, doc_type):
 
 @login_required
 def new_doc(request, doc_type):
+    context = query_student(request.user.id)
+    
     if request.POST:
         if doc_type == 'resume':
-            cform = StudentForm(request, data=request.POST)
+            cform = StudentForm(request, data=request.POST, files=request.FILES)
             if cform.is_valid():
                 new_student = cform.save(commit=False)
                 new_student.user_id = request.user.id
+                new_student.profile_image = cform.cleaned_data['profile_image']
                 new_student.save()
                 cform.save_m2m()
+            else:
+                print('Error', cform.errors)
         else:
             cform = LetterForm(request, data=request.POST)
             if cform.is_valid():
@@ -174,7 +179,6 @@ def new_doc(request, doc_type):
         return redirect('resumeApp:view_doc', doc_type=doc_type)
 
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
-    context = query_student(request.user.id)
 
     if doc_type == 'resume':
         form = StudentForm(request, instance=context['student'])
@@ -200,6 +204,7 @@ def edit_cv(request, cv_id):
             return redirect('resumeApp:cv', cv_lang=cv_lang, cv_id=cv_id)
         else:
             print(form.errors)
+            
     letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
     form = LetterForm(request, instance=letter)
     return render(request, 'resumeApp/new_cv.html', {'form': form})

@@ -30,7 +30,7 @@ class Skill(models.Model):
 
     def __str__(self):
         return self.name
-# 
+
 
 class Attachment(models.Model):
     name = models.CharField(max_length=64)
@@ -188,6 +188,7 @@ class Student(models.Model):
     activity = models.TextField(max_length=500)
     hobby = models.TextField(max_length=500)
     pub_date = models.DateTimeField(auto_now=True)
+    profile_image = models.ImageField(upload_to='profile/', blank=True, null=True)
 
 
     def level_to_number(self, objs):

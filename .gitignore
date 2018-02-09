@@ -103,3 +103,4 @@ ENV/
 # Ada do's
 .vscode
 db.sqlite3
+media/
