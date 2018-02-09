@@ -63,7 +63,7 @@ body{
     background-color: #005580;
 }
 
-.li-top.drop {
+li .li-top.drop {
     display: inline-block;
 }
 
@@ -195,6 +195,10 @@ body{
 }
 
 /* view cv css */
+h3, h2 {
+    color: #fff;
+}
+
 .view-cv{
     width: 70%;
     margin: auto;
@@ -215,21 +219,21 @@ body{
     margin: 20px;
 }
 
-.li-cv-th {
+.li-cv:nth-child(odd) {
     background-color: #525252;
 }
 
-.li-cv-th:hover {
+.li-cv:nth-child(even) {
+    background-color: #ff6a00;    
+}
+
+.li-cv:hover:nth-child(odd) {
     background-color: #373737;
     cursor: pointer;
     box-shadow: 2px 2px 20px #000000;        
 }
 
-.li-cv-en {
-    background-color: #ff6a00;
-}
-
-.li-cv-en:hover {
+.li-cv:hover:nth-child(even) {
     background-color: #e05e00;
     cursor: pointer;
     box-shadow: 2px 2px 20px #000000;        
@@ -446,4 +450,9 @@ input:focus, select:focus, textarea:focus {
 
 .button-cv {
     text-align: center;
+    text-decoration: none;    
+}
+
+a {
+    text-decoration: none;        
 }

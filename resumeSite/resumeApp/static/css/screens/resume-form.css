@@ -34,6 +34,42 @@ input[type=text]:disabled {
     background-color: #ffffff4f;
 }
 
-#dialog-education{
-    display: none;
+/* modal */
+.modal {
+    overflow: hidden;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 0px;    
+}
+
+.modal-header{
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    background-color: #ff6600;
+}
+
+.modal-body input, .modal-body select, .modal-body textarea {
+    margin: 5px 0px;
+    padding: 5px;
+    border: 1px solid #585858;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+/* validation form modal */
+.error{
+    margin: 0;
+    color: red;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+input.error, select.error, textarea.error {
+    border: 2px solid red;
 }

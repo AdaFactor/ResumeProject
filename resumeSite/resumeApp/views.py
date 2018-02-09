@@ -8,7 +8,7 @@ from django.utils import timezone
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 from resumeApp.models import Student, Letter
-from  resumeApp.forms import StudentForm, LetterForm 
+from  resumeApp.forms import StudentForm, LetterForm, EducationForm, ReferenceForm, LanguageForm
 from django.contrib.auth.decorators import login_required
 import numpy as np
 import os

@@ -13,5 +13,136 @@
 {% block content %}
     <div class="form-container">
         {% crispy form %}
+        
+        {% comment %} modal Education {% endcomment %}
+        <div class="modal fade" id="myEducation" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <form action="" class="modal-content" id="educate" method="POST">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Education</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="academy_name" id="id_academy_name" placeholder="Academy Name" >
+                        <select name="level_education" id="id_level_educaton">
+                            <option value="" disabled selected>Select level</option>
+                            <option value="el">Elementary</option>
+                            <option value="se">Secondary</option>
+                            <option value="un">Undergraduate</option>
+                            <option value="ms">Master</option>
+                            <option value="dr">Doctorate</option>                                                                                                                
+                        </select>
+                        <input type="text" name="major" id="id_major" placeholder="Major" >
+                        <input type="text" name="branch" id="id_branch" placeholder="Branch" >
+                        <input type="text" name="course" id="id_course" placeholder="Course" >                                                
+                        <input type="text" name="time_period" id="id_time_period" placeholder="Time Period *(mm/yyyy - mm/yyyy)" >
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="education-save">Save</button>
+                        <button type="button" class="btn btn-danger" id="edcucation-cancel" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        {% comment %} modal Reference {% endcomment %}
+        <div class="modal fade" id="myReference" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <form action="" class="modal-content" id="reference" method="POST">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Reference</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="advisor_name" id="id_advisor_name" placeholder="Advisor Name" required>
+                        <input type="text" name="position" id="id_position" placeholder="Position" required>
+                        <input type="text" name="affiliation" id="id_affiliation" placeholder="Affiliation" required>
+                        <input type="text" name="phone_no" id="id_phone_no" placeholder="Phone no" required>                                                
+                        <input type="text" name="email" id="id_email" placeholder="Email" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="reference-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% comment %} modal Language {% endcomment %}
+        <div class="modal fade" id="myLanguage" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <form action="" class="modal-content" id="language" method="POST">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Language</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="name_language" id="id_name_language" placeholder="Name" required>
+                        <select name="level_language" id="id_level_language">
+                            <option value="" disabled selected>Select level</option>                            
+                            <option value="b">Beginner</option>
+                            <option value="e">Elementary</option>
+                            <option value="i">Intermediate</option>
+                            <option value="a">Advanced</option>
+                            <option value="p">Proficiency</option>                                                                                                                
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="language-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% comment %} modal Skill {% endcomment %}
+        <div class="modal fade modal-demo" id="mySkill" role="dialog">
+            <div class="modal-dialog">
+                <form action="" class="modal-content" id="skill" method="POST">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Skill</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="name_skill" id="id_name_skill" placeholder="Name" required>
+                        <select name="level_skill" id="id_level_skill">
+                            <option value="" disabled selected>Select level</option>                            
+                            <option value="b">Beginner</option>
+                            <option value="e">Elementary</option>
+                            <option value="i">Intermediate</option>
+                            <option value="a">Advanced</option>
+                            <option value="p">Proficiency</option>                                                                                                                
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="skill-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% comment %} modal Experience {% endcomment %}
+        <div class="modal fade" id="myExperience" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <form action="" class="modal-content" id="experience" method="POST">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Experience</h2>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="company_name" id="id_company_name" placeholder="Company Name" required>
+                        <input type="text" name="position" id="id_position" placeholder="Position" required>
+                        <textarea type="text" name="role" id="id_role" placeholder="Role **Use - if you want a new role" required></textarea>
+                        <input type="text" name="time_period" id="id_time_period" placeholder="Time Period *(mm/yyyy - mm/yyyy)" required>                                                
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="experience-save">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>                        
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
+    <script src="/static/js/modal_plus.js"></script>
 {% endblock content %}
