@@ -15,7 +15,6 @@ class StudentForm(ModelForm):
         exclude = ['user_id']
         widgets = {
             'birthday': DateInput(),
-            'profile_image': widgets.ClearableFileInput()
         }
     
     def __init__(self, request, *args, **kwargs):
@@ -33,6 +32,7 @@ class StudentForm(ModelForm):
         self.fields['last_name_th'].label = 'Lastname<br>( Thai )'
         self.fields['address_en'].label = 'Address<br>( English )'
         self.fields['address_th'].label = 'Address<br>( Thai )'
+        self.fields['profile_image'].field_class = 'ada'
         self.helper.layout = Layout(
             Fieldset(
                 'Resume',

@@ -97,7 +97,7 @@ class Experience(models.Model):
 
     def get_role_list(self):
         role = self.role
-        role_list = filter(None, role.split('-'))
+        role_list = filter(None, role.split('#'))
         return role_list
 
     def __str__(self):
@@ -188,7 +188,7 @@ class Student(models.Model):
     activity = models.TextField(max_length=500)
     hobby = models.TextField(max_length=500)
     pub_date = models.DateTimeField(auto_now=True)
-    profile_image = models.ImageField(upload_to='profile/', blank=True, null=True)
+    profile_image = models.ImageField(upload_to='profile/', default='/static/images/user.png')
 
 
     def level_to_number(self, objs):
