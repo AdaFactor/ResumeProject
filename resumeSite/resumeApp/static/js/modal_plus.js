@@ -4,7 +4,7 @@ $(document).ready(() => {
     var optLanguage = $("#id_language option").length;
     var optSkill = $("#id_skill option").length;
     var optExperience = $("#id_experience option").length;
-    
+
     $("#educate").validate({
         rules: {
             academy_name: "required",
@@ -32,6 +32,11 @@ $(document).ready(() => {
     $("#education-save").click(() => {
         $("#educate").valid();
     });
+    $("#myEducation").click(() => {
+        $("#educate input").removeClass("error");
+        $("#educate select").removeClass("error");
+        $("label[class=error]").remove();
+    });
 
     $("#reference").validate({
         rules: {
@@ -58,6 +63,10 @@ $(document).ready(() => {
     $("#reference-save").click(() => {
         $("#reference").valid();
     });
+    $("#myReference").click(() => {
+        $("#reference input").removeClass("error");
+        $("label[class=error]").remove();
+    });
 
     $("#language").validate({
         rules: {
@@ -79,6 +88,12 @@ $(document).ready(() => {
     $("#language-save").click(() => {
         $("#language").valid();
     });
+    $("#myLanguage").click(() => {
+        $("#language input").removeClass("error");
+        $("#language select").removeClass("error");        
+        $("label[class=error]").remove();
+    });
+    
 
     $("#skill").validate({
         rules: {
@@ -100,6 +115,12 @@ $(document).ready(() => {
     $("#skill-save").click(() => {
         $("#skill").valid();
     });
+    $("#mySkill").click(() => {
+        $("#skill input").removeClass("error");
+        $("#skill select").removeClass("error");        
+        $("label[class=error]").remove();
+    });
+    
 
     $("#experience").validate({
         rules: {
@@ -123,6 +144,11 @@ $(document).ready(() => {
     });
     $("#experience-save").click(() => {
         $("#experience").valid();
+    });
+    $("#myExperience").click(() => {
+        $("#experience input").removeClass("error");
+        $("#experience textarea").removeClass("error");        
+        $("label[class=error]").remove();
     });
 
     // $("#education-save").click(() => {
