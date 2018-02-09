@@ -55,7 +55,7 @@ input[type=text]:disabled {
 .modal-body input, .modal-body select, .modal-body textarea {
     margin: 5px 0px;
     padding: 5px;
-    border: 2px solid #585858;
+    border: 1px solid #585858;
 }
 
 .modal-footer {
