@@ -14,6 +14,14 @@ class Language(models.Model):
     name = models.CharField(max_length=32)
     level = models.CharField(max_length=1, choices=LEVEL, default='b')
 
+    def extract_data(request):
+        data = {
+            'user_id': request.user.id,
+            'name': request.POST['language_name'],
+            'level': request.POST['language_level'],
+        }
+        return data
+
     def __str__(self):
         return self.name
 

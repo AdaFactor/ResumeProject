@@ -225,8 +225,13 @@ def add_model(request, model):
             a_major.save()
             education_obj = Education(**Education.extract_data(request, a_major))
             education_obj.save()
+        
         elif model == 'reference':
             reference_obj = Reference(**Reference.extract_data(request)).save()
+        
+        elif model == 'language':
+            language_obj = Language(**Language.extract_data(request)).save()
+
 
     return redirect('resumeApp:new_doc', doc_type='resume')
 

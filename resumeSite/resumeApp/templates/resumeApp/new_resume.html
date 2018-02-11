@@ -30,6 +30,7 @@
                             <option value="se">Secondary</option>
                             <option value="un">Undergraduate</option>
                             <option value="ms">Master</option>
+                            <option value="dr">Doctorate</option>
                         </select>
                         <input type="text" name="major" id="id_major" placeholder="Major" >
                         <input type="text" name="branch" id="id_branch" placeholder="Branch" >
@@ -70,19 +71,20 @@
         {% comment %} modal Language {% endcomment %}
         <div class="modal fade" id="myLanguage" role="dialog">
             <div class="modal-dialog modal-sm">
-                <form action="" class="modal-content" id="language" method="POST">
+                <form action={% url 'resumeApp:add_model' 'language' %} class="modal-content" id="language" method="POST">
+                    {% csrf_token %}
                     <div class="modal-header">
                         <h2 class="modal-title">Language</h2>
                     </div>
                     <div class="modal-body">
-                        <input type="text" name="name_language" id="id_name_language" placeholder="Name" required>
-                        <select name="level_language" id="id_level_language">
+                        <input type="text" name="language_name" id="id_language_name" placeholder="Name" required>
+                        <select name="language_level" id="id_language_level">
                             <option value="" disabled selected>Select level</option>                            
                             <option value="b">Beginner</option>
                             <option value="e">Elementary</option>
                             <option value="i">Intermediate</option>
                             <option value="a">Advanced</option>
-                            <option value="p">Proficiency</option>                                                                                                                
+                            <option value="p">Proficiency</option>
                         </select>
                     </div>
                     <div class="modal-footer">
