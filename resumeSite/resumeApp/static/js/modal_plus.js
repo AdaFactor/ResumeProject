@@ -70,12 +70,12 @@ $(document).ready(() => {
 
     $("#language").validate({
         rules: {
-            name_language: "required",
-            level_language: "required",
+            language_name: "required",
+            language_level: "required",
         },
         messages: {
-            name_language: "Please specify language",
-            level_language: "Please specify level",
+            language_name: "Please specify language",
+            language_level: "Please specify level",
         },
         // submitHandler: (form) => {
         //     optLanguage++;
@@ -97,12 +97,12 @@ $(document).ready(() => {
 
     $("#skill").validate({
         rules: {
-            name_skill: "required",
-            level_skill: "required",
+            skill_name: "required",
+            skill_level: "required",
         },
         messages: {
-            name_skill: "Please specify skill",
-            level_skill: "Please specify level",
+            skill_name: "Please specify skill",
+            skill_level: "Please specify level",
         },
         // submitHandler: (form) => {
         //     optSkill++;
