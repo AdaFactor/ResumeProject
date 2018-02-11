@@ -10,6 +10,7 @@ class Language(models.Model):
         ('a', 'Advanced'),
         ('p', 'Proficiency'),
     )
+    user_id = models.IntegerField()
     name = models.CharField(max_length=32)
     level = models.CharField(max_length=1, choices=LEVEL, default='b')
 
@@ -25,6 +26,7 @@ class Skill(models.Model):
         ('a', 'Advanced'),
         ('p', 'Proficiency'),
     )
+    user_id = models.IntegerField()
     name = models.CharField(max_length=64)
     level = models.CharField(max_length=1, choices=LEVEL, default='b')
 
@@ -89,6 +91,7 @@ class Letter(models.Model):
 
 
 class Experience(models.Model):
+    user_id = models.IntegerField()
     company_name = models.CharField(max_length=32)
     position = models.CharField(max_length=32)
     role = models.TextField(max_length=400, blank=True)
@@ -105,6 +108,7 @@ class Experience(models.Model):
 
 
 class Reference(models.Model):
+    user_id = models.IntegerField()
     advisor_name = models.CharField(max_length=32)
     position = models.CharField(max_length=32)
     affiliation = models.CharField(max_length=64)
@@ -146,6 +150,7 @@ class Education(models.Model):
         ('ms', 'Master'),
         ('dr', 'Doctorate'),
     )
+    user_id = models.IntegerField()
     academy_name = models.CharField(max_length=64)
     level = models.CharField(max_length=2, choices=LEVEL, default='un')
     major = models.ForeignKey('Major', on_delete=models.CASCADE)

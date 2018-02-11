@@ -32,7 +32,12 @@ class StudentForm(ModelForm):
         self.fields['last_name_th'].label = 'Lastname<br>( Thai )'
         self.fields['address_en'].label = 'Address<br>( English )'
         self.fields['address_th'].label = 'Address<br>( Thai )'
-        self.fields['profile_image'].field_class = 'ada'
+        
+        self.fields['education'].queryset =  Education.objects.filter(user_id=request.user.id)
+        self.fields['reference'].queryset =  Reference.objects.filter(user_id=request.user.id)
+        self.fields['language'].queryset =  Language.objects.filter(user_id=request.user.id)
+        self.fields['skill'].queryset =  Skill.objects.filter(user_id=request.user.id)
+        self.fields['experience'].queryset =  Experience.objects.filter(user_id=request.user.id)
         self.helper.layout = Layout(
             Fieldset(
                 'Resume',
