@@ -38,6 +38,14 @@ class Skill(models.Model):
     name = models.CharField(max_length=64)
     level = models.CharField(max_length=1, choices=LEVEL, default='b')
 
+    def extract_data(request):
+        data = {
+            'user_id': request.user.id,
+            'name': request.POST['skill_name'],
+            'level': request.POST['skill_level'],
+        }
+        return data
+    
     def __str__(self):
         return self.name
 
@@ -110,6 +118,16 @@ class Experience(models.Model):
         role = self.role
         role_list = filter(None, role.split('#'))
         return role_list
+
+    def extract_data(request):
+        data = {
+            'user_id': request.user.id,
+            'company_name': request.POST['company_name'],
+            'position': request.POST['position'],
+            'role': request.POST['role'],
+            'time_period': request.POST['time_period'],
+        }
+        return data
 
     def __str__(self):
         return self.company_name

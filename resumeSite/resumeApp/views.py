@@ -231,7 +231,11 @@ def add_model(request, model):
         
         elif model == 'language':
             language_obj = Language(**Language.extract_data(request)).save()
-
+        
+        elif model == 'skill':
+            skill_obj = Skill(**Skill.extract_data(request)).save()
+        
+        elif model == 'experience':
+            experience_obj = Experience(**Experience.extract_data(request)).save()
 
     return redirect('resumeApp:new_doc', doc_type='resume')
-

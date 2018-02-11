@@ -85,8 +85,12 @@ class StudentForm(ModelForm):
                             Button('add', '+ Add Experience', css_class="btn-primary",
                                 data_toggle="modal", data_target="#myExperience"),
                         ),
-                        'activity',
-                        'hobby',
+                        Field(
+                            'activity', placeholder="Use # for each activities for example, #Activity1 #Activity2"
+                        ),
+                        Field(
+                            'hobby', placeholder="Use # for each hobbies for example, #Hobby1 #Hobby2"
+                        ),
                         css_class='col-lg-6')
                     ,css_class='row-fluid'
                 ),
