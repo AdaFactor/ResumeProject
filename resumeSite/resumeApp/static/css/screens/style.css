@@ -336,11 +336,6 @@ input {
     border: 2px solid #a3a3a3;
 } 
 
-#id_level {
-    width: 80%;
-    text-align: center;
-}
-
 select {
     width: 100%;
     height: auto;

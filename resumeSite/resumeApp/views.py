@@ -7,8 +7,8 @@ from django.conf import settings
 from django.utils import timezone
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
-from resumeApp.models import Student, Letter
-from  resumeApp.forms import StudentForm, LetterForm, EducationForm, ReferenceForm, LanguageForm
+from resumeApp.models import *
+from resumeApp.forms import StudentForm, LetterForm, EducationForm, ReferenceForm, LanguageForm
 from django.contrib.auth.decorators import login_required
 import numpy as np
 import os
@@ -209,3 +209,21 @@ def edit_cv(request, cv_id):
     return render(request, 'resumeApp/new_cv.html', {'form': form})
 
     
+@login_required
+def add_model(request, model):
+    print('Yo Yo Yo')
+    if request.POST:
+        if model == 'education':
+            a_branch = Branch(branch_name=request.POST['branch'])
+            a_course = Course(course_name=request.POST['course'])
+            a_branch.save()
+            a_course.save()
+            a_major = Major(
+                major_name=request.POST['major'],
+                branch=a_branch,
+                course=a_course
+            )
+            a_major.save()
+            education_obj = Education(**Education.extract_data(request, a_major))
+            education_obj.save()
+            return redirect('resumeApp:new_doc', doc_type='resume')

@@ -22,12 +22,12 @@ $(document).ready(() => {
             course: "Please specify course",
             time_period: "Please specify time period",
         },
-        submitHandler: (form) => {
-            optEducation++;
-            var newAcademy = $("#id_academy_name").val();
-            $(".modal").modal("hide");
-            $("#id_education").append('<option value=' + optEducation + '>' + newAcademy + '</option>');
-        }
+        // submitHandler: (form) => {
+        //     optEducation++;
+        //     var newAcademy = $("#id_academy_name").val();
+        //     $(".modal").modal("hide");
+        //     $("#id_education").append('<option value=' + optEducation + '>' + newAcademy + '</option>');
+        // }
     })
     $("#education-save").click(() => {
         $("#educate").valid();

@@ -156,6 +156,16 @@ class Education(models.Model):
     major = models.ForeignKey('Major', on_delete=models.CASCADE)
     time_period = models.CharField(max_length=32)
 
+    def extract_data(request, major_obj):
+        data = {
+            'user_id': request.user.id,
+            'academy_name': request.POST['academy_name'],
+            'level': request.POST['level'],
+            'major': major_obj,
+            'time_period': request.POST['time_period'],
+        }
+        return data
+
     def __str__(self):
         return self.academy_name
     
