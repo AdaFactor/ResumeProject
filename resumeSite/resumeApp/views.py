@@ -211,7 +211,6 @@ def edit_cv(request, cv_id):
     
 @login_required
 def add_model(request, model):
-    print('Yo Yo Yo')
     if request.POST:
         if model == 'education':
             a_branch = Branch(branch_name=request.POST['branch'])
@@ -226,4 +225,8 @@ def add_model(request, model):
             a_major.save()
             education_obj = Education(**Education.extract_data(request, a_major))
             education_obj.save()
-            return redirect('resumeApp:new_doc', doc_type='resume')
+        elif model == 'reference':
+            reference_obj = Reference(**Reference.extract_data(request)).save()
+
+    return redirect('resumeApp:new_doc', doc_type='resume')
+

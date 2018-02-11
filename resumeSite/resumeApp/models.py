@@ -115,6 +115,17 @@ class Reference(models.Model):
     phone_no = models.CharField(max_length=10)
     email = ArrayField(models.CharField(max_length=64), size=2, default=list())
 
+    def extract_data(request):
+        data = {
+            'user_id': request.user.id,
+            'advisor_name': request.POST['advisor_name'],
+            'position': request.POST['position'],
+            'affiliation': request.POST['affiliation'],
+            'phone_no': request.POST['phone_no'],
+            'email': request.POST['email'].split(','),
+        }
+        return data
+
     def __str__(self):
         return self.advisor_name
 

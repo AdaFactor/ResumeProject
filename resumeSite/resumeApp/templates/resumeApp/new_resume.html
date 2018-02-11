@@ -47,7 +47,8 @@
         {% comment %} modal Reference {% endcomment %}
         <div class="modal fade" id="myReference" role="dialog">
             <div class="modal-dialog modal-sm">
-                <form action="" class="modal-content" id="reference" method="POST">
+                <form action={% url 'resumeApp:add_model' 'reference' %} class="modal-content" id="reference" method="POST">
+                    {% csrf_token %}
                     <div class="modal-header">
                         <h2 class="modal-title">Reference</h2>
                     </div>
