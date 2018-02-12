@@ -10,7 +10,13 @@ html {
 }
 
 body{
+    margin: 0;
     position: relative;
+    height: auto;
+}
+
+body > .container-index,  body > .container-resume, body > .view-cv{
+    height: 100%;
 }
 
 .nav-collapse {
@@ -143,7 +149,7 @@ li .li-top.drop {
     border-bottom: rgba(0, 0, 0, 0.548) solid 1px;
 }
 
-.page-footer {
+#footer {
     position: absolute;
     right: 0;
     left: 0;
@@ -151,7 +157,8 @@ li .li-top.drop {
     width: 100%;
     color: white;
     text-align: center;
-    background-color: #0088cc;    
+    background-color: #0088cc;
+    clear: both;  
 }
 
 .col-container {
