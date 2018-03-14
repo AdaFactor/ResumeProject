@@ -15,17 +15,17 @@
         <div class="nav-collapse">
             <ul class="ul-top">
                 <li class="li-top">
-                    <a href="/" class="link-btn">
+                    <a href="/" class="link-btn" >
                         <img class="img-home" src="/static/images/sutLogo.png" alt="">
                         SUT-RESUME
                     </a>
                 </li>
                 <li class="drop li-top right">
-                    <a href="" class="dropbtn link-btn">
+                    <button class="dropbtn link-btn" onclick="fucDropdown()">
                         <img src="https://png.icons8.com/ios/20/FFFFFF/guest-male-filled.png" />
                             {{ user.username }}
-                    </a>
-                    <div class="dropdown-content">
+                    </button>
+                    <div id="dropdown" class="dropdown-content">
                         <a href={% url 'AuthenApp:logout' %} class="link-btn">LOG OUT</a>
                     </div>
                 </li>
@@ -34,10 +34,33 @@
     {% endblock header %}
     {% block content %}{% endblock content %}
     {% block footer %}
-        <footer class="page-footer">
-            <p>Copyright &copy; 2018</p>
+        <foote>
+            <div id="footer">
+                <p>Copyright &copy; 2018</p>                
+            </div>
         </footer>
     {% endblock footer %}
-    {% block script %}{% endblock script %}
+    {% block script %}
+        <script>
+            function fucDropdown() {
+                document.getElementById("dropdown").classList.toggle("show");
+            }
+            
+            // Close the dropdown menu if the user clicks outside of it
+            window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+            
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                    }
+                }
+                }
+            }
+        </script>
+    {% endblock script %}
 </body>
 </html>

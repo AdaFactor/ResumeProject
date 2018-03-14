@@ -10,7 +10,13 @@ html {
 }
 
 body{
+    margin: 0;
     position: relative;
+    height: auto;
+}
+
+body > .container-index,  body > .container-resume, body > .view-cv{
+    height: auto;
 }
 
 .nav-collapse {
@@ -40,7 +46,7 @@ body{
     font-weight: bold;
 }
 
-.li-top .link-btn, .dropbtn {
+.li-top .link-btn {
     display: inline-block;
     color: white;
     text-align: center;
@@ -57,6 +63,12 @@ body{
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
+
+}
+
+.dropbtn {
+    background-color: #0088cc; 
+    border: none;   
 }
 
 .li-top .link-btn:hover, .drop:hover .dropbtn {
@@ -64,12 +76,14 @@ body{
 }
 
 li .li-top.drop {
+    position: relative;
     display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+    right: 0;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -87,10 +101,10 @@ li .li-top.drop {
 .dropdown-content .link-btn:hover {
     background-color: #f1f1f1
 }
-
-.drop:hover .dropdown-content {
+.show {display:block;}
+/* .drop:hover .dropdown-content {
     display: block;
-}
+} */
 
 
 .container-index {
@@ -115,6 +129,7 @@ li .li-top.drop {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.678);
     max-width: 300px;
     margin: auto;
+    margin-top: 5%;
     text-align: center;
     color: white;
     font-family: arial;
@@ -122,7 +137,7 @@ li .li-top.drop {
 }
 
 .img-views {
-    padding-top: 10px;
+    padding-top: 5%;
 }
 
 .button {
@@ -143,7 +158,7 @@ li .li-top.drop {
     border-bottom: rgba(0, 0, 0, 0.548) solid 1px;
 }
 
-.page-footer {
+#footer {
     position: absolute;
     right: 0;
     left: 0;
@@ -151,22 +166,24 @@ li .li-top.drop {
     width: 100%;
     color: white;
     text-align: center;
-    background-color: #0088cc;    
+    background-color: #0088cc;
+    clear: both;  
 }
 
 .col-container {
-    display: table;
-    width: 100%
+    /* display: table; */
+    width: 100%;
+    padding: 0 5%;
 }
 
 .col-left {
     display: table-cell;
-    padding-left: 200px;
+    /* padding-left: 200px; */
 }
 
 .col-right {
     display: table-cell;
-    padding-right: 200px;
+    /* padding-right: 200px; */
 }
 
 
