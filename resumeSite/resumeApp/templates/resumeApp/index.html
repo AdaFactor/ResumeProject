@@ -16,10 +16,10 @@
                     <img class="img-views" src="/static/images/resume.png">
                     <h1>Resume</h1>
                     <a href="{% url 'resumeApp:new_doc' 'resume' %}">
-                        <button class="w3-btn w3-green w3-block">New</button>
+                        <button id="new-resume" class="w3-btn w3-green w3-block">New</button>
                     </a>
                     <a href="{% url 'resumeApp:view_doc' 'resume' %}">
-                        <button class="w3-btn w3-blue w3-block">View</button>         
+                        <button id="view-resume" class="w3-btn w3-blue w3-block">View</button>         
                     </a>
                 </div>
             </div>
@@ -29,10 +29,10 @@
                     <img class="img-views" src="/static/images/cvs.png">
                     <h1>CV Letter</h1>                
                     <a href="{% url 'resumeApp:new_doc' 'cv' %}">
-                        <button class="w3-btn w3-green w3-block">New</button>
+                        <button id="new-cv" class="w3-btn w3-green w3-block">New</button>
                     </a>
                     <a href="{% url 'resumeApp:view_doc' 'cv' %}">
-                        <button class="w3-btn w3-blue w3-block">View</button>
+                        <button id="view-cv" class="w3-btn w3-blue w3-block">View</button>
                     </a>
                 </div>
             </div>
