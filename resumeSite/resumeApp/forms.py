@@ -1,5 +1,5 @@
 from django.forms import ModelForm, DateInput, modelformset_factory, widgets
-from .models import Student, Letter, Major
+from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
 from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField
