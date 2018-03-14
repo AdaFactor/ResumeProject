@@ -171,6 +171,7 @@ class Branch(models.Model):
 
 
 class Major(models.Model):
+    user_id = models.IntegerField()
     major_name = models.CharField(max_length=64)
     branch = models.ForeignKey('Branch', on_delete=models.CASCADE)
     course = models.ForeignKey('Course', on_delete=models.CASCADE, blank=True, null=True)
