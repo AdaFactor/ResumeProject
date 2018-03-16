@@ -8,10 +8,23 @@ firefox_dir = '/'.join([project_dir, 'drivers/geckodriver'])
 browser = webdriver.Firefox(executable_path=firefox_dir)
 browser.get('http://localhost:8000/templates/new/resume')
 
+# Login Page
 # Find elements
 username = browser.find_element_by_id('username')
 password = browser.find_element_by_id('password')
 login_btn = browser.find_element_by_id('btn-login')
+
+# Sendkey Text
+username.send_keys('adadesions')
+password.send_keys('SteveJobs')
+login_btn.click()
+
+# Index Page
+#Find Elements
+new_resume_btn = browser.find_element_by_id('new-resume')
+
+# SendKey Text
+new_resume_btn.click()
 
 
 # prefix = Select(browser.find_element_by_id('id_prefix'))
@@ -34,13 +47,9 @@ login_btn = browser.find_element_by_id('btn-login')
 # reference_person = browser.find_element_by_id('id_reference_person')
 # submit = browser.find_element_by_id('id_submit')
 
-# Sendkey Text
-username.send_keys('adadesions')
-password.send_keys('SteveJobs')
-login_btn.click()
 
-new_resume_btn = browser.find_element_by_id('new-resume')
-new_resume_btn.click()
+
+
 
 # Sendkey to Select
 # prefix.select_by_visible_text('นาย')
