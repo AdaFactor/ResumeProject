@@ -43,7 +43,17 @@ class StudentForm(ModelForm):
                 'Resume',
                 Div (
                     Div(
-                        'profile_image',
+                        'profile_image',                        
+                        'education',                        
+                        FormActions(
+                            Button('education', '+ Add Education', css_class="btn-primary",
+                                data_toggle="modal", data_target="#myEducation"),
+                        ),
+                        'language',
+                        FormActions(
+                            Button('add', '+ Add Language', css_class="btn-primary",
+                                data_toggle="modal", data_target="#myLanguage"),
+                        ),
                         'first_name_en',
                         'last_name_en',
                         'birthday',
@@ -54,27 +64,14 @@ class StudentForm(ModelForm):
                         'phone_no',
                         'email',
                         'address_en',
-                        'education',
-                        FormActions(
-                            Button('education', '+ Add Education', css_class="btn-primary",
-                                data_toggle="modal", data_target="#myEducation"),
-                        ),
+                    css_class='col-lg-5'
+                    ),
+                    Div(
                         'reference',
                         FormActions(
                             Button('add', '+ Add Reference', css_class="btn-primary",
                                 data_toggle="modal", data_target="#myReference"),
                         ),
-                        'language',
-                        FormActions(
-                            Button('add', '+ Add Language', css_class="btn-primary",
-                                data_toggle="modal", data_target="#myLanguage"),
-                        ),
-                    css_class='col-lg-5'
-                    ),
-                    Div(
-                        'first_name_th',
-                        'last_name_th',
-                        'address_th',
                         'skill',
                         FormActions(
                             Button('add', '+ Add Skill', css_class="btn-primary",
@@ -85,6 +82,9 @@ class StudentForm(ModelForm):
                             Button('add', '+ Add Experience', css_class="btn-primary",
                                 data_toggle="modal", data_target="#myExperience"),
                         ),
+                        'first_name_th',
+                        'last_name_th',
+                        'address_th',
                         Field(
                             'activity', placeholder="Use # for each activities for example, #Activity1 #Activity2"
                         ),
