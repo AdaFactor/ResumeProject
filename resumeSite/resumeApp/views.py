@@ -212,7 +212,6 @@ def edit_cv(request, cv_id):
 @login_required
 def add_model(request, model):
     if request.POST:
-        print(request.POST)
         if model == 'education':
             a_branch = Branch(branch_name=request.POST['branch'])
             a_course = Course(course_name=request.POST['course'])
