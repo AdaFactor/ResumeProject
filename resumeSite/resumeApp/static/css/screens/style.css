@@ -3,6 +3,7 @@ html {
     font-family: Arial, sans-serif;
     background: url('/static/images/sut.jpg') no-repeat center center fixed;
     width: 100%;
+    height: 100%;    
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -13,10 +14,12 @@ body{
     margin: 0;
     position: relative;
     height: auto;
+    min-height: 100%;
 }
 
 body > .container-index,  body > .container-resume, body > .view-cv{
-    height: auto;
+    height: auto !important;
+    min-height: 100%;
 }
 
 .nav-collapse {
@@ -111,6 +114,11 @@ li .li-top.drop {
     padding-top: 64px;
     padding-bottom: 64px;
     margin: auto;
+    flex: 1 0 auto;
+}
+.container-index:after {
+    content: '';
+    display: block;
 }
 
 .welcome {
@@ -158,17 +166,28 @@ li .li-top.drop {
     border-bottom: rgba(0, 0, 0, 0.548) solid 1px;
 }
 
-#footer {
+.footer {
     position: absolute;
-    right: 0;
-    left: 0;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
     background-color: #0088cc;
-    clear: both;  
+    clear: both;
+    box-sizing: border-box;
 }
+
+/* @media (max-width: 1000px) {
+    .container-index {
+        padding-bottom: 0;
+    }
+    .footer {
+        position: relative;
+        bottom: 0;
+        left: auto;
+        height: auto;
+    }
+} */
 
 .col-container {
     /* display: table; */
