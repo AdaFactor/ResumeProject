@@ -2,23 +2,30 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.models import User
 
-def login_view(request):
-    return render(request, 'AuthenApp/login.html')
+
+def login_view(request, context={}):
+    if request.user.is_authenticated:
+        return redirect('/')
+
+    return render(request, 'AuthenApp/login.html', context)
+
 
 def logout_view(request):
     logout(request)
     return redirect('/')
-    
+
+
 def authen_view(request):
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(request, username=username, password=password)
-    print(user)
     if user is not None:
         login(request, user)
         return redirect('index')
     else:
-        return login_view(request)
+        context = {'login_error': True}
+        return login_view(request, context)
+
 
 def new_user_view(request):
     new = {
@@ -34,6 +41,5 @@ def new_user_view(request):
             password=new['password']
         )
         login(request, user)
-    else:
-        return 
+
     return redirect('index')
