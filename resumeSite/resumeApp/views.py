@@ -205,7 +205,7 @@ def edit_cv(request, cv_id):
             update_cv.user_id = request.user.id
             update_cv.save()
             form.save_m2m()
-            cv_lang = form.cleaned_data['language']resume
+            cv_lang = form.cleaned_data['language']
             return redirect('resumeApp:cv', cv_lang=cv_lang, cv_id=cv_id)
         else:
             print(form.errors)
@@ -237,7 +237,7 @@ def add_model(request, model):
         
         elif model == 'language':
             language_obj = Language(**Language.extract_data(request)).save()
-        resume
+        
         elif model == 'skill':
             skill_obj = Skill(**Skill.extract_data(request)).save()
         
