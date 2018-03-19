@@ -18,9 +18,18 @@
                     <a href="{% url 'resumeApp:new_doc' 'resume' %}">
                         <button id="new-resume" class="w3-btn w3-green w3-block">New</button>
                     </a>
-                    <a href="{% url 'resumeApp:view_doc' 'resume' %}">
-                        <button id="view-resume" class="w3-btn w3-blue w3-block">View</button>         
-                    </a>
+                    {% if is_created_resume %}
+                        <a href="{% url 'resumeApp:view_doc' 'resume' %}">
+                            <button id="view-resume" class="w3-btn w3-blue w3-block">View</button>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'resumeApp:new_doc' 'resume' %}">
+                            <button id="view-resume" class="w3-btn w3-dark-gray w3-block">
+                                View <br>(Please, create a new resume )
+                            </button>
+                        </a>
+                    {% endif %}
+                    
                 </div>
             </div>
         
@@ -31,9 +40,19 @@
                     <a href="{% url 'resumeApp:new_doc' 'cv' %}">
                         <button id="new-cv" class="w3-btn w3-green w3-block">New</button>
                     </a>
-                    <a href="{% url 'resumeApp:view_doc' 'cv' %}">
-                        <button id="view-cv" class="w3-btn w3-blue w3-block">View</button>
-                    </a>
+                    {% if is_created_cv %}
+                        <a href="{% url 'resumeApp:view_doc' 'cv' %}">
+                            <button id="view-cv" class="w3-btn w3-blue w3-block">View</button>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'resumeApp:new_doc' 'cv' %}">
+                            <button id="view-resume" class="w3-btn w3-dark-gray w3-block">
+                                View
+                                <br>(Please, create a new CV )
+                            </button>
+                        </a>
+                    {% endif %}
+                    
                 </div>
             </div>
         </div>

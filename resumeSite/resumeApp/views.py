@@ -34,7 +34,13 @@ def query_student(user_id):
 
 @login_required
 def index(request):
-    return render(request, 'resumeApp/index.html')
+    is_created_resume = Student.objects.filter(user_id=request.user.id).exists()
+    is_created_cv = Letter.objects.filter(user_id=request.user.id).exists()
+    context = {
+        'is_created_resume': is_created_resume,
+        'is_created_cv': is_created_cv,
+    }
+    return render(request, 'resumeApp/index.html', context)
 
 
 @login_required
@@ -124,7 +130,7 @@ def to_pdf_cv(request, cv_lang, cv_id):
     html_string = render_to_string(html_file, context)
     html = HTML(string=html_string, base_url=request.build_absolute_uri())
     css = [
-        CSS(css_dir + '/screens/common_style.css'),
+        CSS(css_dir + '/scrStudenteens/common_style.css'),
         CSS(fonts_dir + '/thsarabunnew.css', font_config=font_config),
         CSS(css_dir + '/screens/cv_screen.css'),
     ]
@@ -141,7 +147,7 @@ def view_doc(request, doc_type):
         context = query_student(request.user.id)
     else:
         context = {
-            'student': Student.objects.get(pk=request.user.id),
+            'student': Student.objects.get(user_id=request.user.id),
             'letter': Letter.objects.filter(user_id=request.user.id)
         }
     html_file = ''.join(['resumeApp/view_', doc_type, '.html'])
@@ -199,7 +205,7 @@ def edit_cv(request, cv_id):
             update_cv.user_id = request.user.id
             update_cv.save()
             form.save_m2m()
-            cv_lang = form.cleaned_data['language']
+            cv_lang = form.cleaned_data['language']resume
             return redirect('resumeApp:cv', cv_lang=cv_lang, cv_id=cv_id)
         else:
             print(form.errors)
@@ -231,7 +237,7 @@ def add_model(request, model):
         
         elif model == 'language':
             language_obj = Language(**Language.extract_data(request)).save()
-        
+        resume
         elif model == 'skill':
             skill_obj = Skill(**Skill.extract_data(request)).save()
         
