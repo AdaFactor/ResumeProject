@@ -224,6 +224,7 @@ def add_model(request, model):
             a_branch.save()
             a_course.save()
             a_major = Major(
+                user_id=request.user.id,
                 major_name=request.POST['major'],
                 branch=a_branch,
                 course=a_course
