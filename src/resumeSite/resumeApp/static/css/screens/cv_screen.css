@@ -1,0 +1,55 @@
+@import url(../../fonts/thsarabunnew.css);
+
+@page {
+    width: 210mm;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.form-thai {
+    font-family: 'THSarabunNew', sans-serif;
+    font-size: 10pt;    
+    margin-top: 1in;
+    margin-left: 1in;
+    margin-right: 1in;
+    margin-bottom: 1.25in;
+}
+
+.form-eng {
+    font-family: 'THSarabunNew', sans-serif;
+    font-size: 12pt;    
+    padding-left: 25mm;
+    padding-right: 20mm;
+    padding-top: 19mm;
+    padding-bottom: 10mm;
+}
+
+.head-letter {
+    padding-left: 105mm;
+}
+
+.date-letter {
+    padding-left: 70mm;
+}
+
+.content { 
+    text-indent: 19mm;
+    /* text-align: justify; */
+}
+
+.signature {
+    padding-left: 45mm;
+}
+
+.sub-signature {
+    text-align: center;
+}
+
+.attachment {
+    margin-left: 1.5em;
+}
+
+.attachment > span{
+    margin-right: 2em;
+}

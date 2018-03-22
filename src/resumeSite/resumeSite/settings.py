@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%l-14k0cvf)0um5c(85fsr!=se!%)he*)odbu44#mrlg30q@gl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,16 +74,20 @@ WSGI_APPLICATION = 'resumeSite.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+# https://docs.djangoproject.com/en/dev/ref/settings/#databases'/var/www/staticfiles'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'resumedb',
-        'USER': os.environ.get('DATABASE_USERNAME', ''),
-        'PASSWORD': os.environ.get('DATABASE_PWD', ''),
-        'HOST': 'localhost',
-        'PORT': os.environ.get(''),
+        # 'NAME': 'resumedb',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+        # 'USER': os.environ.get('DATABASE_USERNAME', ''),
+        # 'PASSWORD': os.environ.get('DATABASE_PWD', ''),
+        # 'HOST': 'localhost',
+        # 'PORT': os.environ.get(''),
     }
 }
 
@@ -125,6 +129,7 @@ LOGIN_URL = '/user/login'
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 MEDIA_URL = '/media/'
 
