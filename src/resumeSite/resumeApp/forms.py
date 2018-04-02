@@ -126,11 +126,9 @@ class LetterForm(ModelForm):
                 Field (
                     'language',
                     'major',
-                    # 'major_list',
-                    # 'brance_list',
                     'date',
                     'time_period',
-                    'attachment',                    
+                    InlineCheckboxes('attachment'),                    
                     'position',
                     'position_other',
                     'company_name',
