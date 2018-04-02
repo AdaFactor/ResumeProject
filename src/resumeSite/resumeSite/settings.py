@@ -128,8 +128,6 @@ USE_L10N = False
 
 USE_TZ = True
 
-DATE_INPUT_FORMATS = ['%dd%mm%Y',]
-
 
 LOGIN_URL = '/user/login'
 # Static files (CSS, JavaScript, Images)
