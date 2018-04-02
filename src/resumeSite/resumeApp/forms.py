@@ -2,7 +2,7 @@ from django.forms import ModelForm, DateInput, modelformset_factory, widgets
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
-from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField
+from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField, InlineCheckboxes
 
 
 class DateInput(DateInput):
@@ -44,12 +44,12 @@ class StudentForm(ModelForm):
                 Div (
                     Div(
                         'profile_image',                        
-                        'education',                        
+                        InlineCheckboxes('education'),                     
                         FormActions(
                             Button('education', '+ Add Education', css_class="btn-primary",
                                 data_toggle="modal", data_target="#myEducation"),
                         ),
-                        'language',
+                        InlineCheckboxes('language'),                        
                         FormActions(
                             Button('add', '+ Add Language', css_class="btn-primary",
                                 data_toggle="modal", data_target="#myLanguage"),
@@ -67,17 +67,17 @@ class StudentForm(ModelForm):
                     css_class='col-lg-5'
                     ),
                     Div(
-                        'reference',
+                        'reference',                        
                         FormActions(
                             Button('add', '+ Add Reference', css_class="btn-primary",
                                 data_toggle="modal", data_target="#myReference"),
                         ),
-                        'skill',
+                        InlineCheckboxes('skill'),
                         FormActions(
                             Button('add', '+ Add Skill', css_class="btn-primary",
                                 data_toggle="modal", data_target="#mySkill"),
                         ),
-                        'experience',
+                        InlineCheckboxes('experience'),
                         FormActions(
                             Button('add', '+ Add Experience', css_class="btn-primary",
                                 data_toggle="modal", data_target="#myExperience"),

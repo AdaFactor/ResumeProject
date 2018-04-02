@@ -73,3 +73,20 @@ input[type=text]:disabled {
 input.error, select.error, textarea.error {
     border: 2px solid red;
 }
+
+/* .check-education{
+} */
+
+.checkbox-inline+.checkbox-inline {
+    width: 100%;
+    font-size: 15px;
+    margin-left: initial;
+}
+
+input[type=checkbox]{
+    width: 20px;
+}
+
+.education-add{
+    color: #ffffff;
+}

@@ -13,7 +13,7 @@
 {% block content %}
     <div class="form-container">
         {% crispy form %}
-        
+
         {% comment %} modal Education {% endcomment %}
         <div class="modal fade" id="myEducation" role="dialog">
             <div class="modal-dialog modal-sm">
@@ -150,4 +150,24 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
     <script src="/static/js/modal_plus.js"></script>
+    <script>
+        var addid = 0;
+
+        function addInput(id) {
+            
+            var addList = document.getElementById('addlist');
+            var docstyle = addList.style.display;
+            if (docstyle == 'none') addList.style.display = '';
+        
+            addid++;
+            
+            var text = document.createElement('div');
+            text.id = 'additem_' + addid;
+            text.innerHTML = "<input type='text' value='' class='buckinput' name='items[]' style='padding:5px;' /> <a href='javascript:void(0);' onclick='addInput(" + addid + ")' id='addlink_" + addid + "'>add more</a>";
+        
+            addList.appendChild(text);
+        }
+        
+        addInput(1);            
+    </script>
 {% endblock content %}
