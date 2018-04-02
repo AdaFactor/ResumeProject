@@ -45,7 +45,7 @@ class Skill(models.Model):
             'level': request.POST['skill_level'],
         }
         return data
-    
+
     def __str__(self):
         return self.name
 
@@ -67,20 +67,33 @@ class Letter(models.Model):
         ('hr', 'ผู้จัดการฝ่ายทรัพยากรบุคคล'),
         ('ot', 'อื่นๆ โปรดระบุ'),
     )
+
     user_id = models.IntegerField(blank=True, null=True)
     company_name = models.CharField(max_length=128)
-    position = models.CharField(max_length=64, choices=position_choices, default='hr')
+    position = models.CharField(
+        max_length=64,
+        choices=position_choices,
+        default='hr'
+    )
     position_other = models.CharField(max_length=64, blank=True)
     major = models.ForeignKey('Major', on_delete=models.CASCADE)
     contents = models.TextField(max_length=5000)
     date = models.DateField()
     time_period = models.CharField(max_length=32, default="xx/xx - yy/yy")
-    attachment = models.ManyToManyField('Attachment', related_name='student_attachment', blank=True)
-    language = models.CharField(max_length=2, choices=language_choices, default='TH')
+    attachment = models.ManyToManyField(
+        'Attachment',
+        related_name='student_attachment',
+        blank=True
+    )
+    language = models.CharField(
+        max_length=2,
+        choices=language_choices,
+        default='TH'
+    )
     pub_date = models.DateTimeField(auto_now=True)
 
     def get_contents(self):
-        return filter(None, [ p for p in self.contents.split('#') ])
+        return filter(None, [p for p in self.contents.split('\n')])
 
     def get_th_date(self):
         month = (
@@ -112,7 +125,6 @@ class Experience(models.Model):
     position = models.CharField(max_length=32)
     role = models.TextField(max_length=400, blank=True)
     time_period = models.CharField(max_length=32)
-
 
     def get_role_list(self):
         role = self.role
@@ -161,7 +173,7 @@ class Course(models.Model):
 
     def __str__(self):
         return self.course_name
-    
+
 
 class Branch(models.Model):
     branch_name = models.CharField(max_length=64)
@@ -174,7 +186,8 @@ class Major(models.Model):
     user_id = models.IntegerField()
     major_name = models.CharField(max_length=64)
     branch = models.ForeignKey('Branch', on_delete=models.CASCADE)
-    course = models.ForeignKey('Course', on_delete=models.CASCADE, blank=True, null=True)
+    course = models.ForeignKey(
+        'Course', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return ', '.join([self.major_name, self.branch.branch_name, self.course.course_name])
@@ -205,7 +218,7 @@ class Education(models.Model):
 
     def __str__(self):
         return self.academy_name
-    
+
 
 class Student(models.Model):
     religion_choice = (
@@ -230,18 +243,22 @@ class Student(models.Model):
     email = ArrayField(models.CharField(max_length=32), size=2)
     birthday = models.DateField()
     nationality = models.CharField(max_length=16)
-    religion = models.CharField(max_length=16, choices=religion_choice, blank=True, null=True)
+    religion = models.CharField(
+        max_length=16, choices=religion_choice, blank=True, null=True)
     age = models.IntegerField(default=0)
-    education = models.ManyToManyField('Education', related_name='student_education')
+    education = models.ManyToManyField(
+        'Education', related_name='student_education')
     reference = models.ForeignKey('Reference', on_delete=models.CASCADE)
-    language = models.ManyToManyField('Language', related_name='student_language')
+    language = models.ManyToManyField(
+        'Language', related_name='student_language')
     skill = models.ManyToManyField('Skill', related_name='student_skill')
-    experience = models.ManyToManyField('Experience', related_name='student_experience')
+    experience = models.ManyToManyField(
+        'Experience', related_name='student_experience')
     activity = models.TextField(max_length=500)
     hobby = models.TextField(max_length=500)
     pub_date = models.DateTimeField(auto_now=True)
-    profile_image = models.ImageField(upload_to='profile/', default='/static/images/user.png')
-
+    profile_image = models.ImageField(
+        upload_to='profile/', default='/static/images/user.png')
 
     def level_to_number(self, objs):
         numeric_level = {
@@ -251,7 +268,7 @@ class Student(models.Model):
             'a': 80,
             'p': 100
         }
-        origin_objs = [ o for o in objs ]
+        origin_objs = [o for o in objs]
         modified_objs = []
         if len(origin_objs) > 0:
             for obj in origin_objs:
@@ -276,4 +293,3 @@ class Student(models.Model):
 
     def __str__(self):
         return ' '.join([self.first_name_th, self.last_name_th])
-    

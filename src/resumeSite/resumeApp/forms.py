@@ -1,4 +1,4 @@
-from django.forms import ModelForm, DateInput, modelformset_factory, widgets
+from django.forms import ModelForm, DateInput, modelformset_factory, widgets, DateField
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
@@ -7,6 +7,7 @@ from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormAct
 
 class DateInput(DateInput):
     input_type = 'date'
+    input_format = '%d/%m/%Y'
     
 
 class StudentForm(ModelForm):
@@ -14,7 +15,8 @@ class StudentForm(ModelForm):
         model = Student
         exclude = ['user_id']
         widgets = {
-            'birthday': DateInput(),
+            'birthday': DateInput(format = '%d/%m/%Y')
+            # DateField(widget=DateInput(format = '%d/%m/%Y'), input_formats=('%d/%m/%Y',))
         }
     
     def __init__(self, request, *args, **kwargs):
