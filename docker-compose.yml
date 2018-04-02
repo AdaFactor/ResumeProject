@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: ng01
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/src
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./src/resumeSite/static:/src/static
+    depends_on:
+      - web
+  db:
+    image: postgres:latest
+    container_name: ps01
+  web:
+    # build: .
+    image: adadesions/resumeproject:latest
+    container_name: resume_dg01
+    command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py collectstatic <<<yes && gunicorn resumeSite.wsgi -b 0.0.0.0:8000 -w 3"
+    depends_on:
+      - db
+    volumes: 
+      - ./src/resumeSite:/src
+      - ./src/resumeSite/static:/src/static
+    expose:
+      - "8000"

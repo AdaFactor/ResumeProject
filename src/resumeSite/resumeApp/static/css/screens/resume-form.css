@@ -1,0 +1,75 @@
+body {
+    background: none;
+}
+
+.form-container {
+    padding-top: 6em;
+    padding-bottom: 3em;
+    margin: 0 auto;
+    width: 90%;
+}
+
+fieldset {
+    border: 1px solid #ddd !important;
+    margin: 0;
+    min-width: 0;
+    padding: 10px;       
+    border-radius: 4px;
+    background-color: rgba(245, 245, 245, 0.267);
+    padding-left: 10px !important;
+}	
+	
+legend{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0px; 
+    width: 35%; 
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 4px; 
+    padding: 5px 5px 5px 10px; 
+    background-color: #ffffff;
+}
+
+input[type=text]:disabled {
+    background-color: #ffffff4f;
+}
+
+/* modal */
+.modal {
+    overflow: hidden;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 0px;    
+}
+
+.modal-header{
+    text-align: center;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    background-color: #ff6600;
+}
+
+.modal-body input, .modal-body select, .modal-body textarea {
+    margin: 5px 0px;
+    padding: 5px;
+    border: 1px solid #585858;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+/* validation form modal */
+.error{
+    margin: 0;
+    color: red;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+input.error, select.error, textarea.error {
+    border: 2px solid red;
+}

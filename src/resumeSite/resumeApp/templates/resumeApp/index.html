@@ -1,0 +1,60 @@
+{% extends "./base_site.html" %}
+
+{% block title %}
+    SUT | Welcome to Resume and CV   
+{% endblock title %}
+
+{% block content %}
+    <div class="container-index">
+        <div class="welcome">
+            <img class="img-logo" src="/static/images/sutLogo.png" alt="">
+        </div>
+    
+        <div class="w3-row col-container">
+            <div class="w3-col m6">
+                <div class="card">
+                    <img class="img-views" src="/static/images/resume.png">
+                    <h1>Resume</h1>
+                    <a href="{% url 'resumeApp:new_doc' 'resume' %}">
+                        <button id="new-resume" class="w3-btn w3-green w3-block">New</button>
+                    </a>
+                    {% if is_created_resume %}
+                        <a href="{% url 'resumeApp:view_doc' 'resume' %}">
+                            <button id="view-resume" class="w3-btn w3-blue w3-block">View</button>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'resumeApp:new_doc' 'resume' %}">
+                            <button id="view-resume" class="w3-btn w3-dark-gray w3-block">
+                                View <br>(Please, create a new resume )
+                            </button>
+                        </a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        
+            <div class="w3-col m6">
+                <div class="card">
+                    <img class="img-views" src="/static/images/cvs.png">
+                    <h1>CV Letter</h1>                
+                    <a href="{% url 'resumeApp:new_doc' 'cv' %}">
+                        <button id="new-cv" class="w3-btn w3-green w3-block">New</button>
+                    </a>
+                    {% if is_created_cv %}
+                        <a href="{% url 'resumeApp:view_doc' 'cv' %}">
+                            <button id="view-cv" class="w3-btn w3-blue w3-block">View</button>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'resumeApp:new_doc' 'cv' %}">
+                            <button id="view-resume" class="w3-btn w3-dark-gray w3-block">
+                                View
+                                <br>(Please, create a new CV )
+                            </button>
+                        </a>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
