@@ -77,9 +77,9 @@ input.error, select.error, textarea.error {
 /* .check-education{
 } */
 
-.checkbox-inline+.checkbox-inline {
+label.checkbox-inline+.checkbox-inline, .checkbox-inline {
     width: 100%;
-    font-size: 15px;
+    font-size: 16px;
     margin-left: initial;
 }
 
