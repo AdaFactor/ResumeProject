@@ -1,8 +1,9 @@
-from django.forms import ModelForm, DateInput, modelformset_factory, widgets, DateField
+from django.forms import ModelForm, DateInput, modelformset_factory, widgets
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
-from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions, StrictButton, InlineField
+from crispy_forms.bootstrap import PrependedText, PrependedAppendedText,
+from crispy_forms.bootstrap import FormActions, StrictButton, InlineField
 
 
 class DateInput(DateInput):
@@ -16,7 +17,6 @@ class StudentForm(ModelForm):
         exclude = ['user_id']
         widgets = {
             'birthday': DateInput(format='%d/%m/%Y')
-            # DateField(widget=DateInput(format = '%d/%m/%Y'), input_formats=('%d/%m/%Y',))
         }
 
     def __init__(self, request, *args, **kwargs):
@@ -53,13 +53,21 @@ class StudentForm(ModelForm):
                         'profile_image',
                         'education',
                         FormActions(
-                            Button('education', '+ Add Education', css_class="btn-primary",
-                                   data_toggle="modal", data_target="#myEducation"),
+                            Button(
+                                'education', '+ Add Education',
+                                css_class="btn-primary",
+                                data_toggle="modal",
+                                data_target="#myEducation"
+                            ),
                         ),
                         'language',
                         FormActions(
-                            Button('add', '+ Add Language', css_class="btn-primary",
-                                   data_toggle="modal", data_target="#myLanguage"),
+                            Button(
+                                'add', '+ Add Language',
+                                css_class="btn-primary",
+                                data_toggle="modal",
+                                data_target="#myLanguage"
+                            ),
                         ),
                         'first_name_en',
                         'last_name_en',
@@ -76,18 +84,30 @@ class StudentForm(ModelForm):
                     Div(
                         'reference',
                         FormActions(
-                            Button('add', '+ Add Reference', css_class="btn-primary",
-                                   data_toggle="modal", data_target="#myReference"),
+                            Button(
+                                'add', '+ Add Reference',
+                                css_class="btn-primary",
+                                data_toggle="modal",
+                                data_target="#myReference"
+                            ),
                         ),
                         'skill',
                         FormActions(
-                            Button('add', '+ Add Skill', css_class="btn-primary",
-                                   data_toggle="modal", data_target="#mySkill"),
+                            Button(
+                                'add', '+ Add Skill',
+                                css_class="btn-primary",
+                                data_toggle="modal",
+                                data_target="#mySkill"
+                            ),
                         ),
                         'experience',
                         FormActions(
-                            Button('add', '+ Add Experience', css_class="btn-primary",
-                                   data_toggle="modal", data_target="#myExperience"),
+                            Button(
+                                'add', '+ Add Experience',
+                                css_class="btn-primary",
+                                data_toggle="modal",
+                                data_target="#myExperience"
+                            ),
                         ),
                         'first_name_th',
                         'last_name_th',
@@ -100,10 +120,14 @@ class StudentForm(ModelForm):
                             'hobby',
                             placeholder="Use # for each hobbies for example, #Hobby1 #Hobby2"
                         ),
-                        css_class='col-lg-6'), css_class='row-fluid'
+                        css_class='col-lg-6'),
+                    css_class='row-fluid'
                 ),
-                Submit('save', 'Save',
-                       css_class='btn btn-success btn-lg btn-block'),
+                Submit(
+                    'save',
+                    'Save',
+                    css_class='btn btn-success btn-lg btn-block'
+                ),
                 css_id="student-form",
             ),
         )
