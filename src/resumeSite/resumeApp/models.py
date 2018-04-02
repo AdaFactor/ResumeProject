@@ -244,21 +244,33 @@ class Student(models.Model):
     birthday = models.DateField()
     nationality = models.CharField(max_length=16)
     religion = models.CharField(
-        max_length=16, choices=religion_choice, blank=True, null=True)
+        max_length=16,
+        choices=religion_choice,
+        blank=True,
+        null=True
+    )
     age = models.IntegerField(default=0)
     education = models.ManyToManyField(
-        'Education', related_name='student_education')
+        'Education',
+        related_name='student_education'
+    )
     reference = models.ForeignKey('Reference', on_delete=models.CASCADE)
     language = models.ManyToManyField(
-        'Language', related_name='student_language')
+        'Language',
+        related_name='student_language'
+    )
     skill = models.ManyToManyField('Skill', related_name='student_skill')
     experience = models.ManyToManyField(
-        'Experience', related_name='student_experience')
+        'Experience',
+        related_name='student_experience'
+    )
     activity = models.TextField(max_length=500)
     hobby = models.TextField(max_length=500)
     pub_date = models.DateTimeField(auto_now=True)
     profile_image = models.ImageField(
-        upload_to='profile/', default='/static/images/user.png')
+        upload_to='profile/',
+        default='/static/images/user.png'
+    )
 
     def level_to_number(self, objs):
         numeric_level = {
