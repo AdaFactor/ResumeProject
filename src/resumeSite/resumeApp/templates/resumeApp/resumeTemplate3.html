@@ -14,7 +14,9 @@
             <div id="bg-left" class="col-left">
                 <div>
                     <img class="img-logo" src="/static/images/sutLogo.png" alt=""><br>
-                    <h2 class="topic-left"><b>Personal Info</b></h2>
+                    <h1><b>{{student.first_name_en}} {{student.last_name_en}}</b></h1>                        
+                    
+                    {% comment %} <h2 class="topic-left"><b>Personal Info</b></h2> {% endcomment %}
                     <div class="content-left">
                         <b>Date of Birth: </b>
                         <label class="info-profile">{{student.birthday}}</label><br>
@@ -24,24 +26,6 @@
                         <label class="info-profile">{{student.get_religion_display}}</label><br> 
                         <b>Marital Status: </b>
                         <label class="info-profile">Single</label><br>
-                        <b>ADDRESS: </b>
-                        <label class="info-profile">{{student.address_en}}</label><br>
-                        <b>PHONE: </b>
-                        <ul class="content">
-                            {% for phone in student.phone_no %}
-                            <li>{{phone}}</li>
-                            {% empty %}
-                            <li>No phone number</li>
-                            {% endfor %}
-                        </ul>
-                        <b>E-MAIL: </b>
-                        <ul class="content">
-                            {% for email in student.email %}
-                            <li>{{email}}</li>
-                            {% empty %}
-                            <li>No Email Address</li>
-                            {% endfor %}
-                        </ul>
                     </div>
 
                     <h2 class="topic-left"><b>SKILLS</b></h2>
@@ -56,26 +40,13 @@
                         {% endfor %}
                     </div>
 
-                    <h2 class="topic-left"><b>LANGUAGES</b></h2>
-                    <div class="w3-container">
-                        {% for lang in student.get_language %}
-                            <div class="w3-light-grey">
-                                <div class="w3-container w3-orange w3-center" style="width:{{lang.level}}%">{{lang.name}}</div>
-                            </div><br>
-                        {% empty %}
-                            <h4>No languages</h4>
-                        {% endfor %}
-
-                    </div>
-
-                    <h2 class="topic-left"><b>HOBBIES</b></h2>
+                    <h2 class="topic-left"><b>REFERECES</b></h2>
                     <div class="content-left">
+                        <b> {{student.reference.advisor_name}} </b>
                         <ul class="content">
-                            {% for hobby in student.get_hobby %}
-                                <li>{{hobby}}</li>
-                            {% empty %}
-                                <li>No Hobby</li>
-                            {% endfor %}
+                            <li> {{student.reference.position}}, {{student.reference.affiliation}}</li>
+                            <li>{{student.reference.phone_no}}</li>
+                            <li>{{student.reference.email|first}}</li>                                    
                         </ul>
                     </div>
                 </div>
@@ -85,7 +56,6 @@
             <div class="col-right">
                 <div class="col-container">
                     <div class="col-right">
-                        <h1><b>{{student.first_name_en}} {{student.last_name_en}}</b></h1>                        
                     </div>
                     <div class="col-left">
                         {% if student.profile_image %}
@@ -98,12 +68,11 @@
 
                 <div class="col-container">
                     <h2 class="topic-right"><b>EDUCATION</b></h2>
-                    <div class="timeline">
+                    <div>
                         {% for edu in student.education.all %}
-                            <div class="column">
-                                <div class="title">
-                                    <h3><b> {{edu.time_period}} </b></h3>
-                                    <h4><b> {{edu.academy_name}} </b></h4>
+                            <div class="column education">
+                                <div class="title ">
+                                    <h3><b>{{edu.academy_name}} {{edu.time_period}} </b></h3>
                                 </div>
                                 <div class="description">
                                     <p> 
@@ -123,8 +92,8 @@
                         {% for exp in student.experience.all %}
                             <div class="column">
                                 <div class="title">
-                                    <h3><b> {{exp.time_period}} </b></h3>
-                                    <h4><b> {{exp.company_name}} <br> {{exp.position}} </b></h4>
+                                    <h3><b> {{exp.time_period}} {{exp.company_name}} </b></h3>
+                                    <h4><b>{{exp.position}} </b></h4>
                                 </div>
                                 <ul class="content">
                                     {% for role in exp.get_role_list %}
@@ -140,13 +109,51 @@
                         
                     </div>
 
-                    <h2 class="topic-right"><b>REFERECES</b></h2>
+                    <div class="col-container">
+                        <div class="per-lan">
+                            <h2 class="topic-right"><b>PERSONAL</b></h2>
+                            <div class="education">
+                                {% comment %} <b>ADDRESS: </b> {% endcomment %}
+                                <label class="info-profile">{{student.address_en}}</label><br>
+                                <b>PHONE: </b>
+                                <ul class="content">
+                                    {% for phone in student.phone_no %}
+                                    <li>{{phone}}</li>
+                                    {% empty %}
+                                    <li>No phone number</li>
+                                    {% endfor %}
+                                </ul>
+                                <b>E-MAIL: </b>
+                                <ul class="content">
+                                    {% for email in student.email %}
+                                    <li>{{email}}</li>
+                                    {% empty %}
+                                    <li>No Email Address</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="per-lan">
+                            <h2 class="topic-right"><b>LANGUAGES</b></h2>
+                            {% for lang in student.get_language %}
+                                {{lang.name}}
+                                <div class="w3-light-grey">
+                                    <div class="w3-container w3-orange w3-center" style="width:{{lang.level}}%">{{lang.level}}</div>
+                                </div><br>
+                            {% empty %}
+                                <h4>No languages</h4>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <h2 class="topic-right"><b>HOBBIES</b></h2>
                     <div class="refereces">
-                        <b> {{student.reference.advisor_name}} </b>
                         <ul class="content">
-                            <li> {{student.reference.position}}, {{student.reference.affiliation}}</li>
-                            <li>{{student.reference.phone_no}}</li>
-                            <li>{{student.reference.email|first}}</li>                                    
+                            {% for hobby in student.get_hobby %}
+                                <li>{{hobby}}</li>
+                            {% empty %}
+                                <li>No Hobby</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
