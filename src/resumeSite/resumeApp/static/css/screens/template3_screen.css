@@ -58,7 +58,7 @@ h3 {
     color: white;
     border: 2px solid #f29e29;
     background-color: #f29e39;
-    padding-left: 20px;
+    padding: 0px 20px;
 }
 
 /* Timeline */
@@ -129,4 +129,14 @@ ul.content {
 .refereces {
     padding-left: 20px;
     padding-bottom: 10px;
+}
+
+.education{
+    margin: 0px 10px;
+}
+
+.per-lan {
+    display: table-cell;
+    width: 50%;
+    padding-right: 10px;
 }
