@@ -181,8 +181,7 @@ class Major(models.Model):
 
 class Education(models.Model):
     LEVEL = (
-        ('el', 'Elementary'),
-        ('se', 'Secondary'),
+        ('hs', 'Hight School'),
         ('un', 'Undergraduate'),
         ('ms', 'Master'),
         ('dr', 'Doctorate'),
