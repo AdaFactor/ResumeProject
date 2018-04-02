@@ -15,9 +15,13 @@ services:
   db:
     image: postgres:latest
     container_name: ps01
+    environment:
+      POSTGRES_DB: 'resumedb'
+      POSTGRES_USER: 'adafactor'
+      POSTGRES_PASSWORD: '1234'
   web:
-    # build: .
-    image: adadesions/resumeproject:latest
+    build: .
+    # image: adadesions/resumeproject:latest
     container_name: resume_dg01
     command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py collectstatic <<<yes && gunicorn resumeSite.wsgi -b 0.0.0.0:8000 -w 3"
     depends_on:
