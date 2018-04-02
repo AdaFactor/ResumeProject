@@ -1,4 +1,4 @@
 #!/bin/zsh
 #terminator --new-tab
 source ./.env/bin/activate
-./resumeSite/manage.py runserver
+python3 ./resumeSite/manage.py runserver

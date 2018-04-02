@@ -61,7 +61,7 @@
 }
 
 .content-resume {
-    padding-left: 30px;
+    padding-left: 20px;
     padding-right: 30px;
 }
 
@@ -96,9 +96,13 @@
 }
 
 .background-head {
-    background-color: #c1e5f0;
+    background-color: #fff;
 }
 
 .progress-level {
     padding-bottom: 5px;
+}
+
+.contentEducation{
+    padding-left: 20px;
 }

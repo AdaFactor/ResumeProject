@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%l-14k0cvf)0um5c(85fsr!=se!%)he*)odbu44#mrlg30q@gl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,10 +80,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': 'resumedb',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432,
+        'NAME': 'resumedb',
+        'USER': 'adafactor',
+        'PASSWORD': '1234',
+        # 'HOST': 'db',
+        # 'PORT': 5432,
         # 'USER': os.environ.get('DATABASE_USERNAME', ''),
         # 'PASSWORD': os.environ.get('DATABASE_PWD', ''),
         # 'HOST': 'localhost',
