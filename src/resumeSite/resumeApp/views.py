@@ -14,9 +14,10 @@ import numpy as np
 import os
 
 template_dir = 'resumeApp/resumeTemplate'
-app_dir = os.path.dirname( os.path.realpath(__file__) )
+app_dir = os.path.dirname(os.path.realpath(__file__))
 css_dir = app_dir + '/static/css'
 fonts_dir = app_dir + '/static/fonts'
+
 
 def query_student(user_id):
     try:
@@ -34,7 +35,8 @@ def query_student(user_id):
 
 @login_required
 def index(request):
-    is_created_resume = Student.objects.filter(user_id=request.user.id).exists()
+    is_created_resume = Student.objects.filter(
+        user_id=request.user.id).exists()
     is_created_cv = Letter.objects.filter(user_id=request.user.id).exists()
     context = {
         'is_created_resume': is_created_resume,
@@ -101,6 +103,7 @@ def cv(request, cv_lang, cv_id):
 
     return render(request, respons_html, context)
 
+
 @login_required
 def delete_cv(request, cv_id):
     '''
@@ -154,17 +157,18 @@ def view_doc(request, doc_type):
     context.update({
         'number_of_template': np.arange(1, 4)
     })
-    
+
     return render(request, html_file, context)
-    
+
 
 @login_required
 def new_doc(request, doc_type):
     context = query_student(request.user.id)
-    
+
     if request.POST:
         if doc_type == 'resume':
-            cform = StudentForm(request, data=request.POST, files=request.FILES, instance=context['student'])
+            cform = StudentForm(request, data=request.POST,
+                                files=request.FILES, instance=context['student'])
             if cform.is_valid():
                 new_student = cform.save(commit=False)
                 new_student.user_id = request.user.id
@@ -199,7 +203,8 @@ def new_doc(request, doc_type):
 def edit_cv(request, cv_id):
     if request.POST:
         edit_cv_object = get_object_or_404(Letter, id=cv_id)
-        form = LetterForm(request, data=request.POST or None, instance=edit_cv_object)
+        form = LetterForm(request, data=request.POST or None,
+                          instance=edit_cv_object)
         if form.is_valid():
             update_cv = form.save(commit=False)
             update_cv.user_id = request.user.id
@@ -209,12 +214,12 @@ def edit_cv(request, cv_id):
             return redirect('resumeApp:cv', cv_lang=cv_lang, cv_id=cv_id)
         else:
             print(form.errors)
-            
+
     letter = get_object_or_404(Letter, id=cv_id, user_id=request.user.id)
     form = LetterForm(request, instance=letter)
     return render(request, 'resumeApp/new_cv.html', {'form': form})
 
-    
+
 @login_required
 def add_model(request, model):
     if request.POST:
@@ -230,19 +235,21 @@ def add_model(request, model):
                 course=a_course
             )
             a_major.save()
-            education_obj = Education(**Education.extract_data(request, a_major))
+            education_obj = Education(
+                **Education.extract_data(request, a_major))
             education_obj.save()
-        
+
         elif model == 'reference':
             reference_obj = Reference(**Reference.extract_data(request)).save()
-        
+
         elif model == 'language':
             language_obj = Language(**Language.extract_data(request)).save()
-        
+
         elif model == 'skill':
             skill_obj = Skill(**Skill.extract_data(request)).save()
-        
+
         elif model == 'experience':
-            experience_obj = Experience(**Experience.extract_data(request)).save()
+            experience_obj = Experience(
+                **Experience.extract_data(request)).save()
 
     return redirect('resumeApp:new_doc', doc_type='resume')
