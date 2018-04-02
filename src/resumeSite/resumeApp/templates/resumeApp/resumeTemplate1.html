@@ -116,9 +116,7 @@
                 <h3 class="topic-right"><b>WORK EXPERIENCE</b></h3>
                 {% for exp in student.experience.all %}
                     <div class="content-resume">
-                        <label class="sub-topic-right"> {{exp.time_period}} </label>
-                        <br>
-                        <h4 class="text-bold"><b>{{exp.company_name}}, {{exp.position}}</b></h4>
+                        <label class="sub-topic-right"> {{exp.time_period}} : {{exp.company_name}}, {{exp.position}}</label>
                         <ul class="content">
                             {% for role in exp.get_role_list %}
                                 <li>{{role}}</li>
@@ -137,14 +135,8 @@
                 <div class="content-resume">
                     {% for edu in student.education.all %}
                         <div class="col-container">
-                            <div class="col-education-l">
-                                <label class="sub-topic-right"> {{edu.time_period}} </label>
-                                <br>
-                                <label class="sub-topic-right"> {{edu.get_level_display}} </label>
-                            </div>
-                            <div class="col-education-r">
-                                <label class="text-bold"> {{edu.academy_name}} </label>
-                                <br>
+                            <label class="text-bold sub-topic-right"> {{edu.academy_name}} {{edu.time_period}}</label>                            
+                            <div class="contentEducation">
                                 <label> {{edu.major.major_name}}, {{edu.major.branch.branch_name}} </label>
                                 <br />
                                 <label >( {{edu.major.course.course_name}} )</label>
