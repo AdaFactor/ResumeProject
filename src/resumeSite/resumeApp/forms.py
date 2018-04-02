@@ -6,6 +6,7 @@ from crispy_forms.bootstrap import PrependedText, PrependedAppendedText,
 from crispy_forms.bootstrap import FormActions, StrictButton, InlineField
 
 
+
 class DateInput(DateInput):
     input_type = 'date'
     input_format = '%d/%m/%Y'
@@ -50,8 +51,8 @@ class StudentForm(ModelForm):
                 'Resume',
                 Div(
                     Div(
-                        'profile_image',
-                        'education',
+                        'profile_image',                        
+                        InlineCheckboxes('education'),                     
                         FormActions(
                             Button(
                                 'education', '+ Add Education',
@@ -60,7 +61,7 @@ class StudentForm(ModelForm):
                                 data_target="#myEducation"
                             ),
                         ),
-                        'language',
+                        InlineCheckboxes('language'),                        
                         FormActions(
                             Button(
                                 'add', '+ Add Language',
@@ -82,7 +83,7 @@ class StudentForm(ModelForm):
                         css_class='col-lg-5'
                     ),
                     Div(
-                        'reference',
+                        'reference',                        
                         FormActions(
                             Button(
                                 'add', '+ Add Reference',
@@ -91,7 +92,7 @@ class StudentForm(ModelForm):
                                 data_target="#myReference"
                             ),
                         ),
-                        'skill',
+                        InlineCheckboxes('skill'),
                         FormActions(
                             Button(
                                 'add', '+ Add Skill',
@@ -100,7 +101,7 @@ class StudentForm(ModelForm):
                                 data_target="#mySkill"
                             ),
                         ),
-                        'experience',
+                        InlineCheckboxes('experience'),
                         FormActions(
                             Button(
                                 'add', '+ Add Experience',
@@ -162,7 +163,7 @@ class LetterForm(ModelForm):
                     'major',
                     'date',
                     'time_period',
-                    'attachment',
+                    InlineCheckboxes('attachment'),                    
                     'position',
                     'position_other',
                     'company_name',
