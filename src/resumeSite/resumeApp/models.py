@@ -100,7 +100,7 @@ class Letter(models.Model):
         date = self.date
         the_month = month[date.month-1]
         thai_year = date.year + 543
-        return ('วันที่ %d %s %d') % (date.day, the_month, thai_year)
+        return ('%d %s %d') % (date.day, the_month, thai_year)
 
     def __str__(self):
         return self.company_name

@@ -80,18 +80,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'resumedb',
-        'USER': 'adafactor',
-        'PASSWORD': '1234',
-        'HOST': 'db',
-        'PORT': '5432',
+        # 'USER': 'adafactor',
+        # 'PASSWORD': '1234',
+        # 'HOST': 'db',
+        # 'PORT': '5432',
         # 'NAME': 'postgres',
         # 'USER': 'postgres',
         # 'HOST': 'db',
         # 'PORT': 5432,
-        # 'USER': os.environ.get('DATABASE_USERNAME', ''),
-        # 'PASSWORD': os.environ.get('DATABASE_PWD', ''),
-        # 'HOST': 'localhost',
-        # 'PORT': os.environ.get(''),
+        'USER': os.environ.get('DATABASE_USERNAME', ''),
+        'PASSWORD': os.environ.get('DATABASE_PWD', ''),
+        'HOST': 'localhost',
+        'PORT': os.environ.get(''),
     }
 }
 
