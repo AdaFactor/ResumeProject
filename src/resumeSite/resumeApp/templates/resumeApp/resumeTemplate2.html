@@ -37,9 +37,7 @@
                     <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
                     <div class="col-container">
                         {% for exp in student.experience.all %}
-                            <b> {{exp.time_period}} </b>
-                            <br>
-                            <b>{{exp.company_name}} {{exp.position}}</b>
+                            <b> {{exp.time_period}}</b> {{exp.company_name}}, {{exp.position}}
                             <ul>
                                 {% for role in exp.get_role_list %}
                                     <li>{{role}}</li>
