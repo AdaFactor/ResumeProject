@@ -167,8 +167,12 @@ def new_doc(request, doc_type):
 
     if request.POST:
         if doc_type == 'resume':
-            cform = StudentForm(request, data=request.POST,
-                                files=request.FILES, instance=context['student'])
+            cform = StudentForm(
+                request,
+                data=request.POST,
+                files=request.FILES,
+                instance=context['student']
+            )
             if cform.is_valid():
                 new_student = cform.save(commit=False)
                 new_student.user_id = request.user.id
@@ -182,6 +186,7 @@ def new_doc(request, doc_type):
                 new_letter = cform.save(commit=False)
                 new_letter.user_id = request.user.id
                 new_letter.save()
+                cform.save_m2m()
             else:
                 print(cform.errors)
 
@@ -203,8 +208,11 @@ def new_doc(request, doc_type):
 def edit_cv(request, cv_id):
     if request.POST:
         edit_cv_object = get_object_or_404(Letter, id=cv_id)
-        form = LetterForm(request, data=request.POST or None,
-                          instance=edit_cv_object)
+        form = LetterForm(
+            request,
+            data=request.POST or None,
+            instance=edit_cv_object
+        )
         if form.is_valid():
             update_cv = form.save(commit=False)
             update_cv.user_id = request.user.id

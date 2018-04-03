@@ -2,9 +2,8 @@ from django.forms import ModelForm, DateInput, modelformset_factory, widgets
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
-from crispy_forms.bootstrap import PrependedText, PrependedAppendedText,
-from crispy_forms.bootstrap import FormActions, StrictButton, InlineField
-
+from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions
+from crispy_forms.bootstrap import StrictButton, InlineField, InlineCheckboxes
 
 
 class DateInput(DateInput):
@@ -51,8 +50,8 @@ class StudentForm(ModelForm):
                 'Resume',
                 Div(
                     Div(
-                        'profile_image',                        
-                        InlineCheckboxes('education'),                     
+                        'profile_image',
+                        InlineCheckboxes('education'),
                         FormActions(
                             Button(
                                 'education', '+ Add Education',
@@ -61,7 +60,7 @@ class StudentForm(ModelForm):
                                 data_target="#myEducation"
                             ),
                         ),
-                        InlineCheckboxes('language'),                        
+                        InlineCheckboxes('language'),
                         FormActions(
                             Button(
                                 'add', '+ Add Language',
@@ -83,7 +82,7 @@ class StudentForm(ModelForm):
                         css_class='col-lg-5'
                     ),
                     Div(
-                        'reference',                        
+                        'reference',
                         FormActions(
                             Button(
                                 'add', '+ Add Reference',
@@ -163,7 +162,7 @@ class LetterForm(ModelForm):
                     'major',
                     'date',
                     'time_period',
-                    InlineCheckboxes('attachment'),                    
+                    InlineCheckboxes('attachment'),
                     'position',
                     'position_other',
                     'company_name',
