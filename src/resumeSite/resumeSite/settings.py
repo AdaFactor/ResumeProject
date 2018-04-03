@@ -88,7 +88,6 @@ DATABASES = {
         'PASSWORD': '1234',
 
         # Development
-        # 'PASSWORD': 'adafactor1902',
         # 'HOST': 'localhost',
         # 'PORT': '',
     }
