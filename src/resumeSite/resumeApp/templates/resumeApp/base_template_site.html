@@ -19,12 +19,13 @@
                 <i class="fa fa-angle-left"></i>
             </a> {% endcomment %}
             <div class="button-group">
-                <a class="w3-btn select w3-blue" href="javascript:history.go(-1)" %}>
-                    select arther templates
+                <a class="w3-btn select w3-blue" href={% url 'resumeApp:view_doc' 'resume' %} %}>
+                    Select other templates
                 </a> 
-                <a class="w3-btn select w3-orange" href="javascript:history.go(-1)" %}>
-                    edit a resume
-                </a><br>
+                <a class="w3-btn select w3-orange" href={% url 'resumeApp:new_doc' 'resume' %} %}>
+                    Edit a resume
+                </a>
+                <br>
                 
             </div>
 
