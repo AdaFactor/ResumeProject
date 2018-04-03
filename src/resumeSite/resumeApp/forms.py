@@ -2,9 +2,8 @@ from django.forms import ModelForm, DateInput, modelformset_factory, widgets
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
-from crispy_forms.bootstrap import PrependedText, PrependedAppendedText, FormActions
-from crispy_forms.bootstrap import StrictButton, InlineField, InlineCheckboxes
-
+from crispy_forms.bootstrap import PrependedText, PrependedAppendedText
+from crispy_forms.bootstrap import FormActions, StrictButton, InlineField, InlineCheckboxes
 
 class DateInput(DateInput):
     input_type = 'date'
@@ -46,11 +45,10 @@ class StudentForm(ModelForm):
         self.fields['experience'].queryset = Experience.objects.filter(
             user_id=request.user.id)
         self.helper.layout = Layout(
-            Fieldset(
-                'Resume',
-                Div(
+            Div (
+                Fieldset(
+                    'Education Information',
                     Div(
-                        'profile_image',
                         InlineCheckboxes('education'),
                         FormActions(
                             Button(
@@ -69,17 +67,7 @@ class StudentForm(ModelForm):
                                 data_target="#myLanguage"
                             ),
                         ),
-                        'first_name_en',
-                        'last_name_en',
-                        'birthday',
-                        'age',
-                        'gender',
-                        'nationality',
-                        'religion',
-                        'phone_no',
-                        'email',
-                        'address_en',
-                        css_class='col-lg-5'
+                        css_class='col-lg-5'                    
                     ),
                     Div(
                         'reference',
@@ -109,27 +97,52 @@ class StudentForm(ModelForm):
                                 data_target="#myExperience"
                             ),
                         ),
-                        'first_name_th',
-                        'last_name_th',
-                        'address_th',
-                        Field(
-                            'activity',
-                            placeholder="Use # for each activities for example, #Activity1 #Activity2"
-                        ),
-                        Field(
-                            'hobby',
-                            placeholder="Use # for each hobbies for example, #Hobby1 #Hobby2"
-                        ),
-                        css_class='col-lg-6'),
-                    css_class='row-fluid'
+                        css_class='col-lg-6'
+                    ),
+                    css_class='row-fluid',                 
                 ),
-                Submit(
-                    'save',
-                    'Save',
-                    css_class='btn btn-success btn-lg btn-block'
+                Fieldset(
+                    'Personal Information',
+                    Div(
+                        Div(
+                            'profile_image',
+                            'first_name_en',
+                            'last_name_en',
+                            'birthday',
+                            'age',
+                            'gender',
+                            'nationality',
+                            'religion',
+                            'phone_no',
+                            'email',
+                            'address_en',
+                            css_class='col-lg-5'
+                        ),
+                        Div(
+                            
+                            'first_name_th',
+                            'last_name_th',
+                            'address_th',
+                            Field(
+                                'activity',
+                                placeholder="Use # for each activities for example, #Activity1 #Activity2"
+                            ),
+                            Field(
+                                'hobby',
+                                placeholder="Use # for each hobbies for example, #Hobby1 #Hobby2"
+                            ),
+                            css_class='col-lg-6'
+                        ),
+                        css_class='row-fluid'
+                    ),
+                    Submit(
+                        'save',
+                        'Save',
+                        css_class='btn btn-success btn-lg btn-block'
+                    ),
+                    css_id="student-form",
                 ),
-                css_id="student-form",
-            ),
+            )
         )
 
 
@@ -151,6 +164,7 @@ class LetterForm(ModelForm):
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-6'
 
+        self.fields['contents'].label = 'Content<br> Press enter for new paragraph'
         self.fields['major'].queryset = Major.objects.filter(
             user_id=request.user.id)
 
@@ -166,10 +180,7 @@ class LetterForm(ModelForm):
                     'position',
                     'position_other',
                     'company_name',
-                    Field(
-                        'contents',
-                        placeholder="Use # if you want a paragraph break (a new paragraph)"
-                    ),
+                    'contents'
                 ),
                 Submit('save', 'Save', css_class='btn btn-success btn-block'),
                 css_id='letter-form'

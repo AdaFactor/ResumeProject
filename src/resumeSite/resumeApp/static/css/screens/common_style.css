@@ -50,3 +50,22 @@ p {
     border-radius: 50%;
     background-color: rgb(209, 209, 209);
 }
+
+.button-group {
+    margin-top: 0.5em;
+    margin-left: 1px; 
+    position: absolute;
+    width: 230px;
+    /* background-color: rgb(209, 209, 209); */
+}
+
+.select {
+    font-size: 18px;
+    width: 100%;
+}
+.select:hover {
+    font-size: 20px;
+}
+.w3-orange {
+    color: #fff!important;
+}
