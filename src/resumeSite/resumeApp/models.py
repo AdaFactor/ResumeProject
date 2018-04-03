@@ -190,7 +190,13 @@ class Major(models.Model):
         'Course', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return ', '.join([self.major_name, self.branch.branch_name, self.course.course_name])
+        return ', '.join(
+            [
+                self.major_name,
+                self.branch.branch_name,
+                self.course.course_name
+            ]
+        )
 
 
 class Education(models.Model):
