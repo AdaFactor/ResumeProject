@@ -37,7 +37,7 @@
                     <h3 class="topic"><i class="fa fa-briefcase" aria-hidden="true"></i>Work Experiece</h3>
                     <div class="col-container">
                         {% for exp in student.experience.all %}
-                            <b> {{exp.time_period}}</b> {{exp.company_name}}, {{exp.position}}
+                            <b> {{exp.time_period}} :</b> {{exp.company_name}}, {{exp.position}}
                             <ul>
                                 {% for role in exp.get_role_list %}
                                     <li>{{role}}</li>
@@ -54,12 +54,10 @@
                     <h3 class="topic"><i class="fa fa-university" aria-hidden="true"></i>Education</h3>
                         {% for edu in student.education.all %}
                             <div class="col-container">
-                                <div class="col-education-l">
-                                    <b> {{edu.time_period}} </b>
+                                <div>
+                                    <b> {{edu.time_period}} </b> <label> {{edu.academy_name}} </label>
                                 </div>
-                                <div class="col-education-r">
-                                    <label> {{edu.academy_name}} </label>
-                                    <br>
+                                <div>
                                     <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                                     <label>{{edu.major.major_name}}, {{edu.major.branch.branch_name}}</label>
                                     <br>
