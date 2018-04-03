@@ -2,10 +2,8 @@ from django.forms import ModelForm, DateInput, modelformset_factory, widgets
 from .models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
-from crispy_forms.bootstrap import PrependedText, PrependedAppendedText,
-from crispy_forms.bootstrap import FormActions, StrictButton, InlineField
-
-
+from crispy_forms.bootstrap import PrependedText, PrependedAppendedText
+from crispy_forms.bootstrap import FormActions, StrictButton, InlineField, InlineCheckboxes
 
 class DateInput(DateInput):
     input_type = 'date'
@@ -151,15 +149,10 @@ class LetterForm(ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-lg-2'
         self.helper.field_class = 'col-lg-6'
-<<<<<<< HEAD
-        
-        self.fields['contents'].label = 'Content<br>( Press enter for new paragraph )'
-        self.fields['major'].queryset = Major.objects.filter(user_id=request.user.id)
-=======
 
+        self.fields['contents'].label = 'Content<br> Press enter for new paragraph'
         self.fields['major'].queryset = Major.objects.filter(
             user_id=request.user.id)
->>>>>>> 036d720e9c3835902bcdc7eafa92939613c1125e
 
         self.helper.layout = Layout(
             Fieldset(
@@ -173,14 +166,7 @@ class LetterForm(ModelForm):
                     'position',
                     'position_other',
                     'company_name',
-<<<<<<< HEAD
-                    'contents',
-=======
-                    Field(
-                        'contents',
-                        placeholder="Use # if you want a paragraph break (a new paragraph)"
-                    ),
->>>>>>> 036d720e9c3835902bcdc7eafa92939613c1125e
+                    'contents'
                 ),
                 Submit('save', 'Save', css_class='btn btn-success btn-block'),
                 css_id='letter-form'
