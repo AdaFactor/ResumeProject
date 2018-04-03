@@ -10,15 +10,12 @@ services:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
       - ./src/resumeSite/static:/src/static
+      - ./src/resumeSite/media:/src/media
     depends_on:
       - web
   db:
     image: postgres:latest
     container_name: ps01
-    environment:
-      POSTGRES_DB: 'resumedb'
-      POSTGRES_USER: 'adafactor'
-      POSTGRES_PASSWORD: '1234'
   web:
     build: .
     # image: adadesions/resumeproject:latest
@@ -29,5 +26,6 @@ services:
     volumes: 
       - ./src/resumeSite:/src
       - ./src/resumeSite/static:/src/static
+      - ./src/resumeSite/media:/src/media
     expose:
       - "8000"

@@ -133,13 +133,13 @@ def to_pdf_cv(request, cv_lang, cv_id):
     html_string = render_to_string(html_file, context)
     html = HTML(string=html_string, base_url=request.build_absolute_uri())
     css = [
-        CSS(css_dir + '/scrStudenteens/common_style.css'),
+        CSS(css_dir + '/screens/common_style.css'),
         CSS(fonts_dir + '/thsarabunnew.css', font_config=font_config),
         CSS(css_dir + '/screens/cv_screen.css'),
     ]
     pdf_file = html.write_pdf(stylesheets=css, font_config=font_config)
     response = HttpResponse(pdf_file, content_type='application/pdf')
-    response['Content-Disposition'] = 'inline; filename="resume.pdf"'
+    response['Content-Disposition'] = 'inline; filename="cv.pdf"'
 
     return response
 

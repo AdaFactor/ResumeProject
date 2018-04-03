@@ -15,19 +15,19 @@ password = browser.find_element_by_id('password')
 login_btn = browser.find_element_by_id('btn-login')
 
 # Sendkey Text
-username.send_keys('adadesions')
-password.send_keys('SteveJobs')
+username.send_keys('tester')
+password.send_keys('1234')
 login_btn.click()
 
 # Index Page
-#Find Elements
+# Find Elements
 new_resume_btn = browser.find_element_by_id('new-resume')
 
 # SendKey Text
 new_resume_btn.click()
-
+time.sleep(1)
 # Resume Page
-#Find Elements
+# Find Elements
 first_name_en = browser.find_element_by_id('id_first_name_en')
 last_name_en = browser.find_element_by_id('id_last_name_en')
 birthday = browser.find_element_by_id('id_birthday')
@@ -38,19 +38,19 @@ religion = Select(browser.find_element_by_id('id_religion'))
 phone_no = browser.find_element_by_id('id_phone_no')
 email = browser.find_element_by_id('id_email')
 address_en = browser.find_element_by_id('id_address_en')
-education = Select(browser.find_element_by_id('id_education'))
-reference = Select(browser.find_element_by_id('id_reference'))
-language = Select(browser.find_element_by_id('id_language'))
+# education = Select(browser.find_element_by_id('id_education'))
+# reference = Select(browser.find_element_by_id('id_reference'))
+# language = Select(browser.find_element_by_id('id_language'))
 first_name_th = browser.find_element_by_id('id_first_name_th')
 last_name_th = browser.find_element_by_id('id_last_name_th')
 address_th = browser.find_element_by_id('id_address_th')
-skill = Select(browser.find_element_by_id('id_skill'))
-experience = Select(browser.find_element_by_id('id_experience'))
+# skill = Select(browser.find_element_by_id('id_skill'))
+# experience = Select(browser.find_element_by_id('id_experience'))
 activity = browser.find_element_by_id('id_activity')
 hobby = browser.find_element_by_id('id_hobby')
 save_btn = browser.find_element_by_id('submit-id-save')
 
-#SendKeys
+# SendKeys
 first_name_en.send_keys('Arkane')
 last_name_en.send_keys('Kaminkure')
 age.send_keys(22)
@@ -62,16 +62,16 @@ email.send_keys('adadesions@gmail.com')
 address_en.send_keys(
     '207 AdaFactor 2nd Mahadthai Rd., Muang, Nai-muang, Nakhonratchasima 30000'
 )
-education.select_by_index(0)
-reference.select_by_index(1)
-language.select_by_index(0)
+# education.select_by_index(0)
+# reference.select_by_index(1)
+# language.select_by_index(0)
 first_name_th.send_keys('อาคาเณย์')
 last_name_th.send_keys('ขมิ้นเครือ')
 address_th.send_keys(
     '207 เอด้าเฟรกเตอร์ ชั้น 2 ถ.มหาดไทย อ.เมือง ต.ในเมือง จ.ครราชสีมา 30000'
 )
-skill.select_by_index(0)
-experience.select_by_index(0)
+# skill.select_by_index(0)
+# experience.select_by_index(0)
 activity.send_keys(
     '#กิจกรรมช่วยเหลือสังคม #กิจกรรมทำความดีถวายพ่อหลวง #อาสาสมัครมูลนิธิ'
 )
@@ -100,9 +100,6 @@ hobby.send_keys(
 # email = browser.find_element_by_id('id_email')
 # reference_person = browser.find_element_by_id('id_reference_person')
 # submit = browser.find_element_by_id('id_submit')
-
-
-
 
 
 # Sendkey to Select
