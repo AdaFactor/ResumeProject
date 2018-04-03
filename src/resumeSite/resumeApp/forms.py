@@ -45,11 +45,10 @@ class StudentForm(ModelForm):
         self.fields['experience'].queryset = Experience.objects.filter(
             user_id=request.user.id)
         self.helper.layout = Layout(
-            Fieldset(
-                'Resume',
-                Div(
+            Div (
+                Fieldset(
+                    'Education Information',
                     Div(
-                        'profile_image',                        
                         InlineCheckboxes('education'),                     
                         FormActions(
                             Button(
@@ -68,17 +67,7 @@ class StudentForm(ModelForm):
                                 data_target="#myLanguage"
                             ),
                         ),
-                        'first_name_en',
-                        'last_name_en',
-                        'birthday',
-                        'age',
-                        'gender',
-                        'nationality',
-                        'religion',
-                        'phone_no',
-                        'email',
-                        'address_en',
-                        css_class='col-lg-5'
+                        css_class='col-lg-5'                    
                     ),
                     Div(
                         'reference',                        
@@ -108,27 +97,52 @@ class StudentForm(ModelForm):
                                 data_target="#myExperience"
                             ),
                         ),
-                        'first_name_th',
-                        'last_name_th',
-                        'address_th',
-                        Field(
-                            'activity',
-                            placeholder="Use # for each activities for example, #Activity1 #Activity2"
-                        ),
-                        Field(
-                            'hobby',
-                            placeholder="Use # for each hobbies for example, #Hobby1 #Hobby2"
-                        ),
-                        css_class='col-lg-6'),
-                    css_class='row-fluid'
+                        css_class='col-lg-6'
+                    ),
+                    css_class='row-fluid',                 
                 ),
-                Submit(
-                    'save',
-                    'Save',
-                    css_class='btn btn-success btn-lg btn-block'
+                Fieldset(
+                    'Personal Information',
+                    Div(
+                        Div(
+                            'profile_image',
+                            'first_name_en',
+                            'last_name_en',
+                            'birthday',
+                            'age',
+                            'gender',
+                            'nationality',
+                            'religion',
+                            'phone_no',
+                            'email',
+                            'address_en',
+                            css_class='col-lg-5'
+                        ),
+                        Div(
+                            
+                            'first_name_th',
+                            'last_name_th',
+                            'address_th',
+                            Field(
+                                'activity',
+                                placeholder="Use # for each activities for example, #Activity1 #Activity2"
+                            ),
+                            Field(
+                                'hobby',
+                                placeholder="Use # for each hobbies for example, #Hobby1 #Hobby2"
+                            ),
+                            css_class='col-lg-6'
+                        ),
+                        css_class='row-fluid'
+                    ),
+                    Submit(
+                        'save',
+                        'Save',
+                        css_class='btn btn-success btn-lg btn-block'
+                    ),
+                    css_id="student-form",
                 ),
-                css_id="student-form",
-            ),
+            )
         )
 
 
