@@ -34,6 +34,7 @@
                         {% comment %} <input type="text" name="major" id="id_major" placeholder="Major" > {% endcomment %}
                         <select name="major" id="id_major">
                             <option value="" disabled selected>Select Major</option>
+                            <option value="-">ไม่มี</option>
                             {% for key, value in majors_th.items  %}
                                 <option id={{key}} value={{value}}>{{value}}</option>
                             {% endfor %}
@@ -43,6 +44,7 @@
                         </select>
                         <select name="branch" id="id_branch">
                             <option value="" disabled selected>Select Branch</option>
+                            <option class="-" value="-">ไม่มี</option>
                             {% for key, value in branches_th.items %}
                                 {% for sub_key, sub_value in value.items %}
                                     <option class={{key}} value={{sub_value}}>{{sub_value}}</option>
