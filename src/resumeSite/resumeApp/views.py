@@ -5,6 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from django.conf import settings
 from django.utils import timezone
+from django.conf import settings
 from weasyprint import HTML, CSS
 from weasyprint.fonts import FontConfiguration
 from resumeApp.models import *
@@ -12,6 +13,7 @@ from resumeApp.forms import StudentForm, LetterForm
 from django.contrib.auth.decorators import login_required
 import numpy as np
 import os
+import json
 
 template_dir = 'resumeApp/resumeTemplate'
 app_dir = os.path.dirname(os.path.realpath(__file__))
@@ -194,12 +196,34 @@ def new_doc(request, doc_type):
 
     html_file = ''.join(['resumeApp/new_', doc_type, '.html'])
 
+    dev_static = ''.join([app_dir, '/static'])
+    prod_static = settings.STATIC_URL
+
+    json_th = ''.join([dev_static, '/json', '/major_th.json'])
+    json_en = ''.join([dev_static, '/json', '/major_en.json'])
+    major_json = []
+
+    with open(json_th, 'r') as th_data, open(json_en, 'r') as en_data:
+        majors_th = json.load(th_data)
+        majors_en = json.load(en_data)
+        major_json.append(majors_th)
+        major_json.append(majors_en)
+        
+    th_data.close()
+    en_data.close()
+
     if doc_type == 'resume':
         form = StudentForm(request, instance=context['student'])
     else:
         form = LetterForm(request)
 
-    context.update({'form': form})
+    context.update({
+        'form': form,
+        'majors_th': major_json[0]['majors'],
+        'branches_th': major_json[0]['branches'],
+        'majors_en': major_json[1]['majors'],
+        'branches_en': major_json[1]['branches'],
+    })
 
     return render(request, html_file, context)
 

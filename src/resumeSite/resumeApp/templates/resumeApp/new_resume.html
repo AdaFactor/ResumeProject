@@ -31,8 +31,30 @@
                             <option value="ms">Master</option>
                             <option value="dr">Doctorate</option>
                         </select>
-                        <input type="text" name="major" id="id_major" placeholder="Major" >
-                        <input type="text" name="branch" id="id_branch" placeholder="Branch" >
+                        {% comment %} <input type="text" name="major" id="id_major" placeholder="Major" > {% endcomment %}
+                        <select name="major" id="id_major">
+                            <option value="" disabled selected>Select Major</option>
+                            {% for key, value in majors_th.items  %}
+                                <option id={{key}} value={{value}}>{{value}}</option>
+                            {% endfor %}
+                            {% for key, value in majors_en.items %}
+                                <option id={{key}} value={{value}}>{{value}}</option>
+                            {% endfor %}
+                        </select>
+                        <select name="branch" id="id_branch">
+                            <option value="" disabled selected>Select Branch</option>
+                            {% for key, value in branches_th.items %}
+                                {% for sub_key, sub_value in value.items %}
+                                    <option class={{key}} value={{sub_value}}>{{sub_value}}</option>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for key, value in branches_en.items %}
+                                {% for sub_key, sub_value in value.items %}
+                                    <option class={{key}} value={{sub_value}}>{{sub_value}}</option>
+                                {% endfor %}
+                            {% endfor %}
+                            
+                        </select>
                         <input type="text" name="course" id="id_course" placeholder="Course" >                                                
                         <input type="text" name="time_period" id="id_time_period" placeholder="Time Period *(mm/yyyy - mm/yyyy)" >
                     </div>
@@ -149,4 +171,5 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
     <script src="/static/js/modal_plus.js"></script>
+    <script src="/static/js/major.js"></script>
 {% endblock content %}

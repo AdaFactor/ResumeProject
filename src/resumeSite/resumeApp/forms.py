@@ -5,6 +5,7 @@ from crispy_forms.layout import Submit, Layout, Fieldset, Field, Div, Button
 from crispy_forms.bootstrap import PrependedText, PrependedAppendedText
 from crispy_forms.bootstrap import FormActions, StrictButton, InlineField, InlineCheckboxes
 
+
 class DateInput(DateInput):
     input_type = 'date'
     input_format = '%d/%m/%Y'
@@ -45,7 +46,7 @@ class StudentForm(ModelForm):
         self.fields['experience'].queryset = Experience.objects.filter(
             user_id=request.user.id)
         self.helper.layout = Layout(
-            Div (
+            Div(
                 Fieldset(
                     'Education Information',
                     Div(
@@ -67,7 +68,7 @@ class StudentForm(ModelForm):
                                 data_target="#myLanguage"
                             ),
                         ),
-                        css_class='col-lg-5'                    
+                        css_class='col-lg-5'
                     ),
                     Div(
                         'reference',
@@ -99,7 +100,7 @@ class StudentForm(ModelForm):
                         ),
                         css_class='col-lg-6'
                     ),
-                    css_class='row-fluid',                 
+                    css_class='row-fluid',
                 ),
                 Fieldset(
                     'Personal Information',
@@ -119,7 +120,7 @@ class StudentForm(ModelForm):
                             css_class='col-lg-5'
                         ),
                         Div(
-                            
+
                             'first_name_th',
                             'last_name_th',
                             'address_th',

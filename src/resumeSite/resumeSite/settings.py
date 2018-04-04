@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%l-14k0cvf)0um5c(85fsr!=se!%)he*)odbu44#mrlg30q@gl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,13 +83,14 @@ DATABASES = {
         'USER': 'adafactor',
 
         # Production
-        'HOST': 'db',
-        'PORT': 5432,
-        'PASSWORD': '1234',
+        # 'HOST': 'db',
+        # 'PORT': 5432,
+        # 'PASSWORD': '1234',
 
         # Development
-        # 'HOST': 'localhost',
-        # 'PORT': '',
+        'PASSWORD': 'adafactor1902',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
