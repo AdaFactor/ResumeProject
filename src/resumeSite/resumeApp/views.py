@@ -208,7 +208,7 @@ def new_doc(request, doc_type):
         majors_en = json.load(en_data)
         major_json.append(majors_th)
         major_json.append(majors_en)
-        
+
     th_data.close()
     en_data.close()
 

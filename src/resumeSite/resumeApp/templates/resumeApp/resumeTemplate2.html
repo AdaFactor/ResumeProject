@@ -58,10 +58,19 @@
                                     <b> {{edu.time_period}} </b> <label> {{edu.academy_name}} </label>
                                 </div>
                                 <div>
-                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                    <label>{{edu.major.major_name}}, {{edu.major.branch.branch_name}}</label>
+                                    {% if edu.major.branch.branch_name == "-" %}
+                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                        <label>{{edu.major.major_name}}</label>
+                                    {% else %}
+                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                        <label>{{edu.major.major_name}}, {{edu.major.branch.branch_name}}</label>
+                                    {% endif %}
                                     <br>
-                                    <label > ({{edu.major.course.course_name}}) </label>
+                                    {% if edu.major.course.course_name == '-' %}
+                                        <label ></label>
+                                    {% else %}
+                                        <label > ({{edu.major.course.course_name}}) </label>
+                                    {% endif %}
                                 </div>
                             </div>
                             <br>

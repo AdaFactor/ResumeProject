@@ -72,14 +72,26 @@
                         {% for edu in student.education.all %}
                             <div class="column education">
                                 <div class="title ">
-                                    <h3><b>{{edu.academy_name}} {{edu.time_period}} </b></h3>
+                                    {% if edu.academy_name == '-' %}
+                                    {% else %}
+                                        <h3><b>{{edu.academy_name}} {{edu.time_period}} </b></h3>
+                                    {% endif %}
                                 </div>
                                 <div class="description">
-                                    <p> 
-                                        {{edu.major.major_name}}, {{edu.major.branch.branch_name}}
-                                        <br />
-                                        ( {{edu.major.course.course_name}} )
-                                    </p>
+                                    {% if edu.major.branch.branch_name == '-' %}
+                                        <p>
+                                            {{edu.major.major_name}}
+                                        </p>                                    
+                                    {% else %}
+                                        <p>
+                                            {{edu.major.major_name}}, {{edu.major.branch.branch_name}}
+                                            <br />
+                                            {% if edu.major.course.course_name == '-' %}
+                                            {% else %}
+                                                ( {{edu.major.course.course_name}} )
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
                                 </div>
                             </div>
                         {% empty %}

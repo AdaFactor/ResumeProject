@@ -137,9 +137,17 @@
                         <div class="col-container">
                             <label class="text-bold sub-topic-right"> {{edu.academy_name}} {{edu.time_period}}</label>                            
                             <div class="contentEducation">
-                                <label> {{edu.major.major_name}}, {{edu.major.branch.branch_name}} </label>
+                                {% if edu.major.branch.branch_name == "-" %}
+                                    <label> {{edu.major.major_name}} </label>
+                                {% else %}
+                                    <label> {{edu.major.major_name}}, {{edu.major.branch.branch_name}} </label>
+                                {% endif %}
                                 <br />
-                                <label >( {{edu.major.course.course_name}} )</label>
+                                {% if edu.major.course.course_name == "-" %}
+                                    <label ></label>
+                                {% else %}
+                                    <label >( {{edu.major.course.course_name}} )</label>
+                                {% endif %}
                             </div>
                         </div>
                         <br />
