@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $("#id_birthday").datepicker({
         dateFormat: "dd/mm/yy",
-        yearRange: "1900:2100"
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "1900:2030"
     });
 });
